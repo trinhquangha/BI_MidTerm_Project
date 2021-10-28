@@ -11,11 +11,23 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{022922EC-7289-4947-A059-5BAB9C8CE431}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{37457533-0801-458B-9AA3-FF81B7D37D80}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ADMIN.Jupiter]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E4A45321-BC30-4AAA-9993-686F18AA9764}"
+      DTS:ObjectName="ADMIN.Jupiter">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ADMIN;Initial Catalog=Jupiter;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LAPTOP-02THFBQC.Jupiter]"
       DTS:CreationName="OLEDB"
@@ -38,6 +50,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=LAPTOP-02THFBQC;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Jupiter]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EB0C9E8B-9074-4370-AB1C-795616181270}"
+      DTS:ObjectName="LocalHost.Jupiter">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Jupiter;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -86,6 +110,458 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
+      DTS:refId="Package\CuaHang_Jupiter to Stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{aa18889a-fceb-40df-908e-aa337b57db4a}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CuaHang_Jupiter to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CuaHang_Jupiter to Stage\Cua hang source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Cua hang source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CuaHang_Jupiter]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from CuaHang_Jupiter where (NgayTao &gt; ? and NgayTao &lt; ?) or (NgayCapNhat &gt; ? and NgayCapNhat &lt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Jupiter]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Jupiter]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[MaCH]"
+                      length="4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[MaCH]"
+                      name="MaCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TenCH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[TenCH]"
+                      length="50"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TenCH]"
+                      name="TenCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[LoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[LoaiCH]"
+                      length="4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[LoaiCH]"
+                      name="LoaiCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[Nuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[Nuoc]"
+                      length="4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[Nuoc]"
+                      name="Nuoc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      name="NgayTao"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      name="TrangThai"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaCH" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[TenCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TenCH" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[LoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="LoaiCH" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[Nuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Nuoc" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      name="NgayTao" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      dataType="i4"
+                      name="TrangThai" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[MaCH]"
+                      name="MaCH" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[TenCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[TenCH]"
+                      name="TenCH" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[LoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[LoaiCH]"
+                      name="LoaiCH" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[Nuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[Nuoc]"
+                      name="Nuoc" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      name="NgayTao" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      dataType="i4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      name="TrangThai" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Cua hang Stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CuaHang_Jupiter_Stage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].Columns[MaCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaCH"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[MaCH]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[MaCH]" />
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].Columns[TenCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TenCH"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[TenCH]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TenCH]" />
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].Columns[LoaiCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="LoaiCH"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[LoaiCH]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[LoaiCH]" />
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].Columns[Nuoc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Nuoc"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nuoc]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[Nuoc]" />
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].Columns[NgayTao]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayTao"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayTao]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[NgayTao]" />
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TrangThai]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaCH" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[TenCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TenCH" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[LoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="LoaiCH" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Nuoc" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      name="NgayTao" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      dataType="i4"
+                      name="TrangThai" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+              endId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\GET LSET, CET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -131,6 +607,31 @@
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
             SQLTask:DtsVariableName="User::LSETResult2" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get LSET,CET from MetaData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{922e9c25-cd17-4ca9-852a-eb07033b7075}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get LSET,CET from MetaData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="select LSET,CET from Metadata where SourceName='Jupiter'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSETResult" />
           <SQLTask:ResultBinding
             SQLTask:ResultName="CET"
             SQLTask:DtsVariableName="User::CET" />
@@ -202,8 +703,8 @@
               <connections>
                 <connection
                   refId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-02THFBQC.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-02THFBQC.Jupiter]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Jupiter]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Jupiter]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -400,8 +901,8 @@
               <connections>
                 <connection
                   refId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-02THFBQC.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-02THFBQC.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -578,8 +1079,8 @@
               <connections>
                 <connection
                   refId="Package\SanPham_Jupiter to Stage\SanPham Jupiter.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-02THFBQC.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-02THFBQC.Jupiter]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Jupiter]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Jupiter]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -818,8 +1319,8 @@
               <connections>
                 <connection
                   refId="Package\SanPham_Jupiter to Stage\SanPham Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-02THFBQC.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-02THFBQC.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -968,7 +1469,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{995DF676-D503-426D-96FD-96851432F43B}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET CET = GETDATE() WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -985,8 +1486,42 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{995DF676-D503-426D-96FD-96851432F43B}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET CET = GETDATE() WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set CET to MetaData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{40d467dc-f635-40f5-895a-ec4532d195a0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set CET to MetaData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="update Metadata set CET=getDate() where SourceName='Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LCET to MetaData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b9c97520-a008-4fb5-aa3f-913279c768f3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LCET to MetaData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="update Metadata set LSET = CET where SourceName='Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1002,7 +1537,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{995DF676-D503-426D-96FD-96851432F43B}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET LSET = CET WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1019,7 +1554,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{995DF676-D503-426D-96FD-96851432F43B}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET LSET = CET WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1036,7 +1571,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{995DF676-D503-426D-96FD-96851432F43B}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="truncate table LoaiSanPham_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1053,8 +1588,25 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{995DF676-D503-426D-96FD-96851432F43B}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="truncate table SanPham_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table CuaHang_Jupiter_Stage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{953f3675-38b0-4625-9c47-3b17f7528f30}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table CuaHang_Jupiter_Stage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table CuaHang_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1084,6 +1636,14 @@
       DTS:ObjectName="Constraint 1 1"
       DTS:To="Package\LoaiSanPham_Jupiter to Stage" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{416007b4-1b6f-49df-a7de-7024565d9f95}"
+      DTS:From="Package\Truncate table CuaHang_Jupiter_Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 2"
+      DTS:To="Package\Get LSET,CET from MetaData" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{21306414-3045-4472-BA95-21F84D147CC9}"
@@ -1099,6 +1659,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2 1"
       DTS:To="Package\SET LSET 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{a94993c1-c5e7-4a8a-aa5a-bfd551e8214a}"
+      DTS:From="Package\Get LSET,CET from MetaData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2 2"
+      DTS:To="Package\CuaHang_Jupiter to Stage" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -1116,6 +1684,14 @@
       DTS:ObjectName="Constraint 3 1"
       DTS:To="Package\Truncate LoaiSanPham_Jupiter" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{63e6c198-9157-4d15-ac82-06bff108148f}"
+      DTS:From="Package\CuaHang_Jupiter to Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3 2"
+      DTS:To="Package\Set LCET to MetaData" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
       DTS:DTSID="{8667a94b-9ec7-462c-8298-c989229d8749}"
@@ -1123,6 +1699,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
       DTS:To="Package\GET LSET, CET 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{50c46e90-7c10-409d-8379-8af56bfb25c5}"
+      DTS:From="Package\Set CET to MetaData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Truncate table CuaHang_Jupiter_Stage" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1137,48 +1721,48 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="149.6,41.6"
+          Size="150,42"
           Id="Package\GET LSET, CET"
-          TopLeft="318.571433996667,188.058825942472" />
+          TopLeft="318.571433996667,218.058825942472" />
         <NodeLayout
-          Size="192,41.6"
+          Size="192,42"
           Id="Package\GET LSET, CET 1"
-          TopLeft="587.142867141841,186.317652431905" />
+          TopLeft="587.142867141841,216.317652431905" />
         <NodeLayout
-          Size="221.6,41.6"
+          Size="222,42"
           Id="Package\LoaiSanPham_Jupiter to Stage"
-          TopLeft="588.57143859474,280.376477280456" />
+          TopLeft="588.57143859474,310.376477280456" />
         <NodeLayout
-          Size="202.4,41.6"
+          Size="202,42"
           Id="Package\SanPham_Jupiter to Stage"
-          TopLeft="320.000005449567,282.117650791023" />
+          TopLeft="320.000005449567,312.117650791023" />
         <NodeLayout
-          Size="118.4,41.6"
+          Size="118,42"
           Id="Package\SET CET"
-          TopLeft="325.000005534717,29.7294119684754" />
+          TopLeft="325.000005534717,59.7294119684754" />
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\SET CET 1"
-          TopLeft="593.57143867989,27.9882384579075" />
+          TopLeft="593.57143867989,57.9882384579075" />
         <NodeLayout
-          Size="162.4,41.6"
+          Size="162,42"
           Id="Package\SET LSET"
-          TopLeft="305.000005194119,370.058828494953" />
+          TopLeft="305.000005194119,400.058828494953" />
         <NodeLayout
-          Size="162.4,41.6"
+          Size="162,42"
           Id="Package\SET LSET 1"
-          TopLeft="573.571438339293,368.317654984386" />
+          TopLeft="573.571438339293,398.317654984386" />
         <NodeLayout
-          Size="248,41.6"
+          Size="248,42"
           Id="Package\Truncate LoaiSanPham_Jupiter"
-          TopLeft="559.285723810294,105.22353365875" />
+          TopLeft="559.285723810294,135.22353365875" />
         <NodeLayout
-          Size="204.8,41.6"
+          Size="205,42"
           Id="Package\Truncate SanPham_Jupiter"
-          TopLeft="290.714290665121,106.964707169318" />
+          TopLeft="290.714290665121,136.964707169318" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="393.242862330894,148.564707169318">
+          TopLeft="393.242862330894,178.564707169318">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1200,7 +1784,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="393.371433996667,229.658825942472">
+          TopLeft="393.371433996667,259.658825942472">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1234,7 +1818,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1]"
-          TopLeft="683.142867141841,227.917652431905">
+          TopLeft="683.142867141841,257.917652431905">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1268,7 +1852,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="421.200005449567,323.717650791023">
+          TopLeft="421.200005449567,353.717650791023">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1302,7 +1886,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 1]"
-          TopLeft="699.37143859474,321.976477280456">
+          TopLeft="699.37143859474,351.976477280456">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1336,7 +1920,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="384.200005534717,71.3294119684754">
+          TopLeft="384.200005534717,101.329411968475">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1370,7 +1954,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 1]"
-          TopLeft="657.57143867989,69.5882384579075">
+          TopLeft="657.57143867989,99.5882384579075">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1404,7 +1988,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="683.214295476067,146.82353365875">
+          TopLeft="683.214295476067,176.82353365875">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1424,6 +2008,114 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Get LSET,CET from MetaData"
+          TopLeft="881.57143859474,216.988238457907" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\CuaHang_Jupiter to Stage"
+          TopLeft="912.57143859474,285.988238457908" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Set CET to MetaData"
+          TopLeft="912.57143859474,57.9882384579075" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Set LCET to MetaData"
+          TopLeft="922.57143859474,378.988238457908" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\Truncate table CuaHang_Jupiter_Stage"
+          TopLeft="870.57143859474,133.988238457907" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1001.57143859474,99.9882384579075">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 2]"
+          TopLeft="1004.07143859474,175.988238457907">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 2]"
+          TopLeft="1009.82143859474,258.988238457908">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 2]"
+          TopLeft="1013.57143859474,327.988238457908">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1433,11 +2125,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171,42"
           Id="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage"
           TopLeft="469,232" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177,42"
           Id="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter"
           TopLeft="474,87" />
         <EdgeLayout
@@ -1466,6 +2158,14 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage">
     <Properties>
       <Property>
@@ -1478,27 +2178,19 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\SanPham_Jupiter to Stage">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\SanPham_Jupiter to Stage\SanPham Jupiter"
-          TopLeft="486,74" />
-        <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\SanPham_Jupiter to Stage\SanPham Stage"
           TopLeft="489,228.8" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\SanPham_Jupiter to Stage\SanPham Jupiter"
+          TopLeft="486,74" />
         <EdgeLayout
           Id="Package\SanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
           TopLeft="564.9,115.6">
@@ -1525,7 +2217,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SanPham_Jupiter to Stage\SanPham Stage">
+    design-time-name="Package\SanPham_Jupiter to Stage\SanPham Jupiter">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1538,7 +2230,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SanPham_Jupiter to Stage\SanPham Jupiter">
+    design-time-name="Package\SanPham_Jupiter to Stage\SanPham Stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1547,6 +2239,65 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CuaHang_Jupiter to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\CuaHang_Jupiter to Stage\Cua hang Stage"
+          TopLeft="223,141" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\CuaHang_Jupiter to Stage\Cua hang source"
+          TopLeft="226,25" />
+        <EdgeLayout
+          Id="Package\CuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+          TopLeft="302.5,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CuaHang_Jupiter to Stage\Cua hang Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CuaHang_Jupiter to Stage\Cua hang source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
