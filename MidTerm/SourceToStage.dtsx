@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="ADMIN"
   DTS:CreatorName="ADMIN\Admin"
-  DTS:DTSID="{C3FC9100-CD76-4043-A08C-FDF0B276A6E9}"
+  DTS:DTSID="{0A34A9E8-B895-4722-BD90-8DDCE6263B05}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.170"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{A1E22046-628D-4924-8989-5B57D6F5E973}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{F04E6444-DAD5-468E-AE2C-F21C55A30C91}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -113,6 +113,18 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Jade]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0C4DC531-3E13-4C21-B4FC-62CBA87C69E3}"
+      DTS:ObjectName="LocalHost.Jade">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Jade;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.Jupiter]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{EB0C9E8B-9074-4370-AB1C-795616181270}"
@@ -134,6 +146,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Webtower9]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DD68965B-41E5-4274-96E7-C3308654070B}"
+      DTS:ObjectName="LocalHost.Webtower9">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Webtower9;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -631,458 +655,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\CuaHang_Jupiter to Stage 1"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{fb460b37-6ecb-40e6-a1a6-219c1f12a44d}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="CuaHang_Jupiter to Stage 1"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[CuaHang_Stage]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{0167B2B1-8B93-4DD3-AE4D-BD7533C63197}:invalid"
-                  connectionManagerRefId="{0167B2B1-8B93-4DD3-AE4D-BD7533C63197}:invalid"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaCH]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="MaCH"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaCH]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaCH]" />
-                    <inputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TenCH]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="TenCH"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TenCH]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TenCH]" />
-                    <inputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoaiCH]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="LoaiCH"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoaiCH]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoaiCH]" />
-                    <inputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Nuoc]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="4"
-                      cachedName="Nuoc"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nuoc]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nuoc]" />
-                    <inputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NgayTao]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="NgayTao"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NgayTao]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[NgayTao]" />
-                    <inputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NgayCapNhat]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="NgayCapNhat"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
-                    <inputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TrangThai]"
-                      cachedDataType="i4"
-                      cachedName="TrangThai"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TrangThai]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="MaCH" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TenCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="TenCH" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoaiCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="LoaiCH" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nuoc]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="Nuoc" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NgayTao]"
-                      dataType="dbTimeStamp"
-                      name="NgayTao" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
-                      dataType="dbTimeStamp"
-                      name="NgayCapNhat" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
-                      dataType="i4"
-                      name="TrangThai" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="OLE DB Source"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from CuaHang_Jupiter where (NgayTao &gt; ? and NgayTao &lt; ?) or (NgayCapNhat &gt; ? and NgayCapNhat &lt; ?)</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{58A32D43-5AE2-4957-924A-6554E0466F8F};"Parameter1:Input",{31EA8EA6-8CAD-49BF-B3C6-3672FF192E03};"Parameter2:Input",{58A32D43-5AE2-4957-924A-6554E0466F8F};"Parameter3:Input",{31EA8EA6-8CAD-49BF-B3C6-3672FF192E03};</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{229EEA55-853C-4B16-87C1-8E5701AC4954}:invalid"
-                  connectionManagerRefId="{229EEA55-853C-4B16-87C1-8E5701AC4954}:invalid"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaCH]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaCH]"
-                      length="4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[MaCH]"
-                      name="MaCH"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TenCH]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TenCH]"
-                      length="50"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TenCH]"
-                      name="TenCH"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoaiCH]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoaiCH]"
-                      length="4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoaiCH]"
-                      name="LoaiCH"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nuoc]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nuoc]"
-                      length="4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[Nuoc]"
-                      name="Nuoc"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[NgayTao]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[NgayTao]"
-                      name="NgayTao"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
-                      name="NgayCapNhat"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TrangThai]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].Columns[TrangThai]"
-                      name="TrangThai"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MaCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="MaCH" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TenCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="TenCH" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoaiCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="LoaiCH" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Nuoc]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="Nuoc" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
-                      dataType="dbTimeStamp"
-                      name="NgayTao" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
-                      dataType="dbTimeStamp"
-                      name="NgayCapNhat" />
-                    <externalMetadataColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
-                      dataType="i4"
-                      name="TrangThai" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MaCH]"
-                      name="MaCH" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TenCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TenCH]"
-                      name="TenCH" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoaiCH]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoaiCH]"
-                      name="LoaiCH" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nuoc]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Nuoc]"
-                      name="Nuoc" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
-                      name="NgayTao" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
-                      name="NgayCapNhat" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
-                      dataType="i4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
-                      name="TrangThai" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\CuaHang_Jupiter to Stage 1.Paths[OLE DB Source Output]"
-              endId="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\CuaHang_Jupiter to Stage 1\OLE DB Source.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Get LSET from Metadata 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -1095,8 +667,16 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B73F65F2-9081-4C2E-B905-A6790177E83A}"
-          SQLTask:SqlStatementSource="select LSET, CET from Metadata where Sourcename = 'Nuoc_Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="select LSET, CET from Metadata where Sourcename = 'Jupiter'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSETResult" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET" />
+        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1108,7 +688,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET, CET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1152,23 +732,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\GET LSET, CET 1 1"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{323b2943-431e-4fba-8b12-f507d4ed923e}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="GET LSET, CET 1 1"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{6AFBEDCA-03BA-4C37-ABF3-286A3FE6A5EA}"
-          SQLTask:SqlStatementSource="select LSET, CET from Metadata where SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\GET LSET, CET 2"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -1177,11 +740,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET, CET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6AFBEDCA-03BA-4C37-ABF3-286A3FE6A5EA}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="select LSET, CET from Metadata where SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1194,7 +757,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET,CET from MetaData"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1208,6 +771,884 @@
             SQLTask:ResultName="CET"
             SQLTask:DtsVariableName="User::CET" />
         </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get LSET,CET from MetaData 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{90ac0aa4-bcd8-40e2-91f2-34c2bc2ce225}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get LSET,CET from MetaData 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="select LSET,CET from Metadata where SourceName='Webtower9'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSETResult" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get LSET,CET from MetaData 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8e1fae72-de11-4925-8550-60257f36eeba}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get LSET,CET from MetaData 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="select LSET,CET from Metadata where SourceName='Jade'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSETResult" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\HoaDon_Jade to Stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1a82cda8-048d-4989-844a-579c140ead8d}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="HoaDon_Jade to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="HoaDon_Jade source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CuaHang_Jupiter]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from HoaDon_Jade where (NgayBan &gt; ? and NgayBan &lt; ?) or (NgayCapNhat &gt; ? and NgayCapNhat &lt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Jade]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Jade]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[MaCH]"
+                      length="4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaCH]"
+                      name="MaCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      name="TrangThai"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
+                      length="4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaHD]"
+                      name="MaHD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[MaKH]"
+                      length="4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaKH]"
+                      name="MaKH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[NgayBan]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[NgayBan]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[NgayBan]"
+                      name="NgayBan"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaCH" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      dataType="i4"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaHD" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaKH" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].ExternalColumns[NgayBan]"
+                      dataType="dbTimeStamp"
+                      name="NgayBan" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[MaHD]"
+                      name="MaHD" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[MaKH]"
+                      name="MaKH" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[MaCH]"
+                      name="MaCH" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[NgayBan]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[NgayBan]"
+                      name="NgayBan" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      name="TrangThai" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="HoaDon_Jade stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[HoaDon_Jade_Stage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].Columns[MaCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaCH"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[MaCH]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaCH]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[TrangThai]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].Columns[MaHD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaHD"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[MaHD]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaHD]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].Columns[MaKH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaKH"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[MaKH]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[MaKH]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].Columns[NgayBan]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayBan"
+                      externalMetadataColumnId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayBan]"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output].Columns[NgayBan]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaCH" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      dataType="i4"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaHD" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaKH" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayBan]"
+                      dataType="dbTimeStamp"
+                      name="NgayBan" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\HoaDon_Jade to Stage.Paths[OLE DB Source Output]"
+              endId="Package\HoaDon_Jade to Stage\HoaDon_Jade stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\HoaDon_Jade to Stage\HoaDon_Jade source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\HoaDon_Webtower9 to Stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{26165a13-439b-4262-a7c7-660c768fefeb}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="HoaDon_Webtower9 to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="HoaDon_Webtower9 source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CuaHang_Jupiter]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from HoaDon_Webtower9 where (NgayBan &gt; ? and NgayBan &lt; ?) or (NgayCapNhat &gt; ? and NgayCapNhat &lt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Webtower9]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Webtower9]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[MaCH]"
+                      length="4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaCH]"
+                      name="MaCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      name="TrangThai"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
+                      length="4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaHD]"
+                      name="MaHD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[MaKH]"
+                      length="4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaKH]"
+                      name="MaKH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[NgayBan]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[NgayBan]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[NgayBan]"
+                      name="NgayBan"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaCH" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      dataType="i4"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaHD" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaKH" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].ExternalColumns[NgayBan]"
+                      dataType="dbTimeStamp"
+                      name="NgayBan" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[MaHD]"
+                      name="MaHD" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[MaKH]"
+                      name="MaKH" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[MaCH]"
+                      name="MaCH" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[NgayBan]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[NgayBan]"
+                      name="NgayBan" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      name="TrangThai" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="HoaDon_Webtower9 stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[HoaDon_Webtower9_Stage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].Columns[MaCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaCH"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[MaCH]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaCH]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[TrangThai]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].Columns[MaHD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaHD"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[MaHD]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaHD]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].Columns[MaKH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaKH"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[MaKH]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[MaKH]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].Columns[NgayBan]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayBan"
+                      externalMetadataColumnId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayBan]"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output].Columns[NgayBan]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[MaCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaCH" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      dataType="i4"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaHD" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaKH" />
+                    <externalMetadataColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayBan]"
+                      dataType="dbTimeStamp"
+                      name="NgayBan" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\HoaDon_Webtower9 to Stage.Paths[OLE DB Source Output]"
+              endId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1240,7 +1681,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[LoaiCuaHang_Jupiter_Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1283,8 +1724,8 @@
               <connections>
                 <connection
                   refId="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KKQVQSG\HUYVU.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KKQVQSG\HUYVU.Jupiter]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1401,7 +1842,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[LoaiCuaHang_Jupiter]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1436,8 +1877,8 @@
               <connections>
                 <connection
                   refId="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KKQVQSG\HUYVU.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KKQVQSG\HUYVU.Jupiter]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Jupiter]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Jupiter]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2022,13 +2463,13 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{491BCEED-B27D-4291-B01B-82FD71222916};"Parameter1:Input",{30214DAF-E226-4227-988F-FB6646AE1AD7};"Parameter2:Input",{491BCEED-B27D-4291-B01B-82FD71222916};"Parameter3:Input",{30214DAF-E226-4227-988F-FB6646AE1AD7};</property>
+                  name="ParameterMapping">"Parameter0:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\Nuoc_Jupiter to Stage\Nuoc source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JLCM007\SQLEXPRESS.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JLCM007\SQLEXPRESS.Jupiter]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Jupiter]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Jupiter]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2182,7 +2623,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[Nuoc_Jupiter_Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2204,7 +2645,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -2225,8 +2666,8 @@
               <connections>
                 <connection
                   refId="Package\Nuoc_Jupiter to Stage\Nuoc stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-JLCM007\SQLEXPRESS.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-JLCM007\SQLEXPRESS.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2789,11 +3230,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SET CET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{EB0C9E8B-9074-4370-AB1C-795616181270}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET CET = GETDATE() WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2815,22 +3256,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\SET CET 1 1"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:DTSID="{0b48a257-613c-4afb-a749-ef84a96cfc68}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="SET CET 1 1"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{DF525893-CE15-4CE1-AF76-DF96C1498820}"
-          SQLTask:SqlStatementSource="UPDATE Metadata SET CET= GETDATE() WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\SET CET 2"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:DTSID="{c84ff048-8f80-46ec-86a7-18ceb0a255b7}"
@@ -2838,11 +3263,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SET CET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DF525893-CE15-4CE1-AF76-DF96C1498820}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET CET = GETDATE() WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2855,7 +3280,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to MetaData"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2876,8 +3301,42 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B73F65F2-9081-4C2E-B905-A6790177E83A}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="update Metadata set CET = getdate() where Sourcename = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set CET to MetaData 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{90f6fb0e-7e4e-452f-b471-01ce4d987793}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set CET to MetaData 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="update Metadata set CET=getDate() where SourceName='Webtower9'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set CET to MetaData 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6172cdd9-1979-4ea5-9ec7-b869658611cf}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set CET to MetaData 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="update Metadata set CET=getDate() where SourceName='Jade'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2888,27 +3347,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SET LCET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6AFBEDCA-03BA-4C37-ABF3-286A3FE6A5EA}"
-          SQLTask:SqlStatementSource="UPDATE Metadata SET LSET = CET WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\SET LCET 1"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:DTSID="{80582199-bf55-4616-9b1d-53f285130f61}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="SET LCET 1"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{6AFBEDCA-03BA-4C37-ABF3-286A3FE6A5EA}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET LSET = CET WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -2921,12 +3364,46 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LCET to MetaData"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="update Metadata set LSET = CET where SourceName='Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LCET to MetaData 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d8e26e62-71cd-44e8-b9ec-acddb9b40ad1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LCET to MetaData 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="update Metadata set LSET = CET where SourceName='Webtower9'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LCET to MetaData 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{03b4a74b-a733-47a9-933c-8807e691f7df}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LCET to MetaData 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="update Metadata set LSET = CET where SourceName='Jade'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2938,7 +3415,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SET LSET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2976,25 +3453,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B73F65F2-9081-4C2E-B905-A6790177E83A}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="update Metadata set LSET = CET where Sourcename = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Truncate CuaHang_Jupiter"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{3b2d1497-1bbd-4426-ac48-687c5b585802}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate CuaHang_Jupiter"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{6AFBEDCA-03BA-4C37-ABF3-286A3FE6A5EA}"
-          SQLTask:SqlStatementSource="truncate table CuaHang_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3006,12 +3466,12 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate LoaiCuaHang_Jupiter"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{6AFBEDCA-03BA-4C37-ABF3-286A3FE6A5EA}"
-          SQLTask:SqlStatementSource="truncate table LoaiCuaHang_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table LoaiCuaHang_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3040,7 +3500,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate SanPham_Jupiter"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3057,12 +3517,46 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table CuaHang_Jupiter_Stage"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="truncate table CuaHang_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table HoaDon_Jade_Stage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{32bc2af1-cd08-494a-805f-7e480a479160}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table HoaDon_Jade_Stage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table HoaDon_Jade_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate table HoaDon_Webtower9_Stage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d991005a-b5ec-421b-8cf1-d1e89a82c648}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate table HoaDon_Webtower9_Stage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table HoaDon_Webtower9_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -3078,8 +3572,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B73F65F2-9081-4C2E-B905-A6790177E83A}"
-          SQLTask:SqlStatementSource="truncate table Nuoc_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table Nuoc_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -3111,11 +3605,19 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 1]"
       DTS:CreationName=""
-      DTS:DTSID="{4848c04a-ee33-4448-b671-3bd7a4b290d5}"
-      DTS:From="Package\Truncate CuaHang_Jupiter"
+      DTS:DTSID="{5f689ebe-c928-4308-ba74-0d21a1a33a30}"
+      DTS:From="Package\Truncate table HoaDon_Jade_Stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1 1 1"
-      DTS:To="Package\GET LSET, CET 1 1" />
+      DTS:To="Package\Get LSET,CET from MetaData 3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{f4e2dab2-3a3c-483e-b9ca-ec065140205e}"
+      DTS:From="Package\Truncate table HoaDon_Webtower9_Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1 1 1"
+      DTS:To="Package\Get LSET,CET from MetaData 2" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1 2]"
       DTS:CreationName=""
@@ -3157,6 +3659,22 @@
       DTS:ObjectName="Constraint 2 1"
       DTS:To="Package\SET LSET 1" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6d56ad20-7e5b-4165-aec0-bda6d7766be9}"
+      DTS:From="Package\Get LSET,CET from MetaData 3"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2 1 1"
+      DTS:To="Package\HoaDon_Jade to Stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2 1 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{820fd115-ae67-47ec-9035-e1c7dc8beab2}"
+      DTS:From="Package\Get LSET,CET from MetaData 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2 1 1 1"
+      DTS:To="Package\HoaDon_Webtower9 to Stage" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2 2]"
       DTS:CreationName=""
       DTS:DTSID="{a94993c1-c5e7-4a8a-aa5a-bfd551e8214a}"
@@ -3164,14 +3682,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2 2"
       DTS:To="Package\CuaHang_Jupiter to Stage" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{5b88ce1d-2688-4cef-ac24-0bb2a8900859}"
-      DTS:From="Package\SET CET 1 1"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2 3"
-      DTS:To="Package\Truncate CuaHang_Jupiter" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2 4]"
       DTS:CreationName=""
@@ -3196,6 +3706,22 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3 1"
       DTS:To="Package\Truncate LoaiSanPham_Jupiter" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{d88184f1-df5f-4e35-8cfe-e7995a48b8e2}"
+      DTS:From="Package\HoaDon_Jade to Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3 1 1"
+      DTS:To="Package\Set LCET to MetaData 3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3 1 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{75d1a5e6-1bc9-4b98-8881-8dffbaa9cae6}"
+      DTS:From="Package\HoaDon_Webtower9 to Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3 1 1 1"
+      DTS:To="Package\Set LCET to MetaData 2" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3 2]"
       DTS:CreationName=""
@@ -3247,11 +3773,19 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5 1]"
       DTS:CreationName=""
-      DTS:DTSID="{e6bf4ede-79be-45fc-a3b4-020b3de3106b}"
-      DTS:From="Package\GET LSET, CET 1 1"
+      DTS:DTSID="{4709f661-a154-459b-b7f0-4b51d7c22265}"
+      DTS:From="Package\Set CET to MetaData 3"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5 1"
-      DTS:To="Package\CuaHang_Jupiter to Stage 1" />
+      DTS:To="Package\Truncate table HoaDon_Jade_Stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{f2904e11-5226-4432-b905-4053e19b4cb3}"
+      DTS:From="Package\Set CET to MetaData 2"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5 1 1"
+      DTS:To="Package\Truncate table HoaDon_Webtower9_Stage" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
@@ -3260,14 +3794,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\Truncate LoaiCuaHang_Jupiter" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 6 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{6f417d6e-86b7-40a7-94aa-fb18b8243682}"
-      DTS:From="Package\CuaHang_Jupiter to Stage 1"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 6 1"
-      DTS:To="Package\SET LCET 1" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
@@ -3290,85 +3816,105 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="201.6,41.6"
+          Size="202,42"
           Id="Package\CuaHang_Jupiter to Stage"
           TopLeft="912.57143859474,285.988238457908" />
         <NodeLayout
-          Size="193.6,41.6"
+          Size="194,42"
           Id="Package\Get LSET from Metadata 1"
-          TopLeft="1217.79366081696,246.321571791241" />
+          TopLeft="1506.79366081696,252.321571791241" />
         <NodeLayout
-          Size="150.4,41.6"
+          Size="150,42"
           Id="Package\GET LSET, CET"
           TopLeft="318.571433996667,218.058825942472" />
         <NodeLayout
-          Size="192,41.6"
+          Size="192,42"
           Id="Package\GET LSET, CET 1"
           TopLeft="587.142867141841,216.317652431905" />
         <NodeLayout
-          Size="248.8,41.6"
+          Size="162,42"
+          Id="Package\GET LSET, CET 2"
+          TopLeft="1203.28572568358,243.705885967169" />
+        <NodeLayout
+          Size="249,42"
           Id="Package\Get LSET,CET from MetaData"
           TopLeft="881.57143859474,216.988238457907" />
         <NodeLayout
-          Size="222.4,41.6"
+          Size="220,42"
+          Id="Package\LoaiCuaHang_Jupiter to Stage"
+          TopLeft="1206.85715431583,351.529416891118" />
+        <NodeLayout
+          Size="222,42"
           Id="Package\LoaiSanPham_Jupiter to Stage"
           TopLeft="588.57143859474,310.376477280456" />
         <NodeLayout
-          Size="183.2,41.6"
+          Size="183,42"
           Id="Package\Nuoc_Jupiter to Stage"
-          TopLeft="1232.79366081696,318.321571791241" />
+          TopLeft="1521.79366081696,324.321571791241" />
         <NodeLayout
-          Size="201.6,41.6"
+          Size="202,42"
           Id="Package\SanPham_Jupiter to Stage"
           TopLeft="320.000005449567,312.117650791023" />
         <NodeLayout
-          Size="118.4,41.6"
+          Size="118,42"
           Id="Package\SET CET"
           TopLeft="325.000005534717,59.7294119684754" />
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\SET CET 1"
           TopLeft="593.57143867989,57.9882384579075" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="130,42"
+          Id="Package\SET CET 2"
+          TopLeft="1216.85715448613,55.5882362700663" />
+        <NodeLayout
+          Size="177,42"
           Id="Package\Set CET to MetaData"
           TopLeft="912.57143859474,57.9882384579075" />
         <NodeLayout
-          Size="176,41.6"
+          Size="176,42"
           Id="Package\Set CET to Metadata 1"
-          TopLeft="1220.79366081696,71.3215717912409" />
+          TopLeft="1509.79366081696,77.3215717912409" />
         <NodeLayout
-          Size="182.4,41.6"
+          Size="130,42"
+          Id="Package\SET LCET"
+          TopLeft="1235.42858337383,419.588241375028" />
+        <NodeLayout
+          Size="182,42"
           Id="Package\Set LCET to MetaData"
           TopLeft="922.57143859474,378.988238457908" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="162,42"
           Id="Package\SET LSET"
           TopLeft="305.000005194119,400.058828494953" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="162,42"
           Id="Package\SET LSET 1"
           TopLeft="573.571438339293,398.317654984386" />
         <NodeLayout
-          Size="192.8,41.6"
+          Size="193,42"
           Id="Package\Set LSET from Metadata 1"
-          TopLeft="1221.79366081696,397.321571791241" />
+          TopLeft="1510.79366081696,403.321571791241" />
         <NodeLayout
-          Size="248,41.6"
+          Size="222,42"
+          Id="Package\Truncate LoaiCuaHang_Jupiter"
+          TopLeft="1183.28572534298,147.352943439385" />
+        <NodeLayout
+          Size="248,42"
           Id="Package\Truncate LoaiSanPham_Jupiter"
           TopLeft="559.285723810294,135.22353365875" />
         <NodeLayout
-          Size="204.8,41.6"
+          Size="205,42"
           Id="Package\Truncate SanPham_Jupiter"
           TopLeft="290.714290665121,136.964707169318" />
         <NodeLayout
-          Size="263.2,41.6"
+          Size="263,42"
           Id="Package\Truncate table CuaHang_Jupiter_Stage"
           TopLeft="870.57143859474,133.988238457907" />
         <NodeLayout
-          Size="207.2,41.6"
+          Size="207,42"
           Id="Package\Truncate table Nuoc_Stage"
-          TopLeft="1210.79366081696,160.321571791241" />
+          TopLeft="1499.79366081696,166.321571791241" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="393.242862330894,178.564707169318">
@@ -3482,8 +4028,42 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 3]"
+          TopLeft="1294.48572534298,188.952943439385">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.99999965940219,54.7529425277838"
+              Start="0,0"
+              End="-9.99999965940219,47.2529425277838">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3764712638919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3764712638919"
+                    Point2="0,27.3764712638919"
+                    Point3="-4,27.3764712638919" />
+                  <mssgle:LineSegment
+                    End="-5.99999965940219,27.3764712638919" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.99999965940219,27.3764712638919"
+                    Point2="-9.99999965940219,27.3764712638919"
+                    Point3="-9.99999965940219,31.3764712638919" />
+                  <mssgle:LineSegment
+                    End="-9.99999965940219,47.2529425277838" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 4]"
-          TopLeft="1314.79366081696,288.321571791241">
+          TopLeft="1603.79366081696,294.321571791241">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3607,7 +4187,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 4]"
-          TopLeft="1314.54366081696,202.321571791241">
+          TopLeft="1603.54366081696,208.321571791241">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3718,8 +4298,42 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 3]"
+          TopLeft="1284.48572568358,285.305885967169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.3714286322497,66.2235309239489"
+              Start="0,0"
+              End="32.3714286322497,58.7235309239489">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.1117654619744" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.1117654619744"
+                    Point2="0,33.1117654619744"
+                    Point3="4,33.1117654619744" />
+                  <mssgle:LineSegment
+                    End="28.3714286322497,33.1117654619744" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.3714286322497,33.1117654619744"
+                    Point2="32.3714286322497,33.1117654619744"
+                    Point3="32.3714286322497,37.1117654619744" />
+                  <mssgle:LineSegment
+                    End="32.3714286322497,58.7235309239489" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 4]"
-          TopLeft="1321.29366081696,360.321571791241">
+          TopLeft="1610.29366081696,366.321571791241">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3762,250 +4376,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="1001.57143859474,99.9882384579075">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="1311.54366081696,113.321571791241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47"
-              Start="0,0"
-              End="0,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\CuaHang_Jupiter to Stage 1"
-          TopLeft="1815.1428732726,355.588240281108" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\GET LSET, CET 2"
-          TopLeft="1537.28572568358,257.705885967169" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\GET LSET, CET 1 1"
-          TopLeft="1807.68572568358,257.705885967168" />
-        <NodeLayout
-          Size="220,41.6"
-          Id="Package\LoaiCuaHang_Jupiter to Stage"
-          TopLeft="1540.85715431583,365.529416891118" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\SET CET 2"
-          TopLeft="1550.85715448613,69.5882362700663" />
-        <NodeLayout
-          Size="128,41.6"
-          Id="Package\SET CET 1 1"
-          TopLeft="1821.25715448613,69.5882362700663" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\SET LCET"
-          TopLeft="1569.42858337383,433.588241375028" />
-        <NodeLayout
-          Size="132.8,41.6"
-          Id="Package\SET LCET 1"
-          TopLeft="1851.57144532155,438.070592954166" />
-        <NodeLayout
-          Size="210.4,41.6"
-          Id="Package\Truncate CuaHang_Jupiter"
-          TopLeft="1789.82858252233,162.88235522554" />
-        <NodeLayout
-          Size="222.4,41.6"
-          Id="Package\Truncate LoaiCuaHang_Jupiter"
-          TopLeft="1517.28572534298,161.352943439385" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="1615.65715448613,111.188236270066">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="12.8285708568533,50.1647071693185"
-              Start="0,0"
-              End="12.8285708568533,42.6647071693185">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.0823535846593" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.0823535846593"
-                    Point2="0,25.0823535846593"
-                    Point3="4,25.0823535846593" />
-                  <mssgle:LineSegment
-                    End="8.82857085685328,25.0823535846593" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.82857085685328,25.0823535846593"
-                    Point2="12.8285708568533,25.0823535846593"
-                    Point3="12.8285708568533,29.0823535846593" />
-                  <mssgle:LineSegment
-                    End="12.8285708568533,42.6647071693185" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 3]"
-          TopLeft="1628.48572534298,202.952943439385">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.99999965940219,54.7529425277838"
-              Start="0,0"
-              End="-9.99999965940219,47.2529425277838">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.3764712638919" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.3764712638919"
-                    Point2="0,27.3764712638919"
-                    Point3="-4,27.3764712638919" />
-                  <mssgle:LineSegment
-                    End="-5.99999965940219,27.3764712638919" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.99999965940219,27.3764712638919"
-                    Point2="-9.99999965940219,27.3764712638919"
-                    Point3="-9.99999965940219,31.3764712638919" />
-                  <mssgle:LineSegment
-                    End="-9.99999965940219,47.2529425277838" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 1 1]"
-          TopLeft="1891.95715410296,204.48235522554">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.2235307416288"
-              Start="0,0"
-              End="0,45.7235307416288">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.7235307416288" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2 3]"
-          TopLeft="1885.25715448613,111.188236270066">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9.77142803620313,51.6941189554738"
-              Start="0,0"
-              End="9.77142803620313,44.1941189554738">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.8470594777369" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.8470594777369"
-                    Point2="0,25.8470594777369"
-                    Point3="4,25.8470594777369" />
-                  <mssgle:LineSegment
-                    End="5.77142803620313,25.8470594777369" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.77142803620313,25.8470594777369"
-                    Point2="9.77142803620313,25.8470594777369"
-                    Point3="9.77142803620313,29.8470594777369" />
-                  <mssgle:LineSegment
-                    End="9.77142803620313,44.1941189554738" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 3]"
-          TopLeft="1618.48572568358,299.305885967169">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="32.3714286322497,66.2235309239489"
-              Start="0,0"
-              End="32.3714286322497,58.7235309239489">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.1117654619744" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.1117654619744"
-                    Point2="0,33.1117654619744"
-                    Point3="4,33.1117654619744" />
-                  <mssgle:LineSegment
-                    End="28.3714286322497,33.1117654619744" />
-                  <mssgle:CubicBezierSegment
-                    Point1="28.3714286322497,33.1117654619744"
-                    Point2="32.3714286322497,33.1117654619744"
-                    Point3="32.3714286322497,37.1117654619744" />
-                  <mssgle:LineSegment
-                    End="32.3714286322497,58.7235309239489" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4 1]"
-          TopLeft="1650.85715431583,407.129416891117">
+          TopLeft="1316.85715431583,393.129416891117">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4038,31 +4410,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5 1]"
-          TopLeft="1888.88572568358,299.305885967168">
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1001.57143859474,99.9882384579075">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="27.057147589022,56.28235431394"
+              EndConnector="0,34"
               Start="0,0"
-              End="27.057147589022,48.78235431394">
+              End="0,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.14117715697" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.14117715697"
-                    Point2="0,28.14117715697"
-                    Point3="4,28.14117715697" />
-                  <mssgle:LineSegment
-                    End="23.057147589022,28.14117715697" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.057147589022,28.14117715697"
-                    Point2="27.057147589022,28.14117715697"
-                    Point3="27.057147589022,32.14117715697" />
-                  <mssgle:LineSegment
-                    End="27.057147589022,48.78235431394" />
+                    End="0,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4072,19 +4432,305 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6 1]"
-          TopLeft="1916.95715929708,397.188240281107">
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="1281.65715448613,97.188236270066">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.8823526730584"
+              EndConnector="12.8285708568533,50.1647071693185"
               Start="0,0"
-              End="0,33.3823526730584">
+              End="12.8285708568533,42.6647071693185">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.3823526730584" />
+                    End="0,21.0823535846593" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0823535846593"
+                    Point2="0,25.0823535846593"
+                    Point3="4,25.0823535846593" />
+                  <mssgle:LineSegment
+                    End="8.82857085685328,25.0823535846593" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.82857085685328,25.0823535846593"
+                    Point2="12.8285708568533,25.0823535846593"
+                    Point3="12.8285708568533,29.0823535846593" />
+                  <mssgle:LineSegment
+                    End="12.8285708568533,42.6647071693185" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="1600.54366081696,119.321571791241">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Get LSET,CET from MetaData 3"
+          TopLeft="268,663" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Get LSET,CET from MetaData 2"
+          TopLeft="597,652" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\HoaDon_Jade to Stage"
+          TopLeft="299,732" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\HoaDon_Webtower9 to Stage"
+          TopLeft="628,721" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Set CET to MetaData 3"
+          TopLeft="299,504" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Set CET to MetaData 2"
+          TopLeft="628,493" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Set LCET to MetaData 3"
+          TopLeft="309,825" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Set LCET to MetaData 2"
+          TopLeft="638,814" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\Truncate table HoaDon_Jade_Stage"
+          TopLeft="257,580" />
+        <NodeLayout
+          Size="273,42"
+          Id="Package\Truncate table HoaDon_Webtower9_Stage"
+          TopLeft="586,569" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1 1]"
+          TopLeft="385,622">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1 1 1]"
+          TopLeft="722.5,611">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,41"
+              Start="0,0"
+              End="-12,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-8,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,20.5"
+                    Point2="-12,20.5"
+                    Point3="-12,24.5" />
+                  <mssgle:LineSegment
+                    End="-12,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 1 1]"
+          TopLeft="381.5,705">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,27"
+              Start="0,0"
+              End="11,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="4,13.5" />
+                  <mssgle:LineSegment
+                    End="7,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,13.5"
+                    Point2="11,13.5"
+                    Point3="11,17.5" />
+                  <mssgle:LineSegment
+                    End="11,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 1 1 1]"
+          TopLeft="710.5,694">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,27"
+              Start="0,0"
+              End="27,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="4,13.5" />
+                  <mssgle:LineSegment
+                    End="23,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,13.5"
+                    Point2="27,13.5"
+                    Point3="27,17.5" />
+                  <mssgle:LineSegment
+                    End="27,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 1 1]"
+          TopLeft="396.25,774">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 1 1 1]"
+          TopLeft="735.75,763">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5 1]"
+          TopLeft="390.25,546">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5 1 1]"
+          TopLeft="721.75,535">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4144,6 +4790,70 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\CuaHang_Jupiter to Stage\Cua hang Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\LoaiCuaHang_Jupiter to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Destination"
+          TopLeft="631,245" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Source"
+          TopLeft="373,246" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+          TopLeft="523,266.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="108,0"
+              Start="0,0"
+              End="100.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="100.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4220,11 +4930,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="132,41.6"
+          Size="132,42"
           Id="Package\Nuoc_Jupiter to Stage\Nuoc stage"
           TopLeft="398,38" />
         <NodeLayout
-          Size="136.8,41.6"
+          Size="137,42"
           Id="Package\Nuoc_Jupiter to Stage\Nuoc source"
           TopLeft="160,42" />
         <EdgeLayout
@@ -4252,6 +4962,14 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Jupiter to Stage\Nuoc source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Nuoc_Jupiter to Stage\Nuoc stage">
     <Properties>
@@ -4330,72 +5048,32 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\CuaHang_Jupiter to Stage 1">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\CuaHang_Jupiter to Stage 1\OLE DB Destination"
-          TopLeft="511,282" />
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\CuaHang_Jupiter to Stage 1\OLE DB Source"
-          TopLeft="280,280" />
-        <EdgeLayout
-          Id="Package\CuaHang_Jupiter to Stage 1.Paths[OLE DB Source Output]"
-          TopLeft="429.6,301.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="81.4000000000001,0"
-              Start="0,0"
-              End="73.9000000000001,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="73.9000000000001,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\LoaiCuaHang_Jupiter to Stage">
+    design-time-name="Package\HoaDon_Jade to Stage">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Destination"
-          TopLeft="631,245" />
+          Size="178,42"
+          Id="Package\HoaDon_Jade to Stage\HoaDon_Jade source"
+          TopLeft="317,35" />
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Source"
-          TopLeft="373,246" />
+          Size="173,42"
+          Id="Package\HoaDon_Jade to Stage\HoaDon_Jade stage"
+          TopLeft="323,164" />
         <EdgeLayout
-          Id="Package\LoaiCuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
-          TopLeft="522.6,266.3">
+          Id="Package\HoaDon_Jade to Stage.Paths[OLE DB Source Output]"
+          TopLeft="407.75,77">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="108.4,0"
+              EndConnector="0,87"
               Start="0,0"
-              End="100.9,0">
+              End="0,79.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="100.9,0" />
+                    End="0,79.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4408,7 +5086,15 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Destination">
+    design-time-name="Package\HoaDon_Jade to Stage\HoaDon_Jade source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HoaDon_Jade to Stage\HoaDon_Jade stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4420,8 +5106,54 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\HoaDon_Webtower9 to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source"
+          TopLeft="317,35" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage"
+          TopLeft="323,164" />
+        <EdgeLayout
+          Id="Package\HoaDon_Webtower9 to Stage.Paths[OLE DB Source Output]"
+          TopLeft="423.75,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,87"
+              Start="0,0"
+              End="0,79.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LoaiCuaHang_Jupiter to Stage\OLE DB Source">
+    design-time-name="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HoaDon_Webtower9 to Stage\HoaDon_Webtower9 stage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
