@@ -1,0 +1,1877 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/24/2021 1:23:47 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-02THFBQC"
+  DTS:CreatorName="LAPTOP-02THFBQC\thanh quach"
+  DTS:DTSID="{6D76E2C2-9F5D-487F-B324-DAD7657BBFD8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Test"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{25F43B46-BA80-4AB9-9E31-453A2F86FC7D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Jade]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{755C2E87-DA22-4401-AE4F-7D5FB7D7423F}"
+      DTS:ObjectName="LocalHost.Jade">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Jade;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{538D4A59-32CA-4DF6-9487-96F5B5A831A9}"
+      DTS:ObjectName="LocalHost.Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Webtower9]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5461CCF2-CD80-4CAD-85A9-4CEA65D21F0B}"
+      DTS:ObjectName="LocalHost.Webtower9">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Webtower9;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8FAE0402-6308-4104-B220-D325D9F71409}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CET">
+      <DTS:VariableValue
+        DTS:DataType="8">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{41E51589-FCA6-4A89-AF0E-FEEE01275BC2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CETwt">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{11058887-B386-45BC-98D9-DE54B8794A2B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LSET">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D479EF67-56E8-4A67-BCED-C539D88A9AAD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LSETwt">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ChiTietHoaDon_Jade to Stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{10bd2c34-9796-44db-935b-db7dd0716468}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ChiTietHoaDon_Jade to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ChiTietHoaDon_Jade Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ChiTietHoaDon_Jade]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ChiTietHoaDon_Jade where (NgayTao &gt; ? and NgayTao &lt; ?) or (NgayCapNhat &gt; ? and NgayCapNhat &lt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{11058887-B386-45BC-98D9-DE54B8794A2B};"Parameter1:Input",{8FAE0402-6308-4104-B220-D325D9F71409};"Parameter2:Input",{11058887-B386-45BC-98D9-DE54B8794A2B};"Parameter3:Input",{8FAE0402-6308-4104-B220-D325D9F71409};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Jade]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Jade]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      name="NgayTao"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      name="TrangThai"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[MaChiTiet]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]"
+                      name="MaChiTiet"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
+                      length="4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaHD]"
+                      name="MaHD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaSP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[MaSP]"
+                      length="4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaSP]"
+                      name="MaSP"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      name="NgayTao" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      dataType="i4"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[MaChiTiet]"
+                      dataType="i4"
+                      name="MaChiTiet" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaHD" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].ExternalColumns[MaSP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaSP" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[MaChiTiet]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[MaChiTiet]"
+                      name="MaChiTiet" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[MaHD]"
+                      name="MaHD" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[MaSP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[MaSP]"
+                      name="MaSP" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      name="NgayTao" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      name="TrangThai" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ChiTietHoaDon_Jade_stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ChiTietHoaDon_Stage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].Columns[NgayTao]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayTao"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayTao]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[NgayTao]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[TrangThai]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].Columns[MaChiTiet]"
+                      cachedDataType="i4"
+                      cachedName="MaChiTiet"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[MaChiTiet]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].Columns[MaHD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaHD"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[MaHD]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaHD]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].Columns[MaSP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaSP"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[MaSP]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaSP]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Output].Columns[Nguon]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      name="NgayTao" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[MaChiTiet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaChiTiet" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaHD" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[MaSP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaSP" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Them cot nguon"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Inputs[Derived Column Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)#{Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[TrangThai]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)TrangThai</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Inputs[Derived Column Input].Columns[MaChiTiet]"
+                      cachedDataType="i4"
+                      cachedName="MaChiTiet"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,4,1252)#{Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,4,1252)MaChiTiet</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Jade"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Jade"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ChiTietHoaDon_Jade to Stage.Paths[Derived Column Output]"
+              endId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ChiTietHoaDon_Jade to Stage.Paths[OLE DB Source Output]"
+              endId="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ChiTietHoaDon_WebTower9 to Stage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{58abba23-aee8-48f1-bd8c-5666186a4d44}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ChiTietHoaDon_WebTower9 to Stage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ChiTietHoaDon_Stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ChiTietHoaDon_Stage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].Columns[NgayTao]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayTao"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayTao]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[NgayTao]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[TrangThai]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].Columns[MaChiTiet]"
+                      cachedDataType="i4"
+                      cachedName="MaChiTiet"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[MaChiTiet]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].Columns[MaHD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaHD"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[MaHD]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaHD]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].Columns[MaSP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaSP"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[MaSP]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaSP]" />
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Output].Columns[Nguon]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      name="NgayTao" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[MaChiTiet]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaChiTiet" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaHD" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[MaSP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaSP" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ChiTietHoaDon_WebTower9 Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[ChiTietHoaDon_Jade]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from ChiTietHoaDon_WebTower9 where (NgayTao &gt; ? and NgayTao &lt; ?) or (NgayCapNhat &gt; ? and NgayCapNhat &lt; ?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{D479EF67-56E8-4A67-BCED-C539D88A9AAD};"Parameter1:Input",{41E51589-FCA6-4A89-AF0E-FEEE01275BC2};"Parameter2:Input",{D479EF67-56E8-4A67-BCED-C539D88A9AAD};"Parameter3:Input",{41E51589-FCA6-4A89-AF0E-FEEE01275BC2};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Webtower9]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Webtower9]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      name="NgayTao"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      name="TrangThai"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[MaChiTiet]"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]"
+                      name="MaChiTiet"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
+                      length="4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaHD]"
+                      name="MaHD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaSP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[MaSP]"
+                      length="4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaSP]"
+                      name="MaSP"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      name="NgayTao" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      dataType="i4"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[MaChiTiet]"
+                      dataType="i4"
+                      name="MaChiTiet" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaHD" />
+                    <externalMetadataColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].ExternalColumns[MaSP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaSP" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[MaChiTiet]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[MaChiTiet]"
+                      name="MaChiTiet" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[MaHD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[MaHD]"
+                      name="MaHD" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[MaSP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[MaSP]"
+                      name="MaSP" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      name="NgayTao" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      name="TrangThai" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Them cot nguon"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Inputs[Derived Column Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)#{Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[TrangThai]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)TrangThai</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Inputs[Derived Column Input].Columns[MaChiTiet]"
+                      cachedDataType="i4"
+                      cachedName="MaChiTiet"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,4,1252)#{Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output].Columns[MaChiTiet]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,4,1252)MaChiTiet</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"WebTower9"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"WebTower9"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ChiTietHoaDon_WebTower9 to Stage.Paths[Derived Column Output]"
+              endId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ChiTietHoaDon_WebTower9 to Stage.Paths[OLE DB Source Output]"
+              endId="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GET LSET, CET 5"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9774f2eb-215a-48eb-9074-e78f98fe34b1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GET LSET, CET 5"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{538D4A59-32CA-4DF6-9487-96F5B5A831A9}"
+          SQLTask:SqlStatementSource="select LSET, CET from Metadata where SourceName = 'Jade'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSET" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GET LSET, CET 5 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a0ee4600-db92-4342-bb42-a5793c5e1223}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GET LSET, CET 5 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{538D4A59-32CA-4DF6-9487-96F5B5A831A9}"
+          SQLTask:SqlStatementSource="select LSET, CET from Metadata where SourceName = 'WebTower9'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSETwt" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CETwt" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SET CET 5"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{168db796-fba2-423b-98d6-ac002b792f3b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SET CET 5"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{538D4A59-32CA-4DF6-9487-96F5B5A831A9}"
+          SQLTask:SqlStatementSource="UPDATE Metadata SET CET = GETDATE() WHERE SourceName = 'Jade' or SourceName = 'WebTower9'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SET LCET 5"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DTSID="{4144733d-55d5-4017-bf49-1a4422a7ef65}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SET LCET 5"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{538D4A59-32CA-4DF6-9487-96F5B5A831A9}"
+          SQLTask:SqlStatementSource="UPDATE Metadata SET LSET = CET WHERE SourceName = 'Jade'  or SourceName = 'WebTower9'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate ChiTietHoaDon_Jade_stage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7715ffe9-7403-42fb-88b1-21cd11bed0c5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate ChiTietHoaDon_Jade_stage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{538D4A59-32CA-4DF6-9487-96F5B5A831A9}"
+          SQLTask:SqlStatementSource="truncate table ChiTietHoaDon_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Status"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f4a47386-3b24-4441-9d8f-02313c032591}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Status"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{538D4A59-32CA-4DF6-9487-96F5B5A831A9}"
+          SQLTask:SqlStatementSource="update ChiTietHoaDon_Stage set TrangThai = 'FINE' where TrangThai = '1'&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update Status 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F8C2E7F7-5F09-45F0-95C1-AB8D31A071FE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update Status 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{538D4A59-32CA-4DF6-9487-96F5B5A831A9}"
+          SQLTask:SqlStatementSource="update ChiTietHoaDon_Stage set TrangThai = 'WARN' where TrangThai = '2'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{136C3E19-CE72-4ED2-B882-F2652B831055}"
+      DTS:From="Package\Update Status"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Update Status 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2E6E0533-5FDB-418F-94A2-F6E6F1C56623}"
+      DTS:From="Package\ChiTietHoaDon_Jade to Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\GET LSET, CET 5 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 2 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{412691a5-9f3d-4b6d-85ef-6efbebadcf66}"
+      DTS:From="Package\Truncate ChiTietHoaDon_Jade_stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 2 1"
+      DTS:To="Package\GET LSET, CET 5" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E2A63FB2-7AF4-4034-8A40-911CA11B9E59}"
+      DTS:From="Package\ChiTietHoaDon_WebTower9 to Stage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SET LCET 5" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{871BEB62-805C-4F7F-92C1-317617BEC654}"
+      DTS:From="Package\GET LSET, CET 5 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\ChiTietHoaDon_WebTower9 to Stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{11ba5afe-4cdf-4288-a417-289e0bc1d244}"
+      DTS:From="Package\SET CET 5"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7 1"
+      DTS:To="Package\Truncate ChiTietHoaDon_Jade_stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{6a68c650-4dce-4e8e-b897-1eedc34ef108}"
+      DTS:From="Package\GET LSET, CET 5"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\ChiTietHoaDon_Jade to Stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{8c5a718c-22b8-495a-9381-07df37afb8bb}"
+      DTS:From="Package\SET LCET 5"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Update Status" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\ChiTietHoaDon_Jade to Stage"
+          TopLeft="80.428571793498,359.218491591386" />
+        <NodeLayout
+          Size="253.6,41.6"
+          Id="Package\ChiTietHoaDon_WebTower9 to Stage"
+          TopLeft="64.2857153804939,558.34117916249" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\GET LSET, CET 5"
+          TopLeft="81.1428575199476,246.80672530897" />
+        <NodeLayout
+          Size="128,41.6"
+          Id="Package\SET CET 5"
+          TopLeft="94.510204686368,60" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\SET LCET 5"
+          TopLeft="126.857144012743,654.979835923894" />
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\Truncate ChiTietHoaDon_Jade_stage"
+          TopLeft="60,156.571429925806" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Update Status"
+          TopLeft="97.28571929737,736.458828130313" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Update Status 2"
+          TopLeft="61.4285724746939,807.517649879422" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="169.68571929737,778.058828130314">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.4571468226761,29.4588217491091"
+              Start="0,0"
+              End="-31.4571468226761,21.9588217491091">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.7294108745546" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.7294108745546"
+                    Point2="0,14.7294108745546"
+                    Point3="-4,14.7294108745546" />
+                  <mssgle:LineSegment
+                    End="-27.4571468226761,14.7294108745546" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.4571468226761,14.7294108745546"
+                    Point2="-31.4571468226761,14.7294108745546"
+                    Point3="-31.4571468226761,18.7294108745546" />
+                  <mssgle:LineSegment
+                    End="-31.4571468226761,21.9588217491091" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 2 1]"
+          TopLeft="163.371428759974,198.171429925806">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.6352953831641"
+              Start="0,0"
+              End="0,41.1352953831641">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.1352953831641" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="191.371429696618,599.94117916249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.0386567614033"
+              Start="0,0"
+              End="0,47.5386567614033">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5386567614033" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7 1]"
+          TopLeft="161.755102343184,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.571429925809"
+              Start="0,0"
+              End="0,47.071429925809">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.071429925809" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="158.119047990056,288.40672530897">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.8117662824159"
+              Start="0,0"
+              End="0,63.3117662824159">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.3117662824159" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="191.657144012743,696.579835923893">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.9714247153727,39.8789922064169"
+              Start="0,0"
+              End="-21.9714247153727,32.3789922064169">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9394961032085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.9394961032085"
+                    Point2="0,19.9394961032085"
+                    Point3="-4,19.9394961032085" />
+                  <mssgle:LineSegment
+                    End="-17.9714247153727,19.9394961032085" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.9714247153727,19.9394961032085"
+                    Point2="-21.9714247153727,19.9394961032085"
+                    Point3="-21.9714247153727,23.9394961032085" />
+                  <mssgle:LineSegment
+                    End="-21.9714247153727,32.3789922064169" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\GET LSET, CET 5 1"
+          TopLeft="92.8571444384907,457.247059660057" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="189.228571793498,400.818491591386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5714273550073,56.4285680686708"
+              Start="0,0"
+              End="-15.5714273550073,48.9285680686708">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.2142840343354" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2142840343354"
+                    Point2="0,28.2142840343354"
+                    Point3="-4,28.2142840343354" />
+                  <mssgle:LineSegment
+                    End="-11.5714273550073,28.2142840343354" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5714273550073,28.2142840343354"
+                    Point2="-15.5714273550073,28.2142840343354"
+                    Point3="-15.5714273550073,32.2142840343354" />
+                  <mssgle:LineSegment
+                    End="-15.5714273550073,48.9285680686708" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="173.657144438491,498.847059660057">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.4285709420032,59.4941195024335"
+              Start="0,0"
+              End="17.4285709420032,51.9941195024335">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.7470597512168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.7470597512168"
+                    Point2="0,29.7470597512168"
+                    Point3="4,29.7470597512168" />
+                  <mssgle:LineSegment
+                    End="13.4285709420032,29.7470597512168" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.4285709420032,29.7470597512168"
+                    Point2="17.4285709420032,29.7470597512168"
+                    Point3="17.4285709420032,33.7470597512168" />
+                  <mssgle:LineSegment
+                    End="17.4285709420032,51.9941195024335" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ChiTietHoaDon_Jade to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\ChiTietHoaDon_Jade to Stage\Them cot nguon"
+          TopLeft="311.400003150531,127.505878127405" />
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source"
+          TopLeft="298.571421139094,23.7294048579918" />
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage"
+          TopLeft="300.142849686194,227.49411166267" />
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_Jade to Stage.Paths[OLE DB Source Output]"
+          TopLeft="404.171421139094,65.3294048579918">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.7714179885628,62.1764732694132"
+              Start="0,0"
+              End="-14.7714179885628,54.6764732694132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0882366347066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0882366347066"
+                    Point2="0,31.0882366347066"
+                    Point3="-4,31.0882366347066" />
+                  <mssgle:LineSegment
+                    End="-10.7714179885628,31.0882366347066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.7714179885628,31.0882366347066"
+                    Point2="-14.7714179885628,31.0882366347066"
+                    Point3="-14.7714179885628,35.0882366347066" />
+                  <mssgle:LineSegment
+                    End="-14.7714179885628,54.6764732694132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_Jade to Stage.Paths[Derived Column Output]"
+          TopLeft="389.400003150531,169.105878127405">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.3428465356629,58.3882335352651"
+              Start="0,0"
+              End="14.3428465356629,50.8882335352651">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.1941167676325" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.1941167676325"
+                    Point2="0,29.1941167676325"
+                    Point3="4,29.1941167676325" />
+                  <mssgle:LineSegment
+                    End="10.3428465356629,29.1941167676325" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.3428465356629,29.1941167676325"
+                    Point2="14.3428465356629,29.1941167676325"
+                    Point3="14.3428465356629,33.1941167676325" />
+                  <mssgle:LineSegment
+                    End="14.3428465356629,50.8882335352651" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ChiTietHoaDon_Jade to Stage\ChiTietHoaDon_Jade_stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ChiTietHoaDon_WebTower9 to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="246.4,41.6"
+          Id="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source"
+          TopLeft="298.571421139094,23.7294048579918" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\ChiTietHoaDon_WebTower9 to Stage\Them cot nguon"
+          TopLeft="311.400003150531,127.505878127405" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage"
+          TopLeft="300.142849686194,227.49411166267" />
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_WebTower9 to Stage.Paths[OLE DB Source Output]"
+          TopLeft="421.771421139094,65.3294048579918">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.371417988563,62.1764732694132"
+              Start="0,0"
+              End="-32.371417988563,54.6764732694132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0882366347066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0882366347066"
+                    Point2="0,31.0882366347066"
+                    Point3="-4,31.0882366347066" />
+                  <mssgle:LineSegment
+                    End="-28.371417988563,31.0882366347066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28.371417988563,31.0882366347066"
+                    Point2="-32.371417988563,31.0882366347066"
+                    Point3="-32.371417988563,35.0882366347066" />
+                  <mssgle:LineSegment
+                    End="-32.371417988563,54.6764732694132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_WebTower9 to Stage.Paths[Derived Column Output]"
+          TopLeft="389.971426418362,169.105878127405">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.388233535265"
+              Start="0,0"
+              End="0,50.888233535265">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.888233535265" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_WebTower9 Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ChiTietHoaDon_WebTower9 to Stage\ChiTietHoaDon_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
