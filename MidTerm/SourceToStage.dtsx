@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="92"
-  DTS:VersionGUID="{50ACB753-6D0A-4C4F-929A-44587EDD5226}">
+  DTS:VersionBuild="94"
+  DTS:VersionGUID="{76DD9158-1F37-4BCE-B9C3-D06034728B93}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1264,7 +1264,7 @@
       DTS:refId="Package\CuaHang_Jupiter to Stage"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{aa18889a-fceb-40df-908e-aa337b57db4a}"
+      DTS:DTSID="{31999fbc-7728-4e87-9e2c-bc38f7020b4d}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="CuaHang_Jupiter to Stage"
@@ -1320,13 +1320,13 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
+                  name="ParameterMapping">"Parameter0:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter1:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};"Parameter2:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter3:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\CuaHang_Jupiter to Stage\Cua hang source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
+                  connectionManagerID="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
+                  connectionManagerRefId="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1528,7 +1528,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[CuaHang_Jupiter_Stage]</property>
+                  name="OpenRowset">[CuaHang_Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1550,7 +1550,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -1571,8 +1571,8 @@
               <connections>
                 <connection
                   refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
+                  connectionManagerRefId="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1634,6 +1634,14 @@
                       cachedName="TrangThai"
                       externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
                       lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TrangThai]" />
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      externalMetadataColumnId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1673,6 +1681,12 @@
                       refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
                       dataType="i4"
                       name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1701,11 +1715,116 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\CuaHang_Jupiter to Stage\Them Nguon"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Them Nguon"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\CuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)#{Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output].Columns[TrangThai]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)TrangThai</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\CuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Jupiter"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Jupiter"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\CuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
-              refId="Package\CuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+              refId="Package\CuaHang_Jupiter to Stage.Paths[Derived Column Output]"
               endId="Package\CuaHang_Jupiter to Stage\Cua hang Stage.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\CuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\CuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+              endId="Package\CuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\CuaHang_Jupiter to Stage\Cua hang source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -1716,7 +1835,7 @@
       DTS:refId="Package\Get LSET from Metadata 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{78d11cbe-b8b9-40f6-9c02-0a1fea95f191}"
+      DTS:DTSID="{5869b531-270c-415a-976a-283612a7f184}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET from Metadata 1"
@@ -1725,12 +1844,12 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="select LSET, CET from Metadata where Sourcename = 'Jupiter'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
-            SQLTask:DtsVariableName="User::LSETResult" />
+            SQLTask:DtsVariableName="User::LSET" />
           <SQLTask:ResultBinding
             SQLTask:ResultName="CET"
             SQLTask:DtsVariableName="User::CET" />
@@ -1741,22 +1860,22 @@
       DTS:refId="Package\GET LSET, CET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{E2E39349-FE1E-4EF8-92AA-EC4EF57AC8BC}"
+      DTS:DTSID="{d58312ba-6c35-45d1-b967-e21a9353954a}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET, CET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="9">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:BypassPrepare="False"
           SQLTask:SqlStatementSource="select LSET, CET from Metadata where SourceName = 'Jupiter'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
-            SQLTask:DtsVariableName="User::LSETResult2" />
+            SQLTask:DtsVariableName="User::LSET" />
           <SQLTask:ResultBinding
             SQLTask:ResultName="CET"
             SQLTask:DtsVariableName="User::CET" />
@@ -1767,43 +1886,26 @@
       DTS:refId="Package\GET LSET, CET 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{0a5316b8-5042-45f6-bff4-01cfd4fe7042}"
+      DTS:DTSID="{24a5c203-0bad-41d5-85ca-aaecf92426bb}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET, CET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:BypassPrepare="False"
           SQLTask:SqlStatementSource="select LSET, CET from Metadata where SourceName = 'Jupiter'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
-            SQLTask:DtsVariableName="User::LSETResult2" />
+            SQLTask:DtsVariableName="User::LSET" />
           <SQLTask:ResultBinding
             SQLTask:ResultName="CET"
             SQLTask:DtsVariableName="User::CET" />
         </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\GET LSET, CET 2"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{c0f2a096-b23f-467b-a4cb-2320672ca17c}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="GET LSET, CET 2"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
-          SQLTask:SqlStatementSource="select LSET, CET from Metadata where SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1815,7 +1917,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET, CET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1833,7 +1935,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET, CET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1888,21 +1990,46 @@
       DTS:refId="Package\Get LSET,CET from MetaData"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{922e9c25-cd17-4ca9-852a-eb07033b7075}"
+      DTS:DTSID="{7e69233e-d6d1-4a7b-b805-43ee31751acb}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET,CET from MetaData"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="select LSET,CET from Metadata where SourceName='Jupiter'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
-            SQLTask:DtsVariableName="User::LSETResult" />
+            SQLTask:DtsVariableName="User::LSET" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="CET"
+            SQLTask:DtsVariableName="User::CET" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get LSET,CET from MetaData 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9f56dc86-2c3b-4a35-a412-90e2da4037fa}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get LSET,CET from MetaData 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="9">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="select LSET,CET from Metadata where SourceName='Jupiter'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSET" />
           <SQLTask:ResultBinding
             SQLTask:ResultName="CET"
             SQLTask:DtsVariableName="User::CET" />
@@ -1918,7 +2045,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET,CET from MetaData 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1935,7 +2062,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET,CET from MetaData 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3823,7 +3950,7 @@
       DTS:refId="Package\LoaiCuaHang_Jupiter to Stage"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{e42bc3f3-ae05-402f-971f-34bd3bbd74eb}"
+      DTS:DTSID="{037698f1-a6d4-4661-9a22-c4dcaeced355}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="LoaiCuaHang_Jupiter to Stage"
@@ -3849,7 +3976,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Nuoc_Jupiter]</property>
+                  name="OpenRowset">[dbo].[LoaiCuaHang_Jupiter]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -3879,13 +4006,13 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
+                  name="ParameterMapping">"Parameter0:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter1:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};"Parameter2:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter3:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
+                  connectionManagerID="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
+                  connectionManagerRefId="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4039,7 +4166,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[LoaiCuaHang_Jupiter_Stage]</property>
+                  name="OpenRowset">[LoaiCuaHang_Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4082,8 +4209,8 @@
               <connections>
                 <connection
                   refId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
+                  connectionManagerRefId="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4113,6 +4240,30 @@
                       cachedName="TrangThai"
                       externalMetadataColumnId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
                       lineageId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source.Outputs[OLE DB Source Output].Columns[TrangThai]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input].Columns[TenLoaiCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TenLoaiCH"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input].ExternalColumns[TenLoaiCH]"
+                      lineageId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source.Outputs[OLE DB Source Output].Columns[TenLoaiCH]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input].Columns[MaLoaiCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaLoaiCH"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input].ExternalColumns[MaLoaiCH]"
+                      lineageId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source.Outputs[OLE DB Source Output].Columns[MaLoaiCH]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      lineageId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4140,6 +4291,12 @@
                       dataType="str"
                       length="50"
                       name="TenLoaiCH" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4168,11 +4325,116 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Them Nguon"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)#{Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source.Outputs[OLE DB Source Output].Columns[TrangThai]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)TrangThai</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Jupiter"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Jupiter"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
-              refId="Package\LoaiCuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+              refId="Package\LoaiCuaHang_Jupiter to Stage.Paths[Derived Column Output]"
               endId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoaiCuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+              endId="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -4183,7 +4445,7 @@
       DTS:refId="Package\LoaiSanPham_Jupiter to Stage"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{32e89119-661e-4ea7-a75d-742b3b16f8d9}"
+      DTS:DTSID="{1bbe98ba-6983-4ffa-98fb-606e7082548c}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="LoaiSanPham_Jupiter to Stage"
@@ -4209,7 +4471,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
+                  name="OpenRowset">[dbo].[LoaiSanPham_Jupiter]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4239,13 +4501,13 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{28C4F9A1-7C07-4755-B602-85A6C48B3F81};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{28C4F9A1-7C07-4755-B602-85A6C48B3F81};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
+                  name="ParameterMapping">"Parameter0:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter1:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};"Parameter2:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter3:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
+                  connectionManagerID="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
+                  connectionManagerRefId="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4399,7 +4661,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[LoaiSanPham_Jupiter_Stage]</property>
+                  name="OpenRowset">[LoaiSanPham_Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4421,7 +4683,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">3</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -4433,7 +4695,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -4442,8 +4704,8 @@
               <connections>
                 <connection
                   refId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
+                  connectionManagerRefId="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4489,6 +4751,14 @@
                       cachedName="TrangThai"
                       externalMetadataColumnId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
                       lineageId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter.Outputs[OLE DB Source Output].Columns[TrangThai]" />
+                    <inputColumn
+                      refId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage.Inputs[OLE DB Destination Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      externalMetadataColumnId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      lineageId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4516,6 +4786,12 @@
                       refId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
                       dataType="i4"
                       name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4544,11 +4820,116 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Them Nguon"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)#{Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter.Outputs[OLE DB Source Output].Columns[TrangThai]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)TrangThai</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Jupiter"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Jupiter"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
-              refId="Package\LoaiSanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
+              refId="Package\LoaiSanPham_Jupiter to Stage.Paths[Derived Column Output]"
               endId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoaiSanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
+              endId="Package\LoaiSanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter.Outputs[OLE DB Source Output]" />
           </paths>
@@ -4559,7 +4940,7 @@
       DTS:refId="Package\Nuoc_Jupiter to Stage"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{e70a5666-1c2f-4ae7-a530-682ff44a4ef8}"
+      DTS:DTSID="{8b846e9b-d6f4-4cde-96a8-91a5f2acb31c}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Nuoc_Jupiter to Stage"
@@ -4615,13 +4996,13 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{E1B0D49E-95AA-410E-BED5-BDD724762E8D};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
+                  name="ParameterMapping">"Parameter0:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter1:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};"Parameter2:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter3:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\Nuoc_Jupiter to Stage\Nuoc source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
+                  connectionManagerID="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
+                  connectionManagerRefId="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4775,7 +5156,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[Nuoc_Jupiter_stage]</property>
+                  name="OpenRowset">[Nuoc_Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -4818,8 +5199,8 @@
               <connections>
                 <connection
                   refId="Package\Nuoc_Jupiter to Stage\Nuoc stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
+                  connectionManagerRefId="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4892,6 +5273,12 @@
                       refId="Package\Nuoc_Jupiter to Stage\Nuoc stage.Inputs[OLE DB Destination Input].ExternalColumns[TrangThai]"
                       dataType="i4"
                       name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Jupiter to Stage\Nuoc stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4920,11 +5307,116 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Nuoc_Jupiter to Stage\Them Nguon"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Them Nguon"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Nuoc_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nuoc_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Nuoc_Jupiter to Stage\Nuoc source.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)#{Package\Nuoc_Jupiter to Stage\Nuoc source.Outputs[OLE DB Source Output].Columns[TrangThai]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)TrangThai</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Nuoc_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Jupiter"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Jupiter"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Nuoc_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
-              refId="Package\Nuoc_Jupiter to Stage.Paths[OLE DB Source Output]"
+              refId="Package\Nuoc_Jupiter to Stage.Paths[Derived Column Output]"
               endId="Package\Nuoc_Jupiter to Stage\Nuoc stage.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Nuoc_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Nuoc_Jupiter to Stage.Paths[OLE DB Source Output]"
+              endId="Package\Nuoc_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Nuoc_Jupiter to Stage\Nuoc source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -4935,7 +5427,7 @@
       DTS:refId="Package\SanPham_Jupiter to Stage"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{9D190E02-D0ED-45F7-88FB-90EB33EDCCD4}"
+      DTS:DTSID="{56a35414-905f-4684-bb36-7d197525616e}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="SanPham_Jupiter to Stage"
@@ -4991,13 +5483,13 @@
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{28C4F9A1-7C07-4755-B602-85A6C48B3F81};"Parameter1:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};"Parameter2:Input",{28C4F9A1-7C07-4755-B602-85A6C48B3F81};"Parameter3:Input",{26447CC4-1EE6-4B4B-9E03-692DB8417671};</property>
+                  name="ParameterMapping">"Parameter0:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter1:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};"Parameter2:Input",{6F244BA5-63EF-4F5D-B139-572459A35151};"Parameter3:Input",{1E85E629-143D-432D-B21C-2F9802AF27BD};</property>
               </properties>
               <connections>
                 <connection
                   refId="Package\SanPham_Jupiter to Stage\SanPham Jupiter.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Jupiter]"
+                  connectionManagerID="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
+                  connectionManagerRefId="{1C0F243C-32F5-424B-B732-5971EBC7EDA9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5193,7 +5685,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[SanPham_Jupiter_Stage]</property>
+                  name="OpenRowset">[SanPham_Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -5227,7 +5719,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
@@ -5236,8 +5728,8 @@
               <connections>
                 <connection
                   refId="Package\SanPham_Jupiter to Stage\SanPham Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
+                  connectionManagerRefId="{23954D27-FB9F-4043-A49E-735AA490F8CE}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5295,8 +5787,16 @@
                       refId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input].Columns[NgayCapNhap]"
                       cachedDataType="dbTimeStamp"
                       cachedName="NgayCapNhap"
-                      externalMetadataColumnId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      externalMetadataColumnId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhap]"
                       lineageId="Package\SanPham_Jupiter to Stage\SanPham Jupiter.Outputs[OLE DB Source Output].Columns[NgayCapNhap]" />
+                    <inputColumn
+                      refId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      externalMetadataColumnId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      lineageId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5331,9 +5831,15 @@
                       dataType="i4"
                       name="TrangThai" />
                     <externalMetadataColumn
-                      refId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhat]"
+                      refId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[NgayCapNhap]"
                       dataType="dbTimeStamp"
-                      name="NgayCapNhat" />
+                      name="NgayCapNhap" />
+                    <externalMetadataColumn
+                      refId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5362,11 +5868,116 @@
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\SanPham_Jupiter to Stage\Them Nguon"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Them Nguon"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\SanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input].Columns[TrangThai]"
+                      cachedDataType="i4"
+                      cachedName="TrangThai"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\SanPham_Jupiter to Stage\SanPham Jupiter.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)#{Package\SanPham_Jupiter to Stage\SanPham Jupiter.Outputs[OLE DB Source Output].Columns[TrangThai]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)TrangThai</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\SanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)"Jupiter"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)"Jupiter"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\SanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
-              refId="Package\SanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
+              refId="Package\SanPham_Jupiter to Stage.Paths[Derived Column Output]"
               endId="Package\SanPham_Jupiter to Stage\SanPham Stage.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\SanPham_Jupiter to Stage\Them Nguon.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\SanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
+              endId="Package\SanPham_Jupiter to Stage\Them Nguon.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\SanPham_Jupiter to Stage\SanPham Jupiter.Outputs[OLE DB Source Output]" />
           </paths>
@@ -5377,16 +5988,16 @@
       DTS:refId="Package\SET CET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{DB7B2334-ECFB-4857-B605-C4B633DB4B66}"
+      DTS:DTSID="{690937a3-275a-41bb-8e51-794791987d31}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="SET CET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="9">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET CET = GETDATE() WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5394,32 +6005,32 @@
       DTS:refId="Package\SET CET 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{29cbed35-a64a-4a1a-8f88-ef1398783655}"
+      DTS:DTSID="{43d5c7b8-be00-42f6-b836-25cc9815a52d}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="SET CET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET CET = GETDATE() WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\SET CET 2"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:DTSID="{c84ff048-8f80-46ec-86a7-18ceb0a255b7}"
+      DTS:DTSID="{374446c9-ce2e-4a44-9a6d-2b1152663b70}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="SET CET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="9">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET CET = GETDATE() WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5432,7 +6043,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SET CET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5449,7 +6060,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SET CET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5493,16 +6104,16 @@
       DTS:refId="Package\Set CET to MetaData"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{40d467dc-f635-40f5-895a-ec4532d195a0}"
+      DTS:DTSID="{16d72efa-c019-4d87-aa66-778e79e531e7}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to MetaData"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="update Metadata set CET=getDate() where SourceName='Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5510,7 +6121,7 @@
       DTS:refId="Package\Set CET to Metadata 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{f18589e0-102e-4801-8472-f3e22adc1235}"
+      DTS:DTSID="{23188a82-3d9c-4869-97e6-89cf7020ae9e}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to Metadata 1"
@@ -5519,7 +6130,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="update Metadata set CET = getdate() where Sourcename = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5532,7 +6143,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to MetaData 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5549,7 +6160,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET to MetaData 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5560,16 +6171,16 @@
     <DTS:Executable
       DTS:refId="Package\SET LCET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:DTSID="{fc4591dc-12df-4bc8-be34-deb983445a1b}"
+      DTS:DTSID="{944d2cbc-b08e-46a5-b4d8-3289b4e06480}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="SET LCET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="9">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET LSET = CET WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5609,16 +6220,16 @@
       DTS:refId="Package\Set LCET to MetaData"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{b9c97520-a008-4fb5-aa3f-913279c768f3}"
+      DTS:DTSID="{0e02b6bb-1eb7-4a50-994d-79a629c3a65c}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LCET to MetaData"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="update Metadata set LSET = CET where SourceName='Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5631,7 +6242,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LCET to MetaData 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5648,7 +6259,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LCET to MetaData 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5660,16 +6271,16 @@
       DTS:refId="Package\SET LSET"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{79BFCFF9-06E4-44D6-A6A6-97D6FCEDD87D}"
+      DTS:DTSID="{d803246b-9168-4f03-95a4-c773802fc8e8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="SET LSET"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="9">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET LSET = CET WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5677,16 +6288,16 @@
       DTS:refId="Package\SET LSET 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{9a44cde1-6dda-455a-a7cb-6c125c6c7bc7}"
+      DTS:DTSID="{8ba57077-1bd2-4085-aa41-f2df8b9311e3}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="SET LSET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="UPDATE Metadata SET LSET = CET WHERE SourceName = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5699,7 +6310,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SET LSET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5716,7 +6327,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SET LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5728,7 +6339,7 @@
       DTS:refId="Package\Set LSET from Metadata 1"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{873c6ca9-39d0-4ad8-813f-804d5471123a}"
+      DTS:DTSID="{844b7f27-8964-41e3-9589-45ee5038a771}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET from Metadata 1"
@@ -5737,7 +6348,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
           SQLTask:SqlStatementSource="update Metadata set LSET = CET where Sourcename = 'Jupiter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5779,17 +6390,17 @@
       DTS:refId="Package\Truncate CuaHang_Jupiter"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{953f3675-38b0-4625-9c47-3b17f7528f30}"
+      DTS:DTSID="{5e68cff5-fc02-4d9a-81e9-f46b39942f9c}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate CuaHang_Jupiter"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
-          SQLTask:SqlStatementSource="truncate table CuaHang_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table CuaHang_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5801,7 +6412,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate KhachHang_Jade"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5818,7 +6429,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate KhachHang_WebTower9"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5830,51 +6441,51 @@
       DTS:refId="Package\Truncate LoaiCuaHang_Jupiter"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2e4dd717-460a-4303-bf72-0319a7ca4f12}"
+      DTS:DTSID="{f6aa1a20-5558-4076-a964-4be465260d0f}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate LoaiCuaHang_Jupiter"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="9">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
-          SQLTask:SqlStatementSource="truncate table LoaiCuaHang_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table LoaiCuaHang_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Truncate LoaiSanPham_Jupiter"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{72f33c3a-8b57-4927-94c7-0efb7c6d98c4}"
+      DTS:DTSID="{addd95e1-ab20-4d71-a7df-4fb4eaaa7aa1}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate LoaiSanPham_Jupiter"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
-          SQLTask:SqlStatementSource="truncate table LoaiSanPham_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table LoaiSanPham_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Truncate SanPham_Jupiter"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{B2C90530-AF3B-4ED0-BB6D-EBF12EDE274C}"
+      DTS:DTSID="{4d4a4b96-1814-45de-a81d-945e4e2bc704}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate SanPham_Jupiter"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="9">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
-          SQLTask:SqlStatementSource="truncate table SanPham_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table SanPham_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5886,7 +6497,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table HoaDon_Jade_Stage"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5903,7 +6514,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table HoaDon_Webtower9_Stage"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5915,7 +6526,7 @@
       DTS:refId="Package\Truncate table Nuoc_Stage"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2d9a1ea5-60de-4754-a750-fd7066c475e2}"
+      DTS:DTSID="{0be9d0b6-4677-41e8-b361-db2d203aa0e7}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table Nuoc_Stage"
@@ -5924,8 +6535,8 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{DABE86FF-3A5C-4FE7-B5E6-5BA6D6009576}"
-          SQLTask:SqlStatementSource="truncate table Nuoc_Jupiter_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{E14DF38A-8C1E-46FE-83C5-CA534BAF23E4}"
+          SQLTask:SqlStatementSource="truncate table Nuoc_Stage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5950,7 +6561,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{20BF8FE1-869C-4B75-8314-4526B71D4AFB}"
+      DTS:DTSID="{7ed58ee7-2e2f-48c7-871f-50eae8edb8e6}"
       DTS:From="Package\Truncate SanPham_Jupiter"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -5958,7 +6569,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{55B781F2-BBD6-430E-A80B-E59CAF1208DA}"
+      DTS:DTSID="{13264040-999c-4a75-8a2f-560675065c87}"
       DTS:From="Package\GET LSET, CET"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -5966,7 +6577,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
       DTS:CreationName=""
-      DTS:DTSID="{d02f6aba-95ae-4a4b-9870-9e5013cf8a99}"
+      DTS:DTSID="{413aa0f2-85d0-4e34-914c-40066ed82df5}"
       DTS:From="Package\GET LSET, CET 1"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1 1"
@@ -6006,7 +6617,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1 2]"
       DTS:CreationName=""
-      DTS:DTSID="{416007b4-1b6f-49df-a7de-7024565d9f95}"
+      DTS:DTSID="{7256cf20-3012-4154-8af5-cba42b30a558}"
       DTS:From="Package\Truncate CuaHang_Jupiter"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1 2"
@@ -6028,17 +6639,9 @@
       DTS:ObjectName="Constraint 1 2 1 1"
       DTS:To="Package\GET LSET, CET 6" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{95cefab4-2d9c-412d-a2e0-846a4d7790fc}"
-      DTS:From="Package\Truncate LoaiCuaHang_Jupiter"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1 3"
-      DTS:To="Package\GET LSET, CET 2" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1 4]"
       DTS:CreationName=""
-      DTS:DTSID="{9e2d4e99-bef6-4013-b73a-bc007602eec5}"
+      DTS:DTSID="{c50c2643-ea87-4bc6-9ea2-737528a2cf7e}"
       DTS:From="Package\Get LSET from Metadata 1"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1 4"
@@ -6054,7 +6657,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{21306414-3045-4472-BA95-21F84D147CC9}"
+      DTS:DTSID="{0fb9bbf7-5a4c-494c-b6f0-3a7401821eb8}"
       DTS:From="Package\SanPham_Jupiter to Stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
@@ -6062,7 +6665,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2 1]"
       DTS:CreationName=""
-      DTS:DTSID="{3de9f6e7-022c-45ef-ab03-9cf090554c2f}"
+      DTS:DTSID="{13e50190-e8a7-408b-a31c-cc4063885cb0}"
       DTS:From="Package\LoaiSanPham_Jupiter to Stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2 1"
@@ -6102,7 +6705,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2 2]"
       DTS:CreationName=""
-      DTS:DTSID="{a94993c1-c5e7-4a8a-aa5a-bfd551e8214a}"
+      DTS:DTSID="{672d26c3-ca1b-4491-bb88-8c2cdf191131}"
       DTS:From="Package\Get LSET,CET from MetaData"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2 2"
@@ -6110,7 +6713,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2 4]"
       DTS:CreationName=""
-      DTS:DTSID="{150dbb9d-2892-49a1-9954-4d65d6c01f1a}"
+      DTS:DTSID="{774d3c61-0ff0-43b7-b884-cd30459a0aea}"
       DTS:From="Package\Truncate table Nuoc_Stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2 4"
@@ -6118,7 +6721,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
-      DTS:DTSID="{243A0A6C-FE06-4C77-A4DE-75EA9CBB8B5D}"
+      DTS:DTSID="{b4c9216d-c74e-4913-810e-3eaa8f0369ef}"
       DTS:From="Package\SET CET"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
@@ -6126,7 +6729,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3 1]"
       DTS:CreationName=""
-      DTS:DTSID="{d9a7ba0b-3845-4dd6-a5a2-8bc353e2dcdc}"
+      DTS:DTSID="{9b4f6a1f-c29d-4461-a9a8-aa108ddbeaf7}"
       DTS:From="Package\SET CET 1"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3 1"
@@ -6174,23 +6777,15 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3 2]"
       DTS:CreationName=""
-      DTS:DTSID="{63e6c198-9157-4d15-ac82-06bff108148f}"
+      DTS:DTSID="{1be45214-c67c-4095-b723-2889e92f8e4d}"
       DTS:From="Package\CuaHang_Jupiter to Stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3 2"
       DTS:To="Package\Set LCET to MetaData" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3 3]"
-      DTS:CreationName=""
-      DTS:DTSID="{bea686fe-48db-4de9-995e-4c93cd9f69d8}"
-      DTS:From="Package\GET LSET, CET 2"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3 3"
-      DTS:To="Package\LoaiCuaHang_Jupiter to Stage" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3 4]"
       DTS:CreationName=""
-      DTS:DTSID="{ffb181e3-8fa1-4f5a-9ac8-b67fbee37129}"
+      DTS:DTSID="{c3915471-5735-45ed-8ca3-40735d35f0b4}"
       DTS:From="Package\Nuoc_Jupiter to Stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3 4"
@@ -6198,7 +6793,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
       DTS:CreationName=""
-      DTS:DTSID="{8667a94b-9ec7-462c-8298-c989229d8749}"
+      DTS:DTSID="{e433f5ac-1d39-45ec-b3b8-4950b11911b5}"
       DTS:From="Package\Truncate LoaiSanPham_Jupiter"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4"
@@ -6206,7 +6801,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 4 1]"
       DTS:CreationName=""
-      DTS:DTSID="{d0c5c474-697e-4f70-bced-a2b7d057974e}"
+      DTS:DTSID="{c4b7735f-7441-47cc-9a6c-4bc4a180d9b9}"
       DTS:From="Package\LoaiCuaHang_Jupiter to Stage"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 4 1"
@@ -6238,7 +6833,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
-      DTS:DTSID="{50c46e90-7c10-409d-8379-8af56bfb25c5}"
+      DTS:DTSID="{3cba2c6b-d507-402f-82ab-dc7eac00d6e9}"
       DTS:From="Package\Set CET to MetaData"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 5"
@@ -6262,7 +6857,7 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
       DTS:CreationName=""
-      DTS:DTSID="{5b9afe93-6a97-43e0-9892-369bb84aab87}"
+      DTS:DTSID="{2aeeb60a-1274-4167-a203-620484dbcc9f}"
       DTS:From="Package\SET CET 2"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
@@ -6270,11 +6865,11 @@
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
       DTS:CreationName=""
-      DTS:DTSID="{f7fc56bb-6453-4ad7-8167-00f8ae5ea7c5}"
-      DTS:From="Package\Set CET to Metadata 1"
+      DTS:DTSID="{338cc4e8-07ed-4fc4-bca3-e615bdf2af5b}"
+      DTS:From="Package\Truncate LoaiCuaHang_Jupiter"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 7"
-      DTS:To="Package\Truncate table Nuoc_Stage" />
+      DTS:To="Package\Get LSET,CET from MetaData 1" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 7 1]"
       DTS:CreationName=""
@@ -6292,6 +6887,14 @@
       DTS:ObjectName="Constraint 7 1 1"
       DTS:To="Package\Truncate ChiTietHoaDon_Webtower9_stage" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7 1 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2859edf3-3ff5-4b73-a195-52f7fdb05113}"
+      DTS:From="Package\Set CET to Metadata 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7 1 2"
+      DTS:To="Package\Truncate table Nuoc_Stage" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
       DTS:CreationName=""
       DTS:DTSID="{d0521abd-02a3-4ffb-ad5e-da14989aa0f3}"
@@ -6299,6 +6902,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\ChiTietHoaDon_Jade to Stage" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1b7e514a-fc05-40db-83d7-3c8339410d84}"
+      DTS:From="Package\Get LSET,CET from MetaData 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8 1"
+      DTS:To="Package\LoaiCuaHang_Jupiter to Stage" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
       DTS:CreationName=""
@@ -6321,322 +6932,132 @@
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="217.6,41.6"
+          Size="218,42"
           Id="Package\ChiTietHoaDon_Jade to Stage"
-          TopLeft="277.428571793498,1233.65378460439" />
+          TopLeft="277.428571793498,1273.65378460439" />
         <NodeLayout
-          Size="254.4,41.6"
+          Size="254,42"
           Id="Package\ChiTietHoaDon_WebTower9 to Stage"
-          TopLeft="576.857143586996,1230.37647363405" />
+          TopLeft="576.857143586996,1270.37647363405" />
         <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\CuaHang_Jupiter to Stage"
-          TopLeft="912.57143859474,285.988238457908" />
-        <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\Get LSET from Metadata 1"
-          TopLeft="1506.79366081696,252.321571791241" />
-        <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\GET LSET, CET"
-          TopLeft="318.571433996667,218.058825942472" />
-        <NodeLayout
-          Size="192,41.6"
-          Id="Package\GET LSET, CET 1"
-          TopLeft="587.142867141841,216.317652431905" />
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\GET LSET, CET 2"
-          TopLeft="1203.28572568358,243.705885967169" />
-        <NodeLayout
-          Size="192,41.6"
+          Size="192,42"
           Id="Package\GET LSET, CET 3"
-          TopLeft="974.279359423003,640.341182808895" />
+          TopLeft="974.279359423003,680.341182808895" />
         <NodeLayout
-          Size="192,41.6"
+          Size="192,42"
           Id="Package\GET LSET, CET 4"
-          TopLeft="1321.14287003692,650.435290460523" />
+          TopLeft="1321.14287003692,690.435290460523" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="162,42"
           Id="Package\GET LSET, CET 5"
-          TopLeft="273.857143161248,1124.30084189428" />
+          TopLeft="273.857143161248,1164.30084189428" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="162,42"
           Id="Package\GET LSET, CET 6"
-          TopLeft="573.285714954746,1122.55294271011" />
+          TopLeft="573.285714954746,1162.55294271011" />
         <NodeLayout
-          Size="248.8,41.6"
-          Id="Package\Get LSET,CET from MetaData"
-          TopLeft="881.57143859474,216.988238457907" />
-        <NodeLayout
-          Size="227.2,41.6"
+          Size="227,42"
           Id="Package\Get LSET,CET from MetaData 2"
-          TopLeft="597,652" />
+          TopLeft="597,692" />
         <NodeLayout
-          Size="227.2,41.6"
+          Size="227,42"
           Id="Package\Get LSET,CET from MetaData 3"
-          TopLeft="268,663" />
+          TopLeft="268,703" />
         <NodeLayout
-          Size="187.2,41.6"
+          Size="187,42"
           Id="Package\HoaDon_Jade to Stage"
-          TopLeft="299,732" />
+          TopLeft="299,772" />
         <NodeLayout
-          Size="219.2,41.6"
+          Size="219,42"
           Id="Package\HoaDon_Webtower9 to Stage"
-          TopLeft="628,721" />
+          TopLeft="628,761" />
         <NodeLayout
-          Size="201.6,41.6"
+          Size="202,42"
           Id="Package\KhachHang_Jade to Stage"
-          TopLeft="1322.57144148982,744.494115309073" />
+          TopLeft="1322.57144148982,784.494115309073" />
         <NodeLayout
-          Size="236.8,41.6"
+          Size="237,42"
           Id="Package\KhachHang_WebTower9 to Stage"
-          TopLeft="975.707930875903,734.400007657445" />
+          TopLeft="975.707930875903,774.400007657445" />
         <NodeLayout
-          Size="220,41.6"
-          Id="Package\LoaiCuaHang_Jupiter to Stage"
-          TopLeft="1198.69388887069,343.882357960341" />
-        <NodeLayout
-          Size="222.4,41.6"
-          Id="Package\LoaiSanPham_Jupiter to Stage"
-          TopLeft="588.57143859474,310.376477280456" />
-        <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Nuoc_Jupiter to Stage"
-          TopLeft="1521.79366081696,324.321571791241" />
-        <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\SanPham_Jupiter to Stage"
-          TopLeft="320.000005449567,312.117650791023" />
-        <NodeLayout
-          Size="118.4,41.6"
-          Id="Package\SET CET"
-          TopLeft="336.224495521787,41.1579831365896" />
-        <NodeLayout
-          Size="128,41.6"
-          Id="Package\SET CET 1"
-          TopLeft="617.040826834673,41.6016836062435" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\SET CET 2"
-          TopLeft="1215.83674630549,55.5882362700663" />
-        <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\SET CET 3"
-          TopLeft="980.707930961052,482.011768834896" />
+          TopLeft="980.707930961052,522.011768834896" />
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\SET CET 4"
-          TopLeft="1327.57144157497,492.105876486524" />
+          TopLeft="1327.57144157497,532.105876486524" />
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\SET CET 5"
-          TopLeft="291.510204686368,934.435293013004" />
+          TopLeft="291.510204686368,974.435293013004" />
         <NodeLayout
-          Size="128,41.6"
+          Size="128,42"
           Id="Package\SET CET 6"
-          TopLeft="586.857143757295,934.435293013004" />
+          TopLeft="586.857143757295,974.435293013004" />
         <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Set CET to MetaData"
-          TopLeft="912.57143859474,57.9882384579075" />
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Set CET to Metadata 1"
-          TopLeft="1509.79366081696,77.3215717912409" />
-        <NodeLayout
-          Size="185.6,41.6"
+          Size="186,42"
           Id="Package\Set CET to MetaData 2"
-          TopLeft="628,493" />
+          TopLeft="628,533" />
         <NodeLayout
-          Size="185.6,41.6"
+          Size="186,42"
           Id="Package\Set CET to MetaData 3"
-          TopLeft="299,504" />
+          TopLeft="299,544" />
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\SET LCET"
-          TopLeft="1235.42858337383,419.588241375028" />
-        <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\SET LCET 5"
-          TopLeft="313.142858115994,1319.19160093007" />
+          TopLeft="313.142858115994,1359.19160093007" />
         <NodeLayout
-          Size="132.8,41.6"
+          Size="133,42"
           Id="Package\SET LCET 6"
-          TopLeft="605.428572644993,1298.43529811796" />
+          TopLeft="605.428572644993,1338.43529811796" />
         <NodeLayout
-          Size="182.4,41.6"
-          Id="Package\Set LCET to MetaData"
-          TopLeft="922.57143859474,378.988238457908" />
-        <NodeLayout
-          Size="192,41.6"
+          Size="192,42"
           Id="Package\Set LCET to MetaData 2"
-          TopLeft="638,814" />
+          TopLeft="638,854" />
         <NodeLayout
-          Size="182.4,41.6"
+          Size="182,42"
           Id="Package\Set LCET to MetaData 3"
-          TopLeft="309,825" />
+          TopLeft="309,865" />
         <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\SET LSET"
-          TopLeft="305.000005194119,400.058828494953" />
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\SET LSET 1"
-          TopLeft="573.571438339293,398.317654984386" />
-        <NodeLayout
-          Size="161.6,41.6"
+          Size="162,42"
           Id="Package\SET LSET 3"
-          TopLeft="960.707930620455,822.341185361376" />
+          TopLeft="960.707930620455,862.341185361376" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="162,42"
           Id="Package\SET LSET 4"
-          TopLeft="1307.57144123437,832.435293013004" />
+          TopLeft="1307.57144123437,872.435293013004" />
         <NodeLayout
-          Size="192.8,41.6"
-          Id="Package\Set LSET from Metadata 1"
-          TopLeft="1510.79366081696,403.321571791241" />
-        <NodeLayout
-          Size="209.6,41.6"
+          Size="210,42"
           Id="Package\Truncate ChiTietHoaDon_Jade_stage"
-          TopLeft="257,1031.00672293881" />
+          TopLeft="257,1071.00672293881" />
         <NodeLayout
-          Size="209.6,41.6"
+          Size="210,42"
           Id="Package\Truncate ChiTietHoaDon_Webtower9_stage"
-          TopLeft="555.428571793498,1027.72941196848" />
+          TopLeft="555.428571793498,1067.72941196848" />
         <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Truncate CuaHang_Jupiter"
-          TopLeft="898.122459472095,126.34117952713" />
-        <NodeLayout
-          Size="248,41.6"
+          Size="248,42"
           Id="Package\Truncate KhachHang_Jade"
-          TopLeft="1293.28572670538,569.341171687367" />
+          TopLeft="1293.28572670538,609.341171687367" />
         <NodeLayout
-          Size="239.2,41.6"
+          Size="239,42"
           Id="Package\Truncate KhachHang_WebTower9"
-          TopLeft="946.422216091456,559.247064035739" />
+          TopLeft="946.422216091456,599.247064035739" />
         <NodeLayout
-          Size="222.4,41.6"
-          Id="Package\Truncate LoaiCuaHang_Jupiter"
-          TopLeft="1183.28572534298,147.352943439385" />
-        <NodeLayout
-          Size="248,41.6"
-          Id="Package\Truncate LoaiSanPham_Jupiter"
-          TopLeft="559.285723810294,135.22353365875" />
-        <NodeLayout
-          Size="204.8,41.6"
-          Id="Package\Truncate SanPham_Jupiter"
-          TopLeft="290.714290665121,136.964707169318" />
-        <NodeLayout
-          Size="263.2,41.6"
+          Size="263,42"
           Id="Package\Truncate table HoaDon_Jade_Stage"
-          TopLeft="257,580" />
+          TopLeft="257,620" />
         <NodeLayout
-          Size="272.8,41.6"
+          Size="273,42"
           Id="Package\Truncate table HoaDon_Webtower9_Stage"
-          TopLeft="586,569" />
+          TopLeft="586,609" />
         <NodeLayout
-          Size="207.2,41.6"
-          Id="Package\Truncate table Nuoc_Stage"
-          TopLeft="1499.79366081696,166.321571791241" />
-        <NodeLayout
-          Size="144.8,41.6"
+          Size="145,42"
           Id="Package\Update Status"
-          TopLeft="283.571433400621,1400.67059313649" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="393.242862330894,178.564707169318">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.4941187731536"
-              Start="0,0"
-              End="0,31.9941187731536">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.9941187731536" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="393.371433996667,259.658825942472">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27.8285714529,52.458824848551"
-              Start="0,0"
-              End="27.8285714529,44.958824848551">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.2294124242755" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.2294124242755"
-                    Point2="0,26.2294124242755"
-                    Point3="4,26.2294124242755" />
-                  <mssgle:LineSegment
-                    End="23.8285714529,26.2294124242755" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.8285714529,26.2294124242755"
-                    Point2="27.8285714529,26.2294124242755"
-                    Point3="27.8285714529,30.2294124242755" />
-                  <mssgle:LineSegment
-                    End="27.8285714529,44.958824848551" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 1]"
-          TopLeft="683.142867141841,257.917652431905">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="16.2285714528999,52.4588248485515"
-              Start="0,0"
-              End="16.2285714528999,44.9588248485515">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.2294124242757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.2294124242757"
-                    Point2="0,26.2294124242757"
-                    Point3="4,26.2294124242757" />
-                  <mssgle:LineSegment
-                    End="12.2285714528999,26.2294124242757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="12.2285714528999,26.2294124242757"
-                    Point2="16.2285714528999,26.2294124242757"
-                    Point3="16.2285714528999,30.2294124242757" />
-                  <mssgle:LineSegment
-                    End="16.2285714528999,44.9588248485515" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="283.571433400621,1440.67059313649" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 1]"
-          TopLeft="385,622">
+          TopLeft="385,662">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6658,7 +7079,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 1 1]"
-          TopLeft="722.5,611">
+          TopLeft="722.5,651">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6692,7 +7113,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 2]"
-          TopLeft="1070.279359423,681.941182808895">
+          TopLeft="1070.279359423,721.941182808895">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6726,7 +7147,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 2 1]"
-          TopLeft="1420.25715576337,692.035290460523">
+          TopLeft="1420.25715576337,732.035290460523">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6747,30 +7168,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 2]"
-          TopLeft="1002.84694903342,167.94117952713">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49.0470589307765"
-              Start="0,0"
-              End="0,41.5470589307765">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.5470589307765" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 2 1]"
-          TopLeft="358.228571580624,1072.60672293881">
+          TopLeft="358.228571580624,1112.60672293881">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6792,7 +7191,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 2 1 1]"
-          TopLeft="657.557143374122,1069.32941196847">
+          TopLeft="657.557143374122,1109.32941196847">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6813,76 +7212,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 3]"
-          TopLeft="1294.48572534298,188.952943439385">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.99999965940219,54.7529425277838"
-              Start="0,0"
-              End="-9.99999965940219,47.2529425277838">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.3764712638919" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.3764712638919"
-                    Point2="0,27.3764712638919"
-                    Point3="-4,27.3764712638919" />
-                  <mssgle:LineSegment
-                    End="-5.99999965940219,27.3764712638919" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.99999965940219,27.3764712638919"
-                    Point2="-9.99999965940219,27.3764712638919"
-                    Point3="-9.99999965940219,31.3764712638919" />
-                  <mssgle:LineSegment
-                    End="-9.99999965940219,47.2529425277838" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 4]"
-          TopLeft="1603.79366081696,294.321571791241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9.5,30"
-              Start="0,0"
-              End="9.5,22.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11"
-                    Point2="0,15"
-                    Point3="4,15" />
-                  <mssgle:LineSegment
-                    End="5.5,15" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.5,15"
-                    Point2="9.5,15"
-                    Point3="9.5,19" />
-                  <mssgle:LineSegment
-                    End="9.5,22.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 5]"
-          TopLeft="386.428571793498,1275.65378460439">
+          TopLeft="386.428571793498,1315.65378460439">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6915,76 +7246,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="421.200005449567,353.717650791023">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-35.000000255448,46.34117770393"
-              Start="0,0"
-              End="-35.000000255448,38.84117770393">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.170588851965" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.170588851965"
-                    Point2="0,23.170588851965"
-                    Point3="-4,23.170588851965" />
-                  <mssgle:LineSegment
-                    End="-31.000000255448,23.170588851965" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-31.000000255448,23.170588851965"
-                    Point2="-35.000000255448,23.170588851965"
-                    Point3="-35.000000255448,27.170588851965" />
-                  <mssgle:LineSegment
-                    End="-35.000000255448,38.84117770393" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2 1]"
-          TopLeft="699.37143859474,351.976477280456">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-44.6000002554479,46.3411777039299"
-              Start="0,0"
-              End="-44.6000002554479,38.8411777039299">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.170588851965" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.170588851965"
-                    Point2="0,23.170588851965"
-                    Point3="-4,23.170588851965" />
-                  <mssgle:LineSegment
-                    End="-40.6000002554479,23.170588851965" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-40.6000002554479,23.170588851965"
-                    Point2="-44.6000002554479,23.170588851965"
-                    Point3="-44.6000002554479,27.170588851965" />
-                  <mssgle:LineSegment
-                    End="-44.6000002554479,38.8411777039299" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 1 1]"
-          TopLeft="381.5,705">
+          TopLeft="381.5,745">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7018,7 +7281,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 1 1 1]"
-          TopLeft="710.5,694">
+          TopLeft="710.5,734">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7052,7 +7315,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 1 2]"
-          TopLeft="1094.1079308759,776.000007657446">
+          TopLeft="1094.1079308759,816.000007657446">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7086,7 +7349,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 1 2 1]"
-          TopLeft="1423.37144148982,786.094115309073">
+          TopLeft="1423.37144148982,826.094115309073">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7119,96 +7382,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2 2]"
-          TopLeft="1009.82143859474,258.988238457908">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2 4]"
-          TopLeft="1603.54366081696,208.321571791241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44"
-              Start="0,0"
-              End="0,36.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="394.269393093454,82.7579831365896">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.2067240327284"
-              Start="0,0"
-              End="0,46.7067240327284">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.7067240327284" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 1]"
-          TopLeft="682.163275322484,83.2016836062435">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.0218500525065"
-              Start="0,0"
-              End="0,44.5218500525065">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.5218500525065" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 1 1]"
-          TopLeft="396.25,774">
+          TopLeft="396.25,814">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7230,7 +7405,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 1 1 1]"
-          TopLeft="735.75,763">
+          TopLeft="735.75,803">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7252,7 +7427,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 1 1 2]"
-          TopLeft="654.485714954746,1164.1529427101">
+          TopLeft="654.485714954746,1204.1529427101">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7286,7 +7461,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 1 2]"
-          TopLeft="1044.70793096105,523.611768834896">
+          TopLeft="1044.70793096105,563.611768834896">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7320,7 +7495,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 1 2 1]"
-          TopLeft="1391.57144157497,533.705876486524">
+          TopLeft="1391.57144157497,573.705876486524">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7353,142 +7528,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 2]"
-          TopLeft="1013.57143859474,327.988238457908">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 3]"
-          TopLeft="1284.08572568358,285.305885967169">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="24.6081631871082,58.5764719931724"
-              Start="0,0"
-              End="24.6081631871082,51.0764719931724">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.2882359965862" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.2882359965862"
-                    Point2="0,29.2882359965862"
-                    Point3="4,29.2882359965862" />
-                  <mssgle:LineSegment
-                    End="20.6081631871082,29.2882359965862" />
-                  <mssgle:CubicBezierSegment
-                    Point1="20.6081631871082,29.2882359965862"
-                    Point2="24.6081631871082,29.2882359965862"
-                    Point3="24.6081631871082,33.2882359965862" />
-                  <mssgle:LineSegment
-                    End="24.6081631871082,51.0764719931724" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 4]"
-          TopLeft="1610.29366081696,366.321571791241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37"
-              Start="0,0"
-              End="0,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="683.214295476067,176.82353365875">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.4941187731541"
-              Start="0,0"
-              End="0,31.9941187731541">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.9941187731541" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4 1]"
-          TopLeft="1308.69388887069,385.482357960341">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-8.46530549685826,34.1058834146866"
-              Start="0,0"
-              End="-8.46530549685826,26.6058834146866">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.0529417073433" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.0529417073433"
-                    Point2="0,17.0529417073433"
-                    Point3="-4,17.0529417073433" />
-                  <mssgle:LineSegment
-                    End="-4.46530549685826,17.0529417073433" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4.46530549685826,17.0529417073433"
-                    Point2="-8.46530549685826,17.0529417073433"
-                    Point3="-8.46530549685826,21.0529417073433" />
-                  <mssgle:LineSegment
-                    End="-8.46530549685826,26.6058834146866" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4 1 1 1]"
-          TopLeft="703.657143586996,1271.97647363405">
+          TopLeft="703.657143586996,1311.97647363405">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7522,7 +7563,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4 2]"
-          TopLeft="1058.02221609146,600.847064035739">
+          TopLeft="1058.02221609146,640.847064035739">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7556,7 +7597,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4 2 1]"
-          TopLeft="1417.21429837115,610.941171687366">
+          TopLeft="1417.21429837115,650.941171687366">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7577,30 +7618,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="1000.34694903342,99.5882384579075">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.752941069223"
-              Start="0,0"
-              End="0,19.252941069223">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.252941069223" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5 1]"
-          TopLeft="390.25,546">
+          TopLeft="390.25,586">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7622,7 +7641,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5 1 1]"
-          TopLeft="721.75,535">
+          TopLeft="721.75,575">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7643,64 +7662,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="1280.63674630549,97.1882362700663">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13.8489790374924,50.1647071693187"
-              Start="0,0"
-              End="13.8489790374924,42.6647071693187">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.0823535846593" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.0823535846593"
-                    Point2="0,25.0823535846593"
-                    Point3="4,25.0823535846593" />
-                  <mssgle:LineSegment
-                    End="9.84897903749243,25.0823535846593" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.84897903749243,25.0823535846593"
-                    Point2="13.8489790374924,25.0823535846593"
-                    Point3="13.8489790374924,29.0823535846593" />
-                  <mssgle:LineSegment
-                    End="13.8489790374924,42.6647071693187" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="1600.54366081696,119.321571791241">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47"
-              Start="0,0"
-              End="0,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7 1]"
-          TopLeft="358.755102343184,976.435293013004">
+          TopLeft="358.755102343184,1016.435293013">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7722,7 +7685,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7 1 1]"
-          TopLeft="650.857143757295,976.435293013004">
+          TopLeft="650.857143757295,1016.435293013">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7756,7 +7719,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="354.657143161248,1165.90084189428">
+          TopLeft="354.657143161248,1205.90084189428">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7790,7 +7753,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="377.942858115994,1360.79160093007">
+          TopLeft="377.942858115994,1400.79160093007">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -7814,6 +7777,642 @@
                     Point3="-21.9714247153727,23.9394961032085" />
                   <mssgle:LineSegment
                     End="-21.9714247153727,32.378992206417" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150,42"
+          Id="Package\GET LSET, CET"
+          TopLeft="164.857143331546,186.670590584009" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\SanPham_Jupiter to Stage"
+          TopLeft="166.285714784446,280.72941543256" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\SET CET"
+          TopLeft="182.510204856666,9.76974777812711" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SET LSET"
+          TopLeft="151.285714528998,368.67059313649" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Truncate SanPham_Jupiter"
+          TopLeft="137,105.576471810855" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\GET LSET, CET 1"
+          TopLeft="456.142858115993,183.485716603788" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\LoaiSanPham_Jupiter to Stage"
+          TopLeft="457.571429568892,277.54454145234" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\SET CET 1"
+          TopLeft="486.040817808825,8.76974777812711" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SET LSET 1"
+          TopLeft="442.571429313445,365.48571915627" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\Truncate LoaiSanPham_Jupiter"
+          TopLeft="428.285714784446,102.391597830633" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\CuaHang_Jupiter to Stage"
+          TopLeft="821,233.070595324332" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Get LSET,CET from MetaData"
+          TopLeft="790,164.070595324331" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\LoaiCuaHang_Jupiter to Stage"
+          TopLeft="1107.12245027595,290.964714826765" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SET CET 2"
+          TopLeft="1124.26530771075,2.67059313648997" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Set CET to MetaData"
+          TopLeft="821,5.07059532433118" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SET LCET"
+          TopLeft="1143.85714477909,366.670598241452" />
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Set LCET to MetaData"
+          TopLeft="831,326.070595324332" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Truncate CuaHang_Jupiter"
+          TopLeft="806.551020877355,73.4235363935536" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\Truncate LoaiCuaHang_Jupiter"
+          TopLeft="1091.71428674824,94.4353003058086" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\Get LSET,CET from MetaData 1"
+          TopLeft="1098,186.67059313649" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Get LSET from Metadata 1"
+          TopLeft="1414,177.67059313649" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Nuoc_Jupiter to Stage"
+          TopLeft="1429,249.67059313649" />
+        <NodeLayout
+          Size="185,42"
+          Id="Package\Set CET to Metadata 1"
+          TopLeft="1417,2.67059313648997" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Set LSET from Metadata 1"
+          TopLeft="1418,328.67059313649" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Truncate table Nuoc_Stage"
+          TopLeft="1407,91.67059313649" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="239.528571665773,147.176471810855">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.4941187731536"
+              Start="0,0"
+              End="0,31.9941187731536">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.9941187731536" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="239.657143331546,228.270590584009">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.8285714529,52.4588248485511"
+              Start="0,0"
+              End="27.8285714529,44.9588248485511">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2294124242756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2294124242756"
+                    Point2="0,26.2294124242756"
+                    Point3="4,26.2294124242756" />
+                  <mssgle:LineSegment
+                    End="23.8285714529,26.2294124242756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.8285714529,26.2294124242756"
+                    Point2="27.8285714529,26.2294124242756"
+                    Point3="27.8285714529,30.2294124242756" />
+                  <mssgle:LineSegment
+                    End="27.8285714529,44.9588248485511" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="267.485714784446,322.32941543256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.000000255448,46.34117770393"
+              Start="0,0"
+              End="-35.000000255448,38.84117770393">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.170588851965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.170588851965"
+                    Point2="0,23.170588851965"
+                    Point3="-4,23.170588851965" />
+                  <mssgle:LineSegment
+                    End="-31.000000255448,23.170588851965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.000000255448,23.170588851965"
+                    Point2="-35.000000255448,23.170588851965"
+                    Point3="-35.000000255448,27.170588851965" />
+                  <mssgle:LineSegment
+                    End="-35.000000255448,38.84117770393" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="240.755102428333,51.7697477781271">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.8067240327277"
+              Start="0,0"
+              End="0,46.3067240327277">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.3067240327277" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="552.142858115993,225.085716603789">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.2285714528998,52.4588248485516"
+              Start="0,0"
+              End="16.2285714528998,44.9588248485516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2294124242758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2294124242758"
+                    Point2="0,26.2294124242758"
+                    Point3="4,26.2294124242758" />
+                  <mssgle:LineSegment
+                    End="12.2285714528998,26.2294124242758" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.2285714528998,26.2294124242758"
+                    Point2="16.2285714528998,26.2294124242758"
+                    Point3="16.2285714528998,30.2294124242758" />
+                  <mssgle:LineSegment
+                    End="16.2285714528998,44.9588248485516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 1]"
+          TopLeft="568.371429568892,319.144541452339">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44.6000002554479,46.3411777039298"
+              Start="0,0"
+              End="-44.6000002554479,38.8411777039298">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.170588851965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.170588851965"
+                    Point2="0,23.170588851965"
+                    Point3="-4,23.170588851965" />
+                  <mssgle:LineSegment
+                    End="-40.6000002554479,23.170588851965" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40.6000002554479,23.170588851965"
+                    Point2="-44.6000002554479,23.170588851965"
+                    Point3="-44.6000002554479,27.170588851965" />
+                  <mssgle:LineSegment
+                    End="-44.6000002554479,38.8411777039298" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 1]"
+          TopLeft="551.163266296636,50.369747778127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.0218500525066"
+              Start="0,0"
+              End="0,44.5218500525066">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5218500525066" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="552.214286450219,143.991597830634">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.494118773154"
+              Start="0,0"
+              End="0,31.994118773154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.994118773154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 2]"
+          TopLeft="911.27551043868,115.023536393554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.0470589307765"
+              Start="0,0"
+              End="0,41.5470589307765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5470589307765" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 2]"
+          TopLeft="918.25,206.070595324332">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 2]"
+          TopLeft="922,275.070595324332">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4 1]"
+          TopLeft="1217.12245027595,332.564714826765">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.46530549685826,34.1058834146866"
+              Start="0,0"
+              End="-8.46530549685826,26.6058834146866">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.0529417073433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.0529417073433"
+                    Point2="0,17.0529417073433"
+                    Point3="-4,17.0529417073433" />
+                  <mssgle:LineSegment
+                    End="-4.46530549685826,17.0529417073433" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.46530549685826,17.0529417073433"
+                    Point2="-8.46530549685826,17.0529417073433"
+                    Point3="-8.46530549685826,21.0529417073433" />
+                  <mssgle:LineSegment
+                    End="-8.46530549685826,26.6058834146866" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="908.77551043868,46.6705953243311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.752941069223"
+              Start="0,0"
+              End="0,19.252941069223">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.252941069223" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="1189.06530771075,44.2705931364899">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.8489790374924,50.1647071693187"
+              Start="0,0"
+              End="13.8489790374924,42.6647071693187">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0823535846594" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0823535846594"
+                    Point2="0,25.0823535846594"
+                    Point3="4,25.0823535846594" />
+                  <mssgle:LineSegment
+                    End="9.84897903749243,25.0823535846594" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.84897903749243,25.0823535846594"
+                    Point2="13.8489790374924,25.0823535846594"
+                    Point3="13.8489790374924,29.0823535846594" />
+                  <mssgle:LineSegment
+                    End="13.8489790374924,42.6647071693187" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="1202.71428674824,136.435300305809">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="19.7857132517597,50.2352928306814"
+              Start="0,0"
+              End="19.7857132517597,42.7352928306814">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1176464153407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1176464153407"
+                    Point2="0,25.1176464153407"
+                    Point3="4,25.1176464153407" />
+                  <mssgle:LineSegment
+                    End="15.7857132517597,25.1176464153407" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.7857132517597,25.1176464153407"
+                    Point2="19.7857132517597,25.1176464153407"
+                    Point3="19.7857132517597,29.1176464153407" />
+                  <mssgle:LineSegment
+                    End="19.7857132517597,42.7352928306814" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8 1]"
+          TopLeft="1219.81122513798,228.67059313649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.294121690275"
+              Start="0,0"
+              End="0,54.794121690275">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.794121690275" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 4]"
+          TopLeft="1511,219.67059313649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,30"
+              Start="0,0"
+              End="9.5,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="4,15" />
+                  <mssgle:LineSegment
+                    End="5.5,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,15"
+                    Point2="9.5,15"
+                    Point3="9.5,19" />
+                  <mssgle:LineSegment
+                    End="9.5,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 4]"
+          TopLeft="1510.75,133.67059313649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 4]"
+          TopLeft="1517.5,291.67059313649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7 1 2]"
+          TopLeft="1510,44.67059313649">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7977,67 +8576,6 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\CuaHang_Jupiter to Stage">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\CuaHang_Jupiter to Stage\Cua hang Stage"
-          TopLeft="223,141" />
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\CuaHang_Jupiter to Stage\Cua hang source"
-          TopLeft="226,25" />
-        <EdgeLayout
-          Id="Package\CuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
-          TopLeft="302.5,67">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,74"
-              Start="0,0"
-              End="0,66.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,66.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\CuaHang_Jupiter to Stage\Cua hang source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\CuaHang_Jupiter to Stage\Cua hang Stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\HoaDon_Jade to Stage">
     <LayoutInfo>
@@ -8303,253 +8841,408 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\LoaiCuaHang_Jupiter to Stage">
+    design-time-name="Package\SanPham_Jupiter to Stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage"
-          TopLeft="690.2,249" />
+          Size="152,42"
+          Id="Package\SanPham_Jupiter to Stage\SanPham Stage"
+          TopLeft="460,225.8" />
         <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source"
-          TopLeft="695.2,141" />
+          Size="158,42"
+          Id="Package\SanPham_Jupiter to Stage\SanPham Jupiter"
+          TopLeft="466,51" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SanPham_Jupiter to Stage\Them Nguon"
+          TopLeft="461,136" />
         <EdgeLayout
-          Id="Package\LoaiCuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
-          TopLeft="778.5,182.6">
+          Id="Package\SanPham_Jupiter to Stage.Paths[Derived Column Output]"
+          TopLeft="533.5,178">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.4"
+              EndConnector="0,47.8"
               Start="0,0"
-              End="0,58.9">
+              End="0,40.3">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.9" />
+                    End="0,40.3" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
+          TopLeft="545,93">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14,43"
+              Start="0,0"
+              End="-14,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="-4,21.5" />
+                  <mssgle:LineSegment
+                    End="-10,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10,21.5"
+                    Point2="-14,21.5"
+                    Point3="-14,25.5" />
+                  <mssgle:LineSegment
+                    End="-14,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\LoaiSanPham_Jupiter to Stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="171.2,41.6"
+          Size="140,42"
+          Id="Package\LoaiSanPham_Jupiter to Stage\Them Nguon"
+          TopLeft="112,159" />
+        <NodeLayout
+          Size="171,42"
           Id="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage"
-          TopLeft="469,232" />
+          TopLeft="110,276" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177,42"
           Id="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter"
-          TopLeft="474,87" />
+          TopLeft="102,61" />
         <EdgeLayout
-          Id="Package\LoaiSanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
-          TopLeft="558.5,128.6">
+          Id="Package\LoaiSanPham_Jupiter to Stage.Paths[Derived Column Output]"
+          TopLeft="182,201">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,103.4"
+              EndConnector="13.5,75"
               Start="0,0"
-              End="0,95.9">
+              End="13.5,67.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,95.9" />
+                    End="0,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5"
+                    Point2="0,37.5"
+                    Point3="4,37.5" />
+                  <mssgle:LineSegment
+                    End="9.5,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,37.5"
+                    Point2="13.5,37.5"
+                    Point3="13.5,41.5" />
+                  <mssgle:LineSegment
+                    End="13.5,67.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
+          TopLeft="190.5,103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.5,56"
+              Start="0,0"
+              End="-8.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="-4,28" />
+                  <mssgle:LineSegment
+                    End="-4.5,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.5,28"
+                    Point2="-8.5,28"
+                    Point3="-8.5,32" />
+                  <mssgle:LineSegment
+                    End="-8.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Jupiter">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiSanPham_Jupiter to Stage\LoaiSanPham Stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CuaHang_Jupiter to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\CuaHang_Jupiter to Stage\Cua hang Stage"
+          TopLeft="240,196" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\CuaHang_Jupiter to Stage\Cua hang source"
+          TopLeft="226,26" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\CuaHang_Jupiter to Stage\Them Nguon"
+          TopLeft="260,119" />
+        <EdgeLayout
+          Id="Package\CuaHang_Jupiter to Stage.Paths[Derived Column Output]"
+          TopLeft="330,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13,35"
+              Start="0,0"
+              End="-13,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="-4,17.5" />
+                  <mssgle:LineSegment
+                    End="-9,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9,17.5"
+                    Point2="-13,17.5"
+                    Point3="-13,21.5" />
+                  <mssgle:LineSegment
+                    End="-13,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+          TopLeft="305,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25,51"
+              Start="0,0"
+              End="25,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="4,25.5" />
+                  <mssgle:LineSegment
+                    End="21,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21,25.5"
+                    Point2="25,25.5"
+                    Point3="25,29.5" />
+                  <mssgle:LineSegment
+                    End="25,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\LoaiCuaHang_Jupiter to Stage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,42"
+          Id="Package\LoaiCuaHang_Jupiter to Stage\Them Nguon"
+          TopLeft="371,105" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang stage"
+          TopLeft="368.2,196" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\LoaiCuaHang_Jupiter to Stage\LoaiCuaHang source"
+          TopLeft="357.2,15" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Jupiter to Stage.Paths[Derived Column Output]"
+          TopLeft="441,147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.7,49"
+              Start="0,0"
+              End="11.7,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="7.69999999999999,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.69999999999999,24.5"
+                    Point2="11.7,24.5"
+                    Point3="11.7,28.5" />
+                  <mssgle:LineSegment
+                    End="11.7,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Jupiter to Stage.Paths[OLE DB Source Output]"
+          TopLeft="442.6,57">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\Nuoc_Jupiter to Stage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="132,41.6"
+          Size="140,42"
+          Id="Package\Nuoc_Jupiter to Stage\Them Nguon"
+          TopLeft="479,94" />
+        <NodeLayout
+          Size="132,42"
           Id="Package\Nuoc_Jupiter to Stage\Nuoc stage"
-          TopLeft="556,164" />
+          TopLeft="482,185" />
         <NodeLayout
-          Size="136.8,41.6"
+          Size="137,42"
           Id="Package\Nuoc_Jupiter to Stage\Nuoc source"
-          TopLeft="561,56" />
+          TopLeft="456,16" />
+        <EdgeLayout
+          Id="Package\Nuoc_Jupiter to Stage.Paths[Derived Column Output]"
+          TopLeft="548.5,136">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Nuoc_Jupiter to Stage.Paths[OLE DB Source Output]"
-          TopLeft="625.7,97.6">
+          TopLeft="524.5,58">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66.4"
+              EndConnector="24.5,36"
               Start="0,0"
-              End="0,58.9">
+              End="24.5,28.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.9" />
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="20.5,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5,18"
+                    Point2="24.5,18"
+                    Point3="24.5,22" />
+                  <mssgle:LineSegment
+                    End="24.5,28.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Nuoc_Jupiter to Stage\Nuoc source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Nuoc_Jupiter to Stage\Nuoc stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\SanPham_Jupiter to Stage">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\SanPham_Jupiter to Stage\SanPham Stage"
-          TopLeft="489,228.8" />
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\SanPham_Jupiter to Stage\SanPham Jupiter"
-          TopLeft="486,74" />
-        <EdgeLayout
-          Id="Package\SanPham_Jupiter to Stage.Paths[OLE DB Source Output]"
-          TopLeft="564.9,115.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,113.2"
-              Start="0,0"
-              End="0,105.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,105.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SanPham_Jupiter to Stage\SanPham Jupiter">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SanPham_Jupiter to Stage\SanPham Stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
