@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{5BA39299-DE4C-45D6-AE6F-BCD07172702F}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{E46CE841-0577-404E-A7F7-C6DDADE573B9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,6 +38,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=.;Initial Catalog=NDS_Demo;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DDD92DA3-52A6-426E-AE09-FA6DD43C859A}"
+      DTS:ObjectName="LocalHost.Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -155,7 +167,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from LoaiSanPham_Jupiter_Stage</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from LoaiSanPham_Stage</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -181,8 +193,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Get LoaiSP.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ADMIN.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[ADMIN.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -240,6 +252,17 @@
                       lineageId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Output].Columns[TrangThai]"
                       name="TrangThai"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Output].ExternalColumns[Nguon]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -265,8 +288,16 @@
                       name="NgayCapNhat" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Output].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -300,9 +331,18 @@
                       name="NgayCapNhat" />
                     <outputColumn
                       refId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       lineageId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
                       name="TrangThai" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Error Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Error Output].Columns[Nguon]"
+                      name="Nguon" />
                     <outputColumn
                       refId="Package\Data Flow Task\Get LoaiSP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -669,7 +709,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\Data Flow Task"
           TopLeft="195,53" />
       </GraphLayout>
@@ -681,13 +721,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="130,42"
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="354,334" />
+        <NodeLayout
+          Size="129.6,41.6"
           Id="Package\Data Flow Task\Get LoaiSP"
           TopLeft="365,53" />
         <NodeLayout
-          Size="154,42"
+          Size="153.6,41.6"
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="354,139" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Data Flow Task\Tim MaLoaiSanPhamSK"
+          TopLeft="387,230" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="430.5,95">
@@ -702,48 +750,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="354,334" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Data Flow Task\Tim MaLoaiSanPhamSK"
-          TopLeft="387,230" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="431,181">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="50.5,49"
-              Start="0,0"
-              End="50.5,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.5"
-                    Point2="0,24.5"
-                    Point3="4,24.5" />
-                  <mssgle:LineSegment
-                    End="46.5,24.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="46.5,24.5"
-                    Point2="50.5,24.5"
-                    Point3="50.5,28.5" />
-                  <mssgle:LineSegment
-                    End="50.5,41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -788,17 +794,43 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="431,181">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.5,49"
+              Start="0,0"
+              End="50.5,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="46.5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.5,24.5"
+                    Point2="50.5,24.5"
+                    Point3="50.5,28.5" />
+                  <mssgle:LineSegment
+                    End="50.5,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Get LoaiSP">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\OLE DB Destination">
     <Properties>
@@ -813,12 +845,20 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Get LoaiSP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Tim MaLoaiSanPhamSK">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -828,7 +868,7 @@
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

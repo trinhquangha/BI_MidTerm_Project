@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="CheckSource_NDSToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{3C1DD52F-3A87-454F-8F17-E28ED49DB1D5}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{C765F305-4D27-42AD-99D4-AD0AF1B7AACD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3574,19 +3574,20 @@ where [refTable].[SourceName] = ?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\HoaDon_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[TrangThai]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="TrangThai"
-                      externalMetadataColumnId="Package\HoaDon_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\HoaDon_Stage to NDS\Sort.Outputs[Sort Output].Columns[TrangThai]" />
-                    <inputColumn
                       refId="Package\HoaDon_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\HoaDon_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\HoaDon_Stage to NDS\Sort.Outputs[Sort Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\HoaDon_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\HoaDon_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\HoaDon_Stage to NDS\Sort.Outputs[Sort Output].Columns[Nguon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8142,19 +8143,20 @@ where [refTable].[SourceName] = ?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LoaiSanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[TrangThai]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="TrangThai"
-                      externalMetadataColumnId="Package\LoaiSanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\LoaiSanPham_Stage to NDS\Sort.Outputs[Sort Output].Columns[TrangThai]" />
-                    <inputColumn
                       refId="Package\LoaiSanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\LoaiSanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\LoaiSanPham_Stage to NDS\Sort.Outputs[Sort Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\LoaiSanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\LoaiSanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\LoaiSanPham_Stage to NDS\Sort.Outputs[Sort Output].Columns[Nguon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -10885,19 +10887,20 @@ where [refTable].[SourceName] = ?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\SanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[TrangThai]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="TrangThai"
-                      externalMetadataColumnId="Package\SanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\SanPham_Stage to NDS\Sort.Outputs[Sort Output].Columns[TrangThai]" />
-                    <inputColumn
                       refId="Package\SanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\SanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\SanPham_Stage to NDS\Sort.Outputs[Sort Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\SanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\SanPham_Stage to NDS\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\SanPham_Stage to NDS\Sort.Outputs[Sort Output].Columns[Nguon]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -11826,35 +11829,35 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\ChiTietHoaDon_Stage to NDS"
           TopLeft="60,157.88235431394" />
         <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\CuaHang_Stage to NDS"
           TopLeft="73.5714288025486,60" />
         <NodeLayout
-          Size="185,42"
+          Size="184.8,41.6"
           Id="Package\HoaDon_Stage to NDS"
           TopLeft="336.428576136122,154.117647873902" />
         <NodeLayout
-          Size="201,42"
+          Size="200.8,41.6"
           Id="Package\KhachHang_Stage to NDS"
           TopLeft="325.714290239373,320.423531470909" />
         <NodeLayout
-          Size="210,42"
+          Size="209.6,41.6"
           Id="Package\LoaiCuaHang_Stage to NDS"
           TopLeft="322.857147333573,64.3647055284375" />
         <NodeLayout
-          Size="210,42"
+          Size="209.6,41.6"
           Id="Package\LoaiSanPham_Stage to NDS"
           TopLeft="80.000000340598,240.470590766326" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Nuoc_Stage to NDS"
           TopLeft="92.857143757295,322.070591495606" />
         <NodeLayout
-          Size="191,42"
+          Size="191.2,41.6"
           Id="Package\SanPham_Stage to NDS"
           TopLeft="332.142861777423,230.529414156316" />
         <EdgeLayout
@@ -12032,29 +12035,105 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\ChiTietHoaDon_Stage to NDS\OLE DB Command"
           TopLeft="277.692307692308,390.307692307692" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\ChiTietHoaDon_Stage to NDS\OLE DB Destination"
           TopLeft="568.23076923077,394.769230769231" />
         <NodeLayout
-          Size="162,42"
+          Size="107.2,41.6"
+          Id="Package\ChiTietHoaDon_Stage to NDS\Sort 1"
+          TopLeft="589,194" />
+        <NodeLayout
+          Size="161.6,41.6"
           Id="Package\ChiTietHoaDon_Stage to NDS\Derived Column 1"
           TopLeft="573.615384615385,290" />
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\ChiTietHoaDon_Stage to NDS\Lookup"
           TopLeft="440.230769230769,97.6923076923077" />
         <NodeLayout
-          Size="207,42"
+          Size="207.2,41.6"
           Id="Package\ChiTietHoaDon_Stage to NDS\Load ChiTietHoaDon_Stage"
           TopLeft="398.846153846154,13.8461538461539" />
         <NodeLayout
-          Size="153,42"
+          Size="97.6,41.6"
+          Id="Package\ChiTietHoaDon_Stage to NDS\Sort"
+          TopLeft="319,193" />
+        <NodeLayout
+          Size="152.8,41.6"
           Id="Package\ChiTietHoaDon_Stage to NDS\Derived Column"
           TopLeft="282.307692307692,283.538461538462" />
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Sort Output1]"
+          TopLeft="642.5,236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.115384615385,54"
+              Start="0,0"
+              End="12.115384615385,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="4,27" />
+                  <mssgle:LineSegment
+                    End="8.11538461538498,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.11538461538498,27"
+                    Point2="12.115384615385,27"
+                    Point3="12.115384615385,31" />
+                  <mssgle:LineSegment
+                    End="12.115384615385,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Sort Output]"
+          TopLeft="368,235">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.19230769230802,48.538461538462"
+              Start="0,0"
+              End="-9.19230769230802,41.038461538462">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.269230769231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.269230769231"
+                    Point2="0,24.269230769231"
+                    Point3="-4,24.269230769231" />
+                  <mssgle:LineSegment
+                    End="-5.19230769230802,24.269230769231" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.19230769230802,24.269230769231"
+                    Point2="-9.19230769230802,24.269230769231"
+                    Point3="-9.19230769230802,28.269230769231" />
+                  <mssgle:LineSegment
+                    End="-9.19230769230802,41.038461538462" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\ChiTietHoaDon_Stage to NDS.Paths[OLE DB Source Output]"
           TopLeft="499.538461538461,55.4461538461539">
@@ -12075,6 +12154,78 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="514.230769230769,139.692307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="128.269230769231,54.3076923076923"
+              Start="0,0"
+              End="128.269230769231,46.8076923076923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1780104712042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1780104712042"
+                    Point2="0,22.1780104712042"
+                    Point3="4,22.1780104712042" />
+                  <mssgle:LineSegment
+                    End="124.269230769231,22.1780104712042" />
+                  <mssgle:CubicBezierSegment
+                    Point1="124.269230769231,22.1780104712042"
+                    Point2="128.269230769231,22.1780104712042"
+                    Point3="128.269230769231,26.1780104712042" />
+                  <mssgle:LineSegment
+                    End="128.269230769231,46.8076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="8.32822866586547,27.1780104712042,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="496.730769230769,139.692307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.730769230769,53.3076923076923"
+              Start="0,0"
+              End="-128.730769230769,45.8076923076923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.6538461538462"
+                    Point2="0,26.6538461538462"
+                    Point3="-4,26.6538461538462" />
+                  <mssgle:LineSegment
+                    End="-124.730769230769,26.6538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.730769230769,26.6538461538462"
+                    Point2="-128.730769230769,26.6538461538462"
+                    Point3="-128.730769230769,30.6538461538462" />
+                  <mssgle:LineSegment
+                    End="-128.730769230769,45.8076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-112.556771334135,31.6538461538462,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12121,154 +12272,6 @@ where [refTable].[SourceName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\ChiTietHoaDon_Stage to NDS\Sort"
-          TopLeft="319,193" />
-        <EdgeLayout
-          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="496.730769230769,139.692307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-128.730769230769,53.3076923076923"
-              Start="0,0"
-              End="-128.730769230769,45.8076923076923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.6538461538462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.6538461538462"
-                    Point2="0,26.6538461538462"
-                    Point3="-4,26.6538461538462" />
-                  <mssgle:LineSegment
-                    End="-124.730769230769,26.6538461538462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-124.730769230769,26.6538461538462"
-                    Point2="-128.730769230769,26.6538461538462"
-                    Point3="-128.730769230769,30.6538461538462" />
-                  <mssgle:LineSegment
-                    End="-128.730769230769,45.8076923076923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-112.556771334135,31.6538461538462,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Sort Output]"
-          TopLeft="368,235">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.19230769230802,48.538461538462"
-              Start="0,0"
-              End="-9.19230769230802,41.038461538462">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.269230769231" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.269230769231"
-                    Point2="0,24.269230769231"
-                    Point3="-4,24.269230769231" />
-                  <mssgle:LineSegment
-                    End="-5.19230769230802,24.269230769231" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.19230769230802,24.269230769231"
-                    Point2="-9.19230769230802,24.269230769231"
-                    Point3="-9.19230769230802,28.269230769231" />
-                  <mssgle:LineSegment
-                    End="-9.19230769230802,41.038461538462" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\ChiTietHoaDon_Stage to NDS\Sort 1"
-          TopLeft="589,194" />
-        <EdgeLayout
-          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="514.230769230769,139.692307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="128.269230769231,54.3076923076923"
-              Start="0,0"
-              End="128.269230769231,46.8076923076923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.1780104712042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.1780104712042"
-                    Point2="0,22.1780104712042"
-                    Point3="4,22.1780104712042" />
-                  <mssgle:LineSegment
-                    End="124.269230769231,22.1780104712042" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124.269230769231,22.1780104712042"
-                    Point2="128.269230769231,22.1780104712042"
-                    Point3="128.269230769231,26.1780104712042" />
-                  <mssgle:LineSegment
-                    End="128.269230769231,46.8076923076923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="8.32822866586547,27.1780104712042,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Sort Output1]"
-          TopLeft="642.5,236">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="12.115384615385,54"
-              Start="0,0"
-              End="12.115384615385,46.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23"
-                    Point2="0,27"
-                    Point3="4,27" />
-                  <mssgle:LineSegment
-                    End="8.11538461538498,27" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8.11538461538498,27"
-                    Point2="12.115384615385,27"
-                    Point3="12.115384615385,31" />
-                  <mssgle:LineSegment
-                    End="12.115384615385,46.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -12291,7 +12294,7 @@ where [refTable].[SourceName] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -12301,7 +12304,7 @@ where [refTable].[SourceName] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12327,135 +12330,69 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\CuaHang_Stage to NDS\OLE DB Destination"
           TopLeft="542.538461538462,411.138461538462" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\CuaHang_Stage to NDS\Derived Column 1"
           TopLeft="540.615384615385,311.846153846154" />
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\CuaHang_Stage to NDS\Lookup"
           TopLeft="440.230769230769,97.6923076923077" />
         <NodeLayout
-          Size="179,42"
+          Size="97.6,41.6"
+          Id="Package\CuaHang_Stage to NDS\Sort"
+          TopLeft="279,214" />
+        <NodeLayout
+          Size="179.2,41.6"
           Id="Package\CuaHang_Stage to NDS\Load CuaHang_Stage"
           TopLeft="404.461538461538,16.1538461538462" />
         <NodeLayout
-          Size="153,42"
+          Size="107.2,41.6"
+          Id="Package\CuaHang_Stage to NDS\Sort 1"
+          TopLeft="584,214" />
+        <NodeLayout
+          Size="152.8,41.6"
           Id="Package\CuaHang_Stage to NDS\Derived Column"
           TopLeft="274.307692307692,311.538461538462" />
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\CuaHang_Stage to NDS\OLE DB Command"
           TopLeft="269.692307692308,418.307692307692" />
         <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="495.346153846154,57.7538461538462">
+          Id="Package\CuaHang_Stage to NDS.Paths[Sort Output1]"
+          TopLeft="637.5,256">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.9384615384615"
+              EndConnector="-15.884615384615,55.846153846154"
               Start="0,0"
-              End="0,32.4384615384615">
+              End="-15.884615384615,48.346153846154">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.4384615384615" />
+                    End="0,23.923076923077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.923076923077"
+                    Point2="0,27.923076923077"
+                    Point3="-4,27.923076923077" />
+                  <mssgle:LineSegment
+                    End="-11.884615384615,27.923076923077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.884615384615,27.923076923077"
+                    Point2="-15.884615384615,27.923076923077"
+                    Point3="-15.884615384615,31.923076923077" />
+                  <mssgle:LineSegment
+                    End="-15.884615384615,48.346153846154" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="624.826923076924,353.846153846154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.292307692308"
-              Start="0,0"
-              End="0,49.792307692308">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.792307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-8,16.896153846154,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="351.4,353.138461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.1692307692308"
-              Start="0,0"
-              End="0,57.6692307692308">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.6692307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\CuaHang_Stage to NDS\Sort"
-          TopLeft="279,214" />
-        <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="479.230769230769,139.692307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-151.230769230769,74.3076923076923"
-              Start="0,0"
-              End="-151.230769230769,66.8076923076923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.3455497382199" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.3455497382199"
-                    Point2="0,30.3455497382199"
-                    Point3="-4,30.3455497382199" />
-                  <mssgle:LineSegment
-                    End="-147.230769230769,30.3455497382199" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-147.230769230769,30.3455497382199"
-                    Point2="-151.230769230769,30.3455497382199"
-                    Point3="-151.230769230769,34.3455497382199" />
-                  <mssgle:LineSegment
-                    End="-151.230769230769,66.8076923076923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-123.806771334135,35.3455497382199,96.3827734375,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12492,10 +12429,28 @@ where [refTable].[SourceName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\CuaHang_Stage to NDS\Sort 1"
-          TopLeft="584,214" />
+        <EdgeLayout
+          Id="Package\CuaHang_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="495.346153846154,57.7538461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.9384615384615"
+              Start="0,0"
+              End="0,32.4384615384615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4384615384615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\CuaHang_Stage to NDS.Paths[Lookup No Match Output]"
           TopLeft="514.230769230769,139.692307692308">
@@ -12533,31 +12488,77 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[Sort Output1]"
-          TopLeft="637.5,256">
+          Id="Package\CuaHang_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="479.230769230769,139.692307692308">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-15.884615384615,55.846153846154"
+              EndConnector="-151.230769230769,74.3076923076923"
               Start="0,0"
-              End="-15.884615384615,48.346153846154">
+              End="-151.230769230769,66.8076923076923">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.923076923077" />
+                    End="0,26.3455497382199" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.923076923077"
-                    Point2="0,27.923076923077"
-                    Point3="-4,27.923076923077" />
+                    Point1="0,26.3455497382199"
+                    Point2="0,30.3455497382199"
+                    Point3="-4,30.3455497382199" />
                   <mssgle:LineSegment
-                    End="-11.884615384615,27.923076923077" />
+                    End="-147.230769230769,30.3455497382199" />
                   <mssgle:CubicBezierSegment
-                    Point1="-11.884615384615,27.923076923077"
-                    Point2="-15.884615384615,27.923076923077"
-                    Point3="-15.884615384615,31.923076923077" />
+                    Point1="-147.230769230769,30.3455497382199"
+                    Point2="-151.230769230769,30.3455497382199"
+                    Point3="-151.230769230769,34.3455497382199" />
                   <mssgle:LineSegment
-                    End="-15.884615384615,48.346153846154" />
+                    End="-151.230769230769,66.8076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-123.806771334135,35.3455497382199,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CuaHang_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="624.826923076924,353.846153846154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.292307692308"
+              Start="0,0"
+              End="0,49.792307692308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.792307692308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CuaHang_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="351.4,353.138461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.1692307692308"
+              Start="0,0"
+              End="0,57.6692307692308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.6692307692308" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -12624,29 +12625,105 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\HoaDon_Stage to NDS\OLE DB Command"
           TopLeft="286,433.8" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\HoaDon_Stage to NDS\OLE DB Destination"
           TopLeft="581,445.2" />
         <NodeLayout
-          Size="153,42"
+          Size="107.2,41.6"
+          Id="Package\HoaDon_Stage to NDS\Sort 1"
+          TopLeft="585,252" />
+        <NodeLayout
+          Size="152.8,41.6"
           Id="Package\HoaDon_Stage to NDS\Derived Column 1"
           TopLeft="573,342.8" />
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\HoaDon_Stage to NDS\Lookup"
           TopLeft="447,168" />
         <NodeLayout
-          Size="174,42"
+          Size="174.4,41.6"
           Id="Package\HoaDon_Stage to NDS\Load HoaDon_Stage"
           TopLeft="406,58" />
         <NodeLayout
-          Size="153,42"
+          Size="97.6,41.6"
+          Id="Package\HoaDon_Stage to NDS\Sort"
+          TopLeft="323,257" />
+        <NodeLayout
+          Size="152.8,41.6"
           Id="Package\HoaDon_Stage to NDS\Derived Column"
           TopLeft="281,347" />
+        <EdgeLayout
+          Id="Package\HoaDon_Stage to NDS.Paths[Sort Output1]"
+          TopLeft="638.5,294">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11,48.8"
+              Start="0,0"
+              End="11,41.3">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4"
+                    Point2="0,24.4"
+                    Point3="4,24.4" />
+                  <mssgle:LineSegment
+                    End="7,24.4" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7,24.4"
+                    Point2="11,24.4"
+                    Point3="11,28.4" />
+                  <mssgle:LineSegment
+                    End="11,41.3" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HoaDon_Stage to NDS.Paths[Sort Output]"
+          TopLeft="372,299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,48"
+              Start="0,0"
+              End="-14.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="-4,24" />
+                  <mssgle:LineSegment
+                    End="-10.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,24"
+                    Point2="-14.5,24"
+                    Point3="-14.5,28" />
+                  <mssgle:LineSegment
+                    End="-14.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\HoaDon_Stage to NDS.Paths[OLE DB Source Output]"
           TopLeft="493.2,99.6">
@@ -12679,6 +12756,78 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HoaDon_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="521,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.5,42"
+              Start="0,0"
+              End="117.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.151832460733" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.151832460733"
+                    Point2="0,17.151832460733"
+                    Point3="4,17.151832460733" />
+                  <mssgle:LineSegment
+                    End="113.5,17.151832460733" />
+                  <mssgle:CubicBezierSegment
+                    Point1="113.5,17.151832460733"
+                    Point2="117.5,17.151832460733"
+                    Point3="117.5,21.151832460733" />
+                  <mssgle:LineSegment
+                    End="117.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="2.94361328125,22.151832460733,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HoaDon_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="486,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-114,47"
+              Start="0,0"
+              End="-114,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.1937172774869" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.1937172774869"
+                    Point2="0,19.1937172774869"
+                    Point3="-4,19.1937172774869" />
+                  <mssgle:LineSegment
+                    End="-110,19.1937172774869" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-110,19.1937172774869"
+                    Point2="-114,19.1937172774869"
+                    Point3="-114,23.1937172774869" />
+                  <mssgle:LineSegment
+                    End="-114,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-105.19138671875,24.1937172774869,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12749,154 +12898,6 @@ where [refTable].[SourceName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\HoaDon_Stage to NDS\Sort"
-          TopLeft="323,257" />
-        <EdgeLayout
-          Id="Package\HoaDon_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="486,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-114,47"
-              Start="0,0"
-              End="-114,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.1937172774869" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.1937172774869"
-                    Point2="0,19.1937172774869"
-                    Point3="-4,19.1937172774869" />
-                  <mssgle:LineSegment
-                    End="-110,19.1937172774869" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-110,19.1937172774869"
-                    Point2="-114,19.1937172774869"
-                    Point3="-114,23.1937172774869" />
-                  <mssgle:LineSegment
-                    End="-114,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-105.19138671875,24.1937172774869,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HoaDon_Stage to NDS.Paths[Sort Output]"
-          TopLeft="372,299">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14.5,48"
-              Start="0,0"
-              End="-14.5,40.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20"
-                    Point2="0,24"
-                    Point3="-4,24" />
-                  <mssgle:LineSegment
-                    End="-10.5,24" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.5,24"
-                    Point2="-14.5,24"
-                    Point3="-14.5,28" />
-                  <mssgle:LineSegment
-                    End="-14.5,40.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\HoaDon_Stage to NDS\Sort 1"
-          TopLeft="585,252" />
-        <EdgeLayout
-          Id="Package\HoaDon_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="521,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="117.5,42"
-              Start="0,0"
-              End="117.5,34.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.151832460733" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.151832460733"
-                    Point2="0,17.151832460733"
-                    Point3="4,17.151832460733" />
-                  <mssgle:LineSegment
-                    End="113.5,17.151832460733" />
-                  <mssgle:CubicBezierSegment
-                    Point1="113.5,17.151832460733"
-                    Point2="117.5,17.151832460733"
-                    Point3="117.5,21.151832460733" />
-                  <mssgle:LineSegment
-                    End="117.5,34.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="2.94361328125,22.151832460733,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\HoaDon_Stage to NDS.Paths[Sort Output1]"
-          TopLeft="638.5,294">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11,48.8"
-              Start="0,0"
-              End="11,41.3">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.4" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.4"
-                    Point2="0,24.4"
-                    Point3="4,24.4" />
-                  <mssgle:LineSegment
-                    End="7,24.4" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7,24.4"
-                    Point2="11,24.4"
-                    Point3="11,28.4" />
-                  <mssgle:LineSegment
-                    End="11,41.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -12955,29 +12956,81 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="165,42"
+          Size="107.2,41.6"
+          Id="Package\KhachHang_Stage to NDS\Sort 1"
+          TopLeft="616,204" />
+        <NodeLayout
+          Size="164.8,41.6"
           Id="Package\KhachHang_Stage to NDS\OLE DB Command"
           TopLeft="285.692307692308,425.307692307692" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\KhachHang_Stage to NDS\Derived Column 1"
           TopLeft="580.615384615385,303.846153846154" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\KhachHang_Stage to NDS\OLE DB Destination"
           TopLeft="567.538461538462,419.138461538462" />
         <NodeLayout
-          Size="190,42"
+          Size="190.4,41.6"
           Id="Package\KhachHang_Stage to NDS\Load KhachHang_Stage"
           TopLeft="404.461538461538,16.1538461538462" />
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\KhachHang_Stage to NDS\Lookup"
           TopLeft="440.230769230769,97.6923076923077" />
         <NodeLayout
-          Size="153,42"
+          Size="152.8,41.6"
           Id="Package\KhachHang_Stage to NDS\Derived Column"
           TopLeft="290.307692307692,318.538461538462" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\KhachHang_Stage to NDS\Sort"
+          TopLeft="317,201" />
+        <EdgeLayout
+          Id="Package\KhachHang_Stage to NDS.Paths[Sort Output1]"
+          TopLeft="665.557692307692,246">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.846153846154"
+              Start="0,0"
+              End="0,50.346153846154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.346153846154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\KhachHang_Stage to NDS.Paths[Sort Output]"
+          TopLeft="366.403846153846,243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.538461538462"
+              Start="0,0"
+              End="0,68.038461538462">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.038461538462" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\KhachHang_Stage to NDS.Paths[OLE DB Source Output]"
           TopLeft="498.146153846153,57.7538461538462">
@@ -12998,6 +13051,78 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\KhachHang_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="514.230769230769,139.692307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.269230769231,64.3076923076923"
+              Start="0,0"
+              End="155.269230769231,56.8076923076923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.261780104712" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.261780104712"
+                    Point2="0,26.261780104712"
+                    Point3="4,26.261780104712" />
+                  <mssgle:LineSegment
+                    End="151.269230769231,26.261780104712" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.269230769231,26.261780104712"
+                    Point2="155.269230769231,26.261780104712"
+                    Point3="155.269230769231,30.261780104712" />
+                  <mssgle:LineSegment
+                    End="155.269230769231,56.8076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="21.8282286658655,31.261780104712,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="496.730769230769,139.692307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-130.730769230769,61.3076923076923"
+              Start="0,0"
+              End="-130.730769230769,53.8076923076923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.6538461538462"
+                    Point2="0,30.6538461538462"
+                    Point3="-4,30.6538461538462" />
+                  <mssgle:LineSegment
+                    End="-126.730769230769,30.6538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-126.730769230769,30.6538461538462"
+                    Point2="-130.730769230769,30.6538461538462"
+                    Point3="-130.730769230769,34.6538461538462" />
+                  <mssgle:LineSegment
+                    End="-130.730769230769,53.8076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-113.556771334135,35.6538461538462,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13048,130 +13173,6 @@ where [refTable].[SourceName] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,57.6692307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\KhachHang_Stage to NDS\Sort"
-          TopLeft="317,201" />
-        <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="496.730769230769,139.692307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-130.730769230769,61.3076923076923"
-              Start="0,0"
-              End="-130.730769230769,53.8076923076923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.6538461538462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.6538461538462"
-                    Point2="0,30.6538461538462"
-                    Point3="-4,30.6538461538462" />
-                  <mssgle:LineSegment
-                    End="-126.730769230769,30.6538461538462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-126.730769230769,30.6538461538462"
-                    Point2="-130.730769230769,30.6538461538462"
-                    Point3="-130.730769230769,34.6538461538462" />
-                  <mssgle:LineSegment
-                    End="-130.730769230769,53.8076923076923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-113.556771334135,35.6538461538462,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Sort Output]"
-          TopLeft="366.403846153846,243">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,75.538461538462"
-              Start="0,0"
-              End="0,68.038461538462">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,68.038461538462" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\KhachHang_Stage to NDS\Sort 1"
-          TopLeft="616,204" />
-        <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="514.230769230769,139.692307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="155.269230769231,64.3076923076923"
-              Start="0,0"
-              End="155.269230769231,56.8076923076923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.261780104712" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.261780104712"
-                    Point2="0,26.261780104712"
-                    Point3="4,26.261780104712" />
-                  <mssgle:LineSegment
-                    End="151.269230769231,26.261780104712" />
-                  <mssgle:CubicBezierSegment
-                    Point1="151.269230769231,26.261780104712"
-                    Point2="155.269230769231,26.261780104712"
-                    Point3="155.269230769231,30.261780104712" />
-                  <mssgle:LineSegment
-                    End="155.269230769231,56.8076923076923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="21.8282286658655,31.261780104712,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Sort Output1]"
-          TopLeft="665.557692307692,246">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.846153846154"
-              Start="0,0"
-              End="0,50.346153846154">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.346153846154" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13238,145 +13239,57 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="165,42"
+          Size="97.6,41.6"
+          Id="Package\LoaiCuaHang_Stage to NDS\Sort"
+          TopLeft="304,174" />
+        <NodeLayout
+          Size="164.8,41.6"
           Id="Package\LoaiCuaHang_Stage to NDS\OLE DB Command"
           TopLeft="274.692307692308,390.307692307692" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\LoaiCuaHang_Stage to NDS\OLE DB Destination"
-          TopLeft="538.538461538462,391.138461538462" />
+          TopLeft="538.538461538462,390.138461538462" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\LoaiCuaHang_Stage to NDS\Derived Column 1"
           TopLeft="551.615384615385,275.846153846154" />
         <NodeLayout
-          Size="198,42"
+          Size="107.2,41.6"
+          Id="Package\LoaiCuaHang_Stage to NDS\Sort 1"
+          TopLeft="586,187" />
+        <NodeLayout
+          Size="198.4,41.6"
           Id="Package\LoaiCuaHang_Stage to NDS\Load LoaiCuaHang_Stage"
           TopLeft="404.461538461538,16.1538461538462" />
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\LoaiCuaHang_Stage to NDS\Lookup"
           TopLeft="440.230769230769,97.6923076923077" />
         <NodeLayout
-          Size="153,42"
+          Size="152.8,41.6"
           Id="Package\LoaiCuaHang_Stage to NDS\Derived Column"
           TopLeft="279.307692307692,283.538461538462" />
         <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="500.146153846153,57.7538461538462">
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Sort Output1]"
+          TopLeft="636.057692307692,229">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39.9384615384615"
+              EndConnector="0,46.846153846154"
               Start="0,0"
-              End="0,32.4384615384615">
+              End="0,39.346153846154">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.4384615384615" />
+                    End="0,39.346153846154" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="632.815384615385,317.446153846154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.07692307692332,73.6923076923077"
-              Start="0,0"
-              End="-9.07692307692332,66.1923076923077">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.8461538461538"
-                    Point2="0,36.8461538461538"
-                    Point3="-4,36.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-5.07692307692332,36.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.07692307692332,36.8461538461538"
-                    Point2="-9.07692307692332,36.8461538461538"
-                    Point3="-9.07692307692332,40.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-9.07692307692332,66.1923076923077" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="356.4,325.138461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.1692307692308"
-              Start="0,0"
-              End="0,57.6692307692308">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.6692307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\LoaiCuaHang_Stage to NDS\Sort"
-          TopLeft="304,174" />
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="496.730769230769,139.692307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-143.730769230769,34.3076923076923"
-              Start="0,0"
-              End="-143.730769230769,26.8076923076923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,13.1538461538462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,13.1538461538462"
-                    Point2="0,17.1538461538462"
-                    Point3="-4,17.1538461538462" />
-                  <mssgle:LineSegment
-                    End="-139.730769230769,17.1538461538462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-139.730769230769,17.1538461538462"
-                    Point2="-143.730769230769,17.1538461538462"
-                    Point3="-143.730769230769,21.1538461538462" />
-                  <mssgle:LineSegment
-                    End="-143.730769230769,26.8076923076923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-120.056771334135,22.1538461538462,96.3827734375,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13401,10 +13314,28 @@ where [refTable].[SourceName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\LoaiCuaHang_Stage to NDS\Sort 1"
-          TopLeft="586,187" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="500.146153846153,57.7538461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.9384615384615"
+              Start="0,0"
+              End="0,32.4384615384615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4384615384615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\LoaiCuaHang_Stage to NDS.Paths[Lookup No Match Output]"
           TopLeft="514.230769230769,139.692307692308">
@@ -13442,19 +13373,89 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Sort Output1]"
-          TopLeft="636.057692307692,229">
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="496.730769230769,139.692307692308">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.846153846154"
+              EndConnector="-143.730769230769,34.3076923076923"
               Start="0,0"
-              End="0,39.346153846154">
+              End="-143.730769230769,26.8076923076923">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.346153846154" />
+                    End="0,13.1538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.1538461538462"
+                    Point2="0,17.1538461538462"
+                    Point3="-4,17.1538461538462" />
+                  <mssgle:LineSegment
+                    End="-139.730769230769,17.1538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-139.730769230769,17.1538461538462"
+                    Point2="-143.730769230769,17.1538461538462"
+                    Point3="-143.730769230769,21.1538461538462" />
+                  <mssgle:LineSegment
+                    End="-143.730769230769,26.8076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-120.056771334135,22.1538461538462,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="632.415384615385,317.446153846154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.07692307692298,72.6923076923079"
+              Start="0,0"
+              End="-9.07692307692298,65.1923076923079">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.346153846154" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.346153846154"
+                    Point2="0,36.346153846154"
+                    Point3="-4,36.346153846154" />
+                  <mssgle:LineSegment
+                    End="-5.07692307692298,36.346153846154" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.07692307692298,36.346153846154"
+                    Point2="-9.07692307692298,36.346153846154"
+                    Point3="-9.07692307692298,40.346153846154" />
+                  <mssgle:LineSegment
+                    End="-9.07692307692298,65.1923076923079" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="356.4,325.138461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.1692307692308"
+              Start="0,0"
+              End="0,57.6692307692308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.6692307692308" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -13521,29 +13522,81 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="165,42"
+          Size="97.6,41.6"
+          Id="Package\LoaiSanPham_Stage to NDS\Sort"
+          TopLeft="344,240" />
+        <NodeLayout
+          Size="164.8,41.6"
           Id="Package\LoaiSanPham_Stage to NDS\OLE DB Command"
           TopLeft="323,386.8" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\LoaiSanPham_Stage to NDS\OLE DB Destination"
           TopLeft="594,389.2" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\LoaiSanPham_Stage to NDS\Derived Column 1"
           TopLeft="577,301.2" />
         <NodeLayout
-          Size="200,42"
+          Size="107.2,41.6"
+          Id="Package\LoaiSanPham_Stage to NDS\Sort 1"
+          TopLeft="598,233" />
+        <NodeLayout
+          Size="200,41.6"
           Id="Package\LoaiSanPham_Stage to NDS\Load LoaiSanPham_Stage"
           TopLeft="406,58" />
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\LoaiSanPham_Stage to NDS\Lookup"
           TopLeft="447,168" />
         <NodeLayout
-          Size="153,42"
+          Size="152.8,41.6"
           Id="Package\LoaiSanPham_Stage to NDS\Derived Column"
           TopLeft="318,311" />
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[Sort Output1]"
+          TopLeft="654.75,275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.2"
+              Start="0,0"
+              End="0,18.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[Sort Output]"
+          TopLeft="393.75,282">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\LoaiSanPham_Stage to NDS.Paths[OLE DB Source Output]"
           TopLeft="504.7,99.6">
@@ -13564,6 +13617,78 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="503.5,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148,23"
+              Start="0,0"
+              End="148,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,7.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,7.5"
+                    Point2="0,11.5"
+                    Point3="4,11.5" />
+                  <mssgle:LineSegment
+                    End="144,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144,11.5"
+                    Point2="148,11.5"
+                    Point3="148,15.5" />
+                  <mssgle:LineSegment
+                    End="148,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="18.19361328125,16.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="486,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-93,30"
+              Start="0,0"
+              End="-93,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.25130890052356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.25130890052356"
+                    Point2="0,12.2513089005236"
+                    Point3="-4,12.2513089005236" />
+                  <mssgle:LineSegment
+                    End="-89,12.2513089005236" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-89,12.2513089005236"
+                    Point2="-93,12.2513089005236"
+                    Point3="-93,16.2513089005236" />
+                  <mssgle:LineSegment
+                    End="-93,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-94.69138671875,17.2513089005236,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13634,130 +13759,6 @@ where [refTable].[SourceName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\LoaiSanPham_Stage to NDS\Sort"
-          TopLeft="344,240" />
-        <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="486,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-93,30"
-              Start="0,0"
-              End="-93,22.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,8.25130890052356" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,8.25130890052356"
-                    Point2="0,12.2513089005236"
-                    Point3="-4,12.2513089005236" />
-                  <mssgle:LineSegment
-                    End="-89,12.2513089005236" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-89,12.2513089005236"
-                    Point2="-93,12.2513089005236"
-                    Point3="-93,16.2513089005236" />
-                  <mssgle:LineSegment
-                    End="-93,22.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-94.69138671875,17.2513089005236,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[Sort Output]"
-          TopLeft="393.75,282">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29"
-              Start="0,0"
-              End="0,21.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\LoaiSanPham_Stage to NDS\Sort 1"
-          TopLeft="598,233" />
-        <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="503.5,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="148,23"
-              Start="0,0"
-              End="148,15.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,7.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,7.5"
-                    Point2="0,11.5"
-                    Point3="4,11.5" />
-                  <mssgle:LineSegment
-                    End="144,11.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="144,11.5"
-                    Point2="148,11.5"
-                    Point3="148,15.5" />
-                  <mssgle:LineSegment
-                    End="148,15.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="18.19361328125,16.5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[Sort Output1]"
-          TopLeft="654.75,275">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.2"
-              Start="0,0"
-              End="0,18.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -13816,29 +13817,81 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="165,42"
+          Size="97.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\Sort"
+          TopLeft="303,189" />
+        <NodeLayout
+          Size="164.8,41.6"
           Id="Package\Nuoc_Stage to NDS\OLE DB Command"
           TopLeft="273.692307692308,374.307692307692" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Nuoc_Stage to NDS\OLE DB Destination"
           TopLeft="554.538461538462,379.138461538462" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\Nuoc_Stage to NDS\Derived Column 1"
           TopLeft="567.615384615385,263.846153846154" />
         <NodeLayout
-          Size="161,42"
+          Size="107.2,41.6"
+          Id="Package\Nuoc_Stage to NDS\Sort 1"
+          TopLeft="601,184" />
+        <NodeLayout
+          Size="160.8,41.6"
           Id="Package\Nuoc_Stage to NDS\Load Nuoc_Stage"
           TopLeft="404.461538461538,16.1538461538462" />
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\Nuoc_Stage to NDS\Lookup"
           TopLeft="440.230769230769,97.6923076923077" />
         <NodeLayout
-          Size="153,42"
+          Size="152.8,41.6"
           Id="Package\Nuoc_Stage to NDS\Derived Column"
           TopLeft="278.307692307692,267.538461538462" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Sort Output1]"
+          TopLeft="651.557692307692,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.846153846154"
+              Start="0,0"
+              End="0,30.346153846154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.346153846154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Sort Output]"
+          TopLeft="353.403846153846,231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.538461538462"
+              Start="0,0"
+              End="0,29.038461538462">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.038461538462" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Nuoc_Stage to NDS.Paths[OLE DB Source Output]"
           TopLeft="484.861538461538,57.7538461538462">
@@ -13871,6 +13924,78 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="514.230769230769,139.692307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.269230769231,44.3076923076923"
+              Start="0,0"
+              End="140.269230769231,36.8076923076923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.0942408376963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.0942408376963"
+                    Point2="0,18.0942408376963"
+                    Point3="4,18.0942408376963" />
+                  <mssgle:LineSegment
+                    End="136.269230769231,18.0942408376963" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.269230769231,18.0942408376963"
+                    Point2="140.269230769231,18.0942408376963"
+                    Point3="140.269230769231,22.0942408376963" />
+                  <mssgle:LineSegment
+                    End="140.269230769231,36.8076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="14.3282286658655,23.0942408376963,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="496.730769230769,139.692307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-144.730769230769,49.3076923076923"
+              Start="0,0"
+              End="-144.730769230769,41.8076923076923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6538461538462"
+                    Point2="0,24.6538461538462"
+                    Point3="-4,24.6538461538462" />
+                  <mssgle:LineSegment
+                    End="-140.730769230769,24.6538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-140.730769230769,24.6538461538462"
+                    Point2="-144.730769230769,24.6538461538462"
+                    Point3="-144.730769230769,28.6538461538462" />
+                  <mssgle:LineSegment
+                    End="-144.730769230769,41.8076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-120.556771334135,29.6538461538462,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -13929,130 +14054,6 @@ where [refTable].[SourceName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\Nuoc_Stage to NDS\Sort"
-          TopLeft="303,189" />
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="496.730769230769,139.692307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-144.730769230769,49.3076923076923"
-              Start="0,0"
-              End="-144.730769230769,41.8076923076923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.6538461538462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.6538461538462"
-                    Point2="0,24.6538461538462"
-                    Point3="-4,24.6538461538462" />
-                  <mssgle:LineSegment
-                    End="-140.730769230769,24.6538461538462" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-140.730769230769,24.6538461538462"
-                    Point2="-144.730769230769,24.6538461538462"
-                    Point3="-144.730769230769,28.6538461538462" />
-                  <mssgle:LineSegment
-                    End="-144.730769230769,41.8076923076923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-120.556771334135,29.6538461538462,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Sort Output]"
-          TopLeft="353.403846153846,231">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.538461538462"
-              Start="0,0"
-              End="0,29.038461538462">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.038461538462" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\Nuoc_Stage to NDS\Sort 1"
-          TopLeft="601,184" />
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="514.230769230769,139.692307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="140.269230769231,44.3076923076923"
-              Start="0,0"
-              End="140.269230769231,36.8076923076923">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.0942408376963" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.0942408376963"
-                    Point2="0,18.0942408376963"
-                    Point3="4,18.0942408376963" />
-                  <mssgle:LineSegment
-                    End="136.269230769231,18.0942408376963" />
-                  <mssgle:CubicBezierSegment
-                    Point1="136.269230769231,18.0942408376963"
-                    Point2="140.269230769231,18.0942408376963"
-                    Point3="140.269230769231,22.0942408376963" />
-                  <mssgle:LineSegment
-                    End="140.269230769231,36.8076923076923" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="14.3282286658655,23.0942408376963,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Sort Output1]"
-          TopLeft="651.557692307692,226">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.846153846154"
-              Start="0,0"
-              End="0,30.346153846154">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.346153846154" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -14088,7 +14089,7 @@ where [refTable].[SourceName] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -14098,7 +14099,7 @@ where [refTable].[SourceName] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -14111,29 +14112,93 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="181,42"
+          Size="180.8,41.6"
           Id="Package\SanPham_Stage to NDS\Load SanPham_Stage"
           TopLeft="406,58" />
         <NodeLayout
-          Size="113,42"
+          Size="112.8,41.6"
           Id="Package\SanPham_Stage to NDS\Lookup"
           TopLeft="447,168" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\SanPham_Stage to NDS\Derived Column 1"
           TopLeft="582,333.2" />
         <NodeLayout
-          Size="165,42"
+          Size="97.6,41.6"
+          Id="Package\SanPham_Stage to NDS\Sort"
+          TopLeft="332,261" />
+        <NodeLayout
+          Size="107.2,41.6"
+          Id="Package\SanPham_Stage to NDS\Sort 1"
+          TopLeft="601,247" />
+        <NodeLayout
+          Size="164.8,41.6"
           Id="Package\SanPham_Stage to NDS\OLE DB Command"
           TopLeft="309,416.8" />
         <NodeLayout
-          Size="153,42"
+          Size="152.8,41.6"
           Id="Package\SanPham_Stage to NDS\Derived Column"
           TopLeft="304,330" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\SanPham_Stage to NDS\OLE DB Destination"
           TopLeft="599,421.2" />
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[Sort Output1]"
+          TopLeft="654.5,289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,44.2"
+              Start="0,0"
+              End="8.5,36.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1"
+                    Point2="0,22.1"
+                    Point3="4,22.1" />
+                  <mssgle:LineSegment
+                    End="4.5,22.1" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,22.1"
+                    Point2="8.5,22.1"
+                    Point3="8.5,26.1" />
+                  <mssgle:LineSegment
+                    End="8.5,36.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[Sort Output]"
+          TopLeft="380.75,303">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\SanPham_Stage to NDS.Paths[OLE DB Source Output]"
           TopLeft="499.9,99.6">
@@ -14154,6 +14219,78 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="521,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133.5,37"
+              Start="0,0"
+              End="133.5,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.1099476439791" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.1099476439791"
+                    Point2="0,15.1099476439791"
+                    Point3="4,15.1099476439791" />
+                  <mssgle:LineSegment
+                    End="129.5,15.1099476439791" />
+                  <mssgle:CubicBezierSegment
+                    Point1="129.5,15.1099476439791"
+                    Point2="133.5,15.1099476439791"
+                    Point3="133.5,19.1099476439791" />
+                  <mssgle:LineSegment
+                    End="133.5,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="10.94361328125,20.1099476439791,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="486,210">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-105,51"
+              Start="0,0"
+              End="-105,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.82722513089" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.82722513089"
+                    Point2="0,20.82722513089"
+                    Point3="-4,20.82722513089" />
+                  <mssgle:LineSegment
+                    End="-101,20.82722513089" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-101,20.82722513089"
+                    Point2="-105,20.82722513089"
+                    Point3="-105,24.82722513089" />
+                  <mssgle:LineSegment
+                    End="-105,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.69138671875,25.82722513089,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -14216,142 +14353,6 @@ where [refTable].[SourceName] = ?</property>
                     Point3="10.9999999999999,26.6" />
                   <mssgle:LineSegment
                     End="10.9999999999999,37.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="98,42"
-          Id="Package\SanPham_Stage to NDS\Sort"
-          TopLeft="332,261" />
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="486,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-105,51"
-              Start="0,0"
-              End="-105,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.82722513089" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.82722513089"
-                    Point2="0,20.82722513089"
-                    Point3="-4,20.82722513089" />
-                  <mssgle:LineSegment
-                    End="-101,20.82722513089" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-101,20.82722513089"
-                    Point2="-105,20.82722513089"
-                    Point3="-105,24.82722513089" />
-                  <mssgle:LineSegment
-                    End="-105,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-100.69138671875,25.82722513089,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[Sort Output]"
-          TopLeft="380.75,303">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="107,42"
-          Id="Package\SanPham_Stage to NDS\Sort 1"
-          TopLeft="601,247" />
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="521,210">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="133.5,37"
-              Start="0,0"
-              End="133.5,29.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.1099476439791" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.1099476439791"
-                    Point2="0,15.1099476439791"
-                    Point3="4,15.1099476439791" />
-                  <mssgle:LineSegment
-                    End="129.5,15.1099476439791" />
-                  <mssgle:CubicBezierSegment
-                    Point1="129.5,15.1099476439791"
-                    Point2="133.5,15.1099476439791"
-                    Point3="133.5,19.1099476439791" />
-                  <mssgle:LineSegment
-                    End="133.5,29.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="10.94361328125,20.1099476439791,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[Sort Output1]"
-          TopLeft="654.5,289">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8.5,44.2"
-              Start="0,0"
-              End="8.5,36.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.1" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.1"
-                    Point2="0,22.1"
-                    Point3="4,22.1" />
-                  <mssgle:LineSegment
-                    End="4.5,22.1" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.5,22.1"
-                    Point2="8.5,22.1"
-                    Point3="8.5,26.1" />
-                  <mssgle:LineSegment
-                    End="8.5,36.7" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

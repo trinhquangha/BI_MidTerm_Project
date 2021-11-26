@@ -2,38 +2,38 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>MidTerm</Name>
-    <LastWriteTime>2021-11-26T11:55:08.9736809Z</LastWriteTime>
+    <LastWriteTime>2021-11-26T15:26:22.9036305Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>StageToNDS.dtsx</Name>
-      <LastWriteTime>2021-11-26T02:47:40.7682883Z</LastWriteTime>
+      <LastWriteTime>2021-11-26T15:22:28.0906264Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage.dtsx</Name>
-      <LastWriteTime>2021-11-26T04:38:55.8407708Z</LastWriteTime>
+      <LastWriteTime>2021-11-26T15:07:54.7237714Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CheckStatus_NDSToStage.dtsx</Name>
-      <LastWriteTime>2021-11-26T10:49:07.4431373Z</LastWriteTime>
+      <LastWriteTime>2021-11-26T12:47:52.0348052Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Test.dtsx</Name>
-      <LastWriteTime>2021-11-26T02:47:40.7773569Z</LastWriteTime>
+      <LastWriteTime>2021-11-26T12:47:52.0447631Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CheckSource_NDSToStage.dtsx</Name>
-      <LastWriteTime>2021-11-26T11:53:51.0522441Z</LastWriteTime>
+      <LastWriteTime>2021-11-26T15:07:59.6128266Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_SanPham.dtsx</Name>
-      <LastWriteTime>2021-11-26T10:14:50.8361773Z</LastWriteTime>
+      <LastWriteTime>2021-11-26T12:47:52.043774Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
