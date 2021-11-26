@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS_SanPham"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{AD5DC649-025E-4F14-9ADE-FD5E03666FDE}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{BE223F91-8D87-4987-837B-FB0C4CD53B85}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2072,7 +2072,7 @@ where [refTable].[ProductTypeNK] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\SanPhamStage to NDS\17:invalid};</property>
+                  name="ParameterMap">#{Package\SanPhamStage to NDS\233:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2888,6 +2888,18 @@ where ProductNK = ? and SourceID = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="160,42"
+          Id="Package\LoaiSanPhamStage to NDS\Lookup SourceID"
+          TopLeft="342,123" />
+        <NodeLayout
+          Size="302,42"
+          Id="Package\LoaiSanPhamStage to NDS\Insert new Product type into ProductType_NDS"
+          TopLeft="480,562" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\LoaiSanPhamStage to NDS\Update data"
+          TopLeft="175,562" />
+        <NodeLayout
           Size="200,42"
           Id="Package\LoaiSanPhamStage to NDS\Load LoaiSanPham_Stage"
           TopLeft="322,26" />
@@ -2896,75 +2908,17 @@ where ProductNK = ? and SourceID = ?</property>
           Id="Package\LoaiSanPhamStage to NDS\Lookup MaLoaiSP in ProductType_NDS"
           TopLeft="295,343" />
         <NodeLayout
+          Size="157,42"
+          Id="Package\LoaiSanPhamStage to NDS\Lookup StatusID"
+          TopLeft="343,224" />
+        <NodeLayout
           Size="140,42"
           Id="Package\LoaiSanPhamStage to NDS\UpdatedDate"
           TopLeft="174,455" />
-        <EdgeLayout
-          Id="Package\LoaiSanPhamStage to NDS.Paths[Lookup Match Output]"
-          TopLeft="383.333333333333,385">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-139.333333333333,70"
-              Start="0,0"
-              End="-139.333333333333,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.2559025133283" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.2559025133283"
-                    Point2="0,28.2559025133283"
-                    Point3="-4,28.2559025133283" />
-                  <mssgle:LineSegment
-                    End="-135.333333333333,28.2559025133283" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-135.333333333333,28.2559025133283"
-                    Point2="-139.333333333333,28.2559025133283"
-                    Point3="-139.333333333333,32.2559025133283" />
-                  <mssgle:LineSegment
-                    End="-139.333333333333,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-117.858053385417,33.2559025133283,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="206,42"
           Id="Package\LoaiSanPhamStage to NDS\CreatedDate, UpdatedDate"
           TopLeft="497,457" />
-        <NodeLayout
-          Size="137,42"
-          Id="Package\LoaiSanPhamStage to NDS\Update data"
-          TopLeft="175,562" />
-        <EdgeLayout
-          Id="Package\LoaiSanPhamStage to NDS.Paths[Derived Column Output]"
-          TopLeft="243.75,497">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65"
-              Start="0,0"
-              End="0,57.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\LoaiSanPhamStage to NDS.Paths[Lookup Error Output]"
           TopLeft="467.666666666667,385">
@@ -3001,10 +2955,6 @@ where ProductNK = ? and SourceID = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="302,42"
-          Id="Package\LoaiSanPhamStage to NDS\Insert new Product type into ProductType_NDS"
-          TopLeft="480,562" />
         <EdgeLayout
           Id="Package\LoaiSanPhamStage to NDS.Paths[Derived Column Output1]"
           TopLeft="600,499">
@@ -3036,13 +2986,35 @@ where ProductNK = ? and SourceID = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="160,42"
-          Id="Package\LoaiSanPhamStage to NDS\Lookup SourceID"
-          TopLeft="342,123" />
+        <EdgeLayout
+          Id="Package\LoaiSanPhamStage to NDS.Paths[Derived Column Output]"
+          TopLeft="243.75,497">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\LoaiSanPhamStage to NDS.Paths[OLE DB Source Output]"
           TopLeft="422,68">
@@ -3062,34 +3034,8 @@ where ProductNK = ? and SourceID = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157,42"
-          Id="Package\LoaiSanPhamStage to NDS\Lookup StatusID"
-          TopLeft="343,224" />
-        <EdgeLayout
-          Id="Package\LoaiSanPhamStage to NDS.Paths[Lookup Match Output1]"
-          TopLeft="421.75,165">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59"
-              Start="0,0"
-              End="0,51.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,19.9453125,96.3827734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3117,187 +3063,8 @@ where ProductNK = ? and SourceID = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiSanPhamStage to NDS\Load LoaiSanPham_Stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiSanPhamStage to NDS\Lookup MaLoaiSP in ProductType_NDS">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiSanPhamStage to NDS\Insert new Product type into ProductType_NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiSanPhamStage to NDS\Lookup SourceID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiSanPhamStage to NDS\Lookup StatusID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\SanPhamStage to NDS">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="187,42"
-          Id="Package\SanPhamStage to NDS\Lookup ProductTypeID"
-          TopLeft="328,340" />
-        <NodeLayout
-          Size="140,42"
-          Id="Package\SanPhamStage to NDS\UpdatedDate"
-          TopLeft="171,515" />
-        <NodeLayout
-          Size="255,42"
-          Id="Package\SanPhamStage to NDS\Insert new Product into Product_NDS"
-          TopLeft="472,613" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\SanPhamStage to NDS\Lookup StatusID"
-          TopLeft="343,224" />
-        <NodeLayout
-          Size="160,42"
-          Id="Package\SanPhamStage to NDS\Lookup SourceID"
-          TopLeft="342,123" />
-        <NodeLayout
-          Size="206,42"
-          Id="Package\SanPhamStage to NDS\CreatedDate, UpdatedDate"
-          TopLeft="490,522" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\SanPhamStage to NDS\Load SanPham_Stage"
-          TopLeft="326,26" />
-        <NodeLayout
-          Size="137,42"
-          Id="Package\SanPhamStage to NDS\Update data"
-          TopLeft="167,613" />
         <EdgeLayout
-          Id="Package\SanPhamStage to NDS.Paths[Derived Column Output1]"
-          TopLeft="596.25,564">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="0,41.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SanPhamStage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="419.25,68">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55"
-              Start="0,0"
-              End="0,47.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SanPhamStage to NDS.Paths[Lookup Match Output]"
+          Id="Package\LoaiSanPhamStage to NDS.Paths[Lookup Match Output1]"
           TopLeft="421.75,165">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3321,19 +3088,194 @@ where ProductNK = ? and SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SanPhamStage to NDS.Paths[Derived Column Output]"
-          TopLeft="238.25,557">
+          Id="Package\LoaiSanPhamStage to NDS.Paths[Lookup Match Output]"
+          TopLeft="383.333333333333,385">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56"
+              EndConnector="-139.333333333333,70"
               Start="0,0"
-              End="0,48.5">
+              End="-139.333333333333,62.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.5" />
+                    End="0,24.2559025133283" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.2559025133283"
+                    Point2="0,28.2559025133283"
+                    Point3="-4,28.2559025133283" />
+                  <mssgle:LineSegment
+                    End="-135.333333333333,28.2559025133283" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-135.333333333333,28.2559025133283"
+                    Point2="-139.333333333333,28.2559025133283"
+                    Point3="-139.333333333333,32.2559025133283" />
+                  <mssgle:LineSegment
+                    End="-139.333333333333,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-117.858053385417,33.2559025133283,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPhamStage to NDS\Lookup SourceID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPhamStage to NDS\Insert new Product type into ProductType_NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPhamStage to NDS\Load LoaiSanPham_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPhamStage to NDS\Lookup MaLoaiSP in ProductType_NDS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPhamStage to NDS\Lookup StatusID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SanPhamStage to NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="160,42"
+          Id="Package\SanPhamStage to NDS\Lookup SourceID"
+          TopLeft="342,123" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\SanPhamStage to NDS\Load SanPham_Stage"
+          TopLeft="326,26" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\SanPhamStage to NDS\Insert new Product into Product_NDS"
+          TopLeft="472,613" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\SanPhamStage to NDS\Update data"
+          TopLeft="167,613" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\SanPhamStage to NDS\Lookup ProductTypeID"
+          TopLeft="328,340" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\SanPhamStage to NDS\Lookup StatusID"
+          TopLeft="343,224" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\SanPhamStage to NDS\Lookup MaSP in Product_NDS"
+          TopLeft="313,420" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SanPhamStage to NDS\UpdatedDate"
+          TopLeft="171,515" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\SanPhamStage to NDS\CreatedDate, UpdatedDate"
+          TopLeft="490,522" />
+        <EdgeLayout
+          Id="Package\SanPhamStage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="419.25,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3342,31 +3284,27 @@ where ProductNK = ? and SourceID = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="219,42"
-          Id="Package\SanPhamStage to NDS\Lookup MaSP in Product_NDS"
-          TopLeft="313,420" />
         <EdgeLayout
-          Id="Package\SanPhamStage to NDS.Paths[Lookup Match Output1]"
-          TopLeft="422,382">
+          Id="Package\SanPhamStage to NDS.Paths[Lookup Match Output3]"
+          TopLeft="421.5,266">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38"
+              EndConnector="0,74"
               Start="0,0"
-              End="0,30.5">
+              End="0,66.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.5" />
+                    End="0,66.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,27.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3407,6 +3345,54 @@ where ProductNK = ? and SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\SanPhamStage to NDS.Paths[Lookup Match Output1]"
+          TopLeft="422,382">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPhamStage to NDS.Paths[Lookup Match Output]"
+          TopLeft="421.75,165">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,19.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\SanPhamStage to NDS.Paths[Lookup Error Output]"
           TopLeft="457.666666666667,462">
           <EdgeLayout.Curve>
@@ -3443,98 +3429,59 @@ where ProductNK = ? and SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\SanPhamStage to NDS.Paths[Lookup Match Output3]"
-          TopLeft="421.5,266">
+          Id="Package\SanPhamStage to NDS.Paths[Derived Column Output1]"
+          TopLeft="596.25,564">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,74"
+              EndConnector="0,49"
               Start="0,0"
-              End="0,66.5">
+              End="0,41.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,66.5" />
+                    End="0,41.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,27.4453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPhamStage to NDS.Paths[Derived Column Output]"
+          TopLeft="238.25,557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\SanPhamStage to NDS\Lookup ProductTypeID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SanPhamStage to NDS\Insert new Product into Product_NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\SanPhamStage to NDS\Lookup StatusID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\SanPhamStage to NDS\Lookup SourceID">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3544,7 +3491,7 @@ where ProductNK = ? and SourceID = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3565,12 +3512,25 @@ where ProductNK = ? and SourceID = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\SanPhamStage to NDS\Lookup MaSP in Product_NDS">
+    design-time-name="Package\SanPhamStage to NDS\Insert new Product into Product_NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SanPhamStage to NDS\Lookup ProductTypeID">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3580,7 +3540,53 @@ where ProductNK = ? and SourceID = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SanPhamStage to NDS\Lookup StatusID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SanPhamStage to NDS\Lookup MaSP in Product_NDS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
