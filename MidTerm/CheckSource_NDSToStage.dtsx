@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="CheckSource_NDSToStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{022ABB56-D4FC-4AA8-9D93-B4FEE16DE17E}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{9D892947-76E2-4696-BE76-E83DB7E47091}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,6 +38,30 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=DESKTOP-L8TT9HI\MSSQL;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CD752786-9B5E-4E2D-8723-3DCB35E857AF}"
+      DTS:ObjectName="LocalHost.NDS_Demo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=NDS_Demo;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4F08F71D-D3DE-4A28-83B2-BECA98EDA565}"
+      DTS:ObjectName="LocalHost.Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -279,8 +303,8 @@
               <connections>
                 <connection
                   refId="Package\ChiTietHoaDon_Stage to NDS\Load ChiTietHoaDon_Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -385,7 +409,9 @@
                       name="Nguon" />
                     <externalMetadataColumn
                       refId="Package\ChiTietHoaDon_Stage to NDS\Load ChiTietHoaDon_Stage.Outputs[OLE DB Source Output].ExternalColumns[MaChiTiet]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       name="MaChiTiet" />
                     <externalMetadataColumn
                       refId="Package\ChiTietHoaDon_Stage to NDS\Load ChiTietHoaDon_Stage.Outputs[OLE DB Source Output].ExternalColumns[MaHD]"
@@ -425,7 +451,9 @@
                       name="TrangThai" />
                     <outputColumn
                       refId="Package\ChiTietHoaDon_Stage to NDS\Load ChiTietHoaDon_Stage.Outputs[OLE DB Source Error Output].Columns[MaChiTiet]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
                       lineageId="Package\ChiTietHoaDon_Stage to NDS\Load ChiTietHoaDon_Stage.Outputs[OLE DB Source Error Output].Columns[MaChiTiet]"
                       name="MaChiTiet" />
                     <outputColumn
@@ -536,8 +564,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\ChiTietHoaDon_Stage to NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -652,8 +680,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\ChiTietHoaDon_Stage to NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -800,8 +828,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\ChiTietHoaDon_Stage to NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1149,8 +1177,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\CuaHang_Stage to NDS\Load CuaHang_Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1436,8 +1464,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\CuaHang_Stage to NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -1552,8 +1580,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\CuaHang_Stage to NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1679,7 +1707,7 @@ where [refTable].[SourceName] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -1700,8 +1728,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\CuaHang_Stage to NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2049,8 +2077,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\HoaDon_Stage to NDS\Load HoaDon_Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2312,8 +2340,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\HoaDon_Stage to NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -2428,8 +2456,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\HoaDon_Stage to NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2576,8 +2604,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\HoaDon_Stage to NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2890,7 +2918,7 @@ where [refTable].[SourceName] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Nuoc_Stage]</property>
+                  name="OpenRowset">[dbo].[KhachHang_Stage]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -2925,8 +2953,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2976,17 +3004,6 @@ where [refTable].[SourceName] = ?</property>
                       name="Nguon"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[MaNuoc]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[MaNuoc]"
-                      length="4"
-                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[MaNuoc]"
-                      name="MaNuoc"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[TenNuoc]"
                       codePage="1252"
                       dataType="str"
@@ -2996,6 +3013,72 @@ where [refTable].[SourceName] = ?</property>
                       length="50"
                       lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[TenNuoc]"
                       name="TenNuoc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[MaKH]"
+                      length="4"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[MaKH]"
+                      name="MaKH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[TenKH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[TenKH]"
+                      length="50"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[TenKH]"
+                      name="TenKH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[DiaChi]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[DiaChi]"
+                      length="50"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[DiaChi]"
+                      name="DiaChi"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[GioiTinh]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[GioiTinh]"
+                      length="1"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[GioiTinh]"
+                      name="GioiTinh"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[SoThich]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[SoThich]"
+                      length="30"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[SoThich]"
+                      name="SoThich"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[NgheNghiep]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[NgheNghiep]"
+                      length="30"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].Columns[NgheNghiep]"
+                      name="NgheNghiep"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -3021,17 +3104,47 @@ where [refTable].[SourceName] = ?</property>
                       length="50"
                       name="Nguon" />
                     <externalMetadataColumn
-                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[MaNuoc]"
-                      codePage="1252"
-                      dataType="str"
-                      length="4"
-                      name="MaNuoc" />
-                    <externalMetadataColumn
                       refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[TenNuoc]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="TenNuoc" />
+                    <externalMetadataColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaKH" />
+                    <externalMetadataColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[TenKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TenKH" />
+                    <externalMetadataColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[DiaChi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DiaChi" />
+                    <externalMetadataColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[GioiTinh]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="GioiTinh" />
+                    <externalMetadataColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[SoThich]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="SoThich" />
+                    <externalMetadataColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[NgheNghiep]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="NgheNghiep" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3039,6 +3152,13 @@ where [refTable].[SourceName] = ?</property>
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[MaKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[MaKH]"
+                      name="MaKH" />
                     <outputColumn
                       refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
                       dataType="dbTimeStamp"
@@ -3050,6 +3170,20 @@ where [refTable].[SourceName] = ?</property>
                       lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
                       name="NgayCapNhat" />
                     <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[TenKH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[TenKH]"
+                      name="TenKH" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[DiaChi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[DiaChi]"
+                      name="DiaChi" />
+                    <outputColumn
                       refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
                       codePage="1252"
                       dataType="str"
@@ -3057,12 +3191,26 @@ where [refTable].[SourceName] = ?</property>
                       lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
                       name="TrangThai" />
                     <outputColumn
-                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[MaNuoc]"
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[GioiTinh]"
                       codePage="1252"
                       dataType="str"
-                      length="4"
-                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[MaNuoc]"
-                      name="MaNuoc" />
+                      length="1"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[GioiTinh]"
+                      name="GioiTinh" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[SoThich]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[SoThich]"
+                      name="SoThich" />
+                    <outputColumn
+                      refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[NgheNghiep]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[NgheNghiep]"
+                      name="NgheNghiep" />
                     <outputColumn
                       refId="Package\KhachHang_Stage to NDS\Load KhachHang_Stage.Outputs[OLE DB Source Error Output].Columns[TenNuoc]"
                       codePage="1252"
@@ -3164,8 +3312,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\KhachHang_Stage to NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -3280,8 +3428,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\KhachHang_Stage to NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3428,8 +3576,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\KhachHang_Stage to NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3777,8 +3925,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoaiCuaHang_Stage to NDS\Load LoaiCuaHang_Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4016,8 +4164,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoaiCuaHang_Stage to NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -4132,8 +4280,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoaiCuaHang_Stage to NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4280,8 +4428,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoaiCuaHang_Stage to NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4629,8 +4777,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoaiSanPham_Stage to NDS\Load LoaiSanPham_Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4868,8 +5016,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoaiSanPham_Stage to NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -4984,8 +5132,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoaiSanPham_Stage to NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5132,8 +5280,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\LoaiSanPham_Stage to NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5481,8 +5629,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\Nuoc_Stage to NDS\Load Nuoc_Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5720,8 +5868,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\Nuoc_Stage to NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -5836,8 +5984,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\Nuoc_Stage to NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5984,8 +6132,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\Nuoc_Stage to NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -6333,8 +6481,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\SanPham_Stage to NDS\Load SanPham_Stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -6614,8 +6762,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\SanPham_Stage to NDS\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -6730,8 +6878,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\SanPham_Stage to NDS\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -6878,8 +7026,8 @@ where [refTable].[SourceName] = ?</property>
               <connections>
                 <connection
                   refId="Package\SanPham_Stage to NDS\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L8TT9HI\MSSQL.NDS_Demo]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -7005,251 +7153,91 @@ where [refTable].[SourceName] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="189.6,41.6"
-          Id="Package\CuaHang_Stage to NDS"
-          TopLeft="73.5714288025486,60" />
-        <NodeLayout
-          Size="217.6,41.6"
+          Size="218,42"
           Id="Package\ChiTietHoaDon_Stage to NDS"
           TopLeft="60,157.88235431394" />
         <NodeLayout
-          Size="210.4,41.6"
-          Id="Package\LoaiSanPham_Stage to NDS"
-          TopLeft="80.000000340598,240.470590766326" />
+          Size="190,42"
+          Id="Package\CuaHang_Stage to NDS"
+          TopLeft="73.5714288025486,60" />
         <NodeLayout
-          Size="191.2,41.6"
-          Id="Package\SanPham_Stage to NDS"
-          TopLeft="332.142861777423,230.529414156316" />
-        <NodeLayout
-          Size="184.8,41.6"
+          Size="185,42"
           Id="Package\HoaDon_Stage to NDS"
           TopLeft="336.428576136122,154.117647873902" />
         <NodeLayout
-          Size="208.8,41.6"
+          Size="201,42"
+          Id="Package\KhachHang_Stage to NDS"
+          TopLeft="325.714290239373,320.423531470909" />
+        <NodeLayout
+          Size="210,42"
           Id="Package\LoaiCuaHang_Stage to NDS"
           TopLeft="322.857147333573,64.3647055284375" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="210,42"
+          Id="Package\LoaiSanPham_Stage to NDS"
+          TopLeft="80.000000340598,240.470590766326" />
+        <NodeLayout
+          Size="171,42"
           Id="Package\Nuoc_Stage to NDS"
           TopLeft="112.857143757295,322.070591495606" />
         <NodeLayout
-          Size="200.8,41.6"
-          Id="Package\KhachHang_Stage to NDS"
-          TopLeft="325.714290239373,320.423531470909" />
+          Size="191,42"
+          Id="Package\SanPham_Stage to NDS"
+          TopLeft="332.142861777423,230.529414156316" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\CuaHang_Stage to NDS">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\CuaHang_Stage to NDS\OLE DB Command"
-          TopLeft="277.692307692308,318.307692307692" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\CuaHang_Stage to NDS\Lookup"
-          TopLeft="440.230769230769,97.6923076923077" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\CuaHang_Stage to NDS\OLE DB Destination"
-          TopLeft="541.538461538462,319.138461538462" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\CuaHang_Stage to NDS\Derived Column"
-          TopLeft="282.307692307692,211.538461538462" />
-        <NodeLayout
-          Size="179.2,41.6"
-          Id="Package\CuaHang_Stage to NDS\Load CuaHang_Stage"
-          TopLeft="404.461538461538,16.1538461538462" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\CuaHang_Stage to NDS\Derived Column 1"
-          TopLeft="554.615384615385,203.846153846154" />
-        <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="514.097435897436,139.292307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="121.717948717949,64.5538461538462"
-              Start="0,0"
-              End="121.717948717949,57.0538461538462">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.3632490586337" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.3632490586337"
-                    Point2="0,26.3632490586337"
-                    Point3="4,26.3632490586337" />
-                  <mssgle:LineSegment
-                    End="117.717948717949,26.3632490586337" />
-                  <mssgle:CubicBezierSegment
-                    Point1="117.717948717949,26.3632490586337"
-                    Point2="121.717948717949,26.3632490586337"
-                    Point3="121.717948717949,30.3632490586337" />
-                  <mssgle:LineSegment
-                    End="121.717948717949,57.0538461538462" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="5.05258764022448,31.3632490586337,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="635.815384615385,245.446153846154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.07692307692332,73.6923076923077"
-              Start="0,0"
-              End="-9.07692307692332,66.1923076923077">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.8461538461538"
-                    Point2="0,36.8461538461538"
-                    Point3="-4,36.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-5.07692307692332,36.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.07692307692332,36.8461538461538"
-                    Point2="-9.07692307692332,36.8461538461538"
-                    Point3="-9.07692307692332,40.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-9.07692307692332,66.1923076923077" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="495.346153846154,57.7538461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.9384615384615"
-              Start="0,0"
-              End="0,32.4384615384615">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.4384615384615" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="496.630769230769,139.292307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-137.923076923077,72.2461538461538"
-              Start="0,0"
-              End="-137.923076923077,64.7461538461538">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.1230769230769" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.1230769230769"
-                    Point2="0,36.1230769230769"
-                    Point3="-4,36.1230769230769" />
-                  <mssgle:LineSegment
-                    End="-133.923076923077,36.1230769230769" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-133.923076923077,36.1230769230769"
-                    Point2="-137.923076923077,36.1230769230769"
-                    Point3="-137.923076923077,40.1230769230769" />
-                  <mssgle:LineSegment
-                    End="-137.923076923077,64.7461538461538" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-117.152925180289,41.1230769230769,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\CuaHang_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="359.4,253.138461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.1692307692308"
-              Start="0,0"
-              End="0,57.6692307692308">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.6692307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <TaskHost
     design-time-name="Package\ChiTietHoaDon_Stage to NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\ChiTietHoaDon_Stage to NDS\OLE DB Command"
           TopLeft="277.692307692308,318.307692307692" />
         <NodeLayout
-          Size="162.4,41.6"
+          Size="170,42"
+          Id="Package\ChiTietHoaDon_Stage to NDS\OLE DB Destination"
+          TopLeft="569.23076923077,320.769230769231" />
+        <NodeLayout
+          Size="162,42"
           Id="Package\ChiTietHoaDon_Stage to NDS\Derived Column 1"
           TopLeft="574.615384615385,210" />
         <NodeLayout
-          Size="112.8,41.6"
+          Size="113,42"
           Id="Package\ChiTietHoaDon_Stage to NDS\Lookup"
           TopLeft="440.230769230769,97.6923076923077" />
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\ChiTietHoaDon_Stage to NDS\Derived Column"
-          TopLeft="282.307692307692,211.538461538462" />
-        <NodeLayout
-          Size="207.2,41.6"
+          Size="207,42"
           Id="Package\ChiTietHoaDon_Stage to NDS\Load ChiTietHoaDon_Stage"
           TopLeft="398.846153846154,13.8461538461539" />
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\ChiTietHoaDon_Stage to NDS\OLE DB Destination"
-          TopLeft="569.23076923077,320.769230769231" />
+          Size="153,42"
+          Id="Package\ChiTietHoaDon_Stage to NDS\Derived Column"
+          TopLeft="282.307692307692,211.538461538462" />
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="499.538461538461,55.4461538461539">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.2461538461538"
+              Start="0,0"
+              End="0,34.7461538461538">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.7461538461538" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Lookup No Match Output]"
           TopLeft="514.097435897436,139.292307692308">
@@ -7283,30 +7271,6 @@ where [refTable].[SourceName] = ?</property>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
               BoundingBox="15.0525876402245,33.8764281871974,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="499.538461538461,55.4461538461539">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.2461538461538"
-              Start="0,0"
-              End="0,34.7461538461538">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.7461538461538" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7347,30 +7311,6 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="359.4,253.138461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.1692307692308"
-              Start="0,0"
-              End="0,57.6692307692308">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.6692307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Derived Column Output1]"
           TopLeft="655.123076923077,251.6">
           <EdgeLayout.Curve>
@@ -7389,479 +7329,343 @@ where [refTable].[SourceName] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ChiTietHoaDon_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="359.4,253.138461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.1692307692308"
+              Start="0,0"
+              End="0,57.6692307692308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.6692307692308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ChiTietHoaDon_Stage to NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ChiTietHoaDon_Stage to NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ChiTietHoaDon_Stage to NDS\Load ChiTietHoaDon_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\LoaiSanPham_Stage to NDS">
+    design-time-name="Package\CuaHang_Stage to NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\LoaiSanPham_Stage to NDS\OLE DB Command"
-          TopLeft="323,386.8" />
+          Size="179,42"
+          Id="Package\CuaHang_Stage to NDS\Load CuaHang_Stage"
+          TopLeft="404.461538461538,16.1538461538462" />
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\LoaiSanPham_Stage to NDS\Derived Column"
-          TopLeft="318,300" />
+          Size="113,42"
+          Id="Package\CuaHang_Stage to NDS\Lookup"
+          TopLeft="440.230769230769,97.6923076923077" />
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\LoaiSanPham_Stage to NDS\Derived Column 1"
-          TopLeft="577,301.2" />
+          Size="162,42"
+          Id="Package\CuaHang_Stage to NDS\Derived Column 1"
+          TopLeft="554.615384615385,203.846153846154" />
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\LoaiSanPham_Stage to NDS\OLE DB Destination"
-          TopLeft="594,389.2" />
+          Size="165,42"
+          Id="Package\CuaHang_Stage to NDS\OLE DB Command"
+          TopLeft="277.692307692308,318.307692307692" />
         <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\LoaiSanPham_Stage to NDS\Lookup"
-          TopLeft="447,168" />
+          Size="153,42"
+          Id="Package\CuaHang_Stage to NDS\Derived Column"
+          TopLeft="282.307692307692,211.538461538462" />
         <NodeLayout
-          Size="200,41.6"
-          Id="Package\LoaiSanPham_Stage to NDS\Load LoaiSanPham_Stage"
-          TopLeft="406,58" />
+          Size="170,42"
+          Id="Package\CuaHang_Stage to NDS\OLE DB Destination"
+          TopLeft="541.538461538462,319.138461538462" />
         <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="394.4,341.6">
+          Id="Package\CuaHang_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="495.346153846154,57.7538461538462">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="10.9999999999999,45.2"
+              EndConnector="0,39.9384615384615"
               Start="0,0"
-              End="10.9999999999999,37.7">
+              End="0,32.4384615384615">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.6"
-                    Point2="0,22.6"
-                    Point3="4,22.6" />
+                    End="0,32.4384615384615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CuaHang_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="514.097435897436,139.292307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.717948717949,64.5538461538462"
+              Start="0,0"
+              End="121.717948717949,57.0538461538462">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="6.99999999999989,22.6" />
+                    End="0,22.3632490586337" />
                   <mssgle:CubicBezierSegment
-                    Point1="6.99999999999989,22.6"
-                    Point2="10.9999999999999,22.6"
-                    Point3="10.9999999999999,26.6" />
+                    Point1="0,22.3632490586337"
+                    Point2="0,26.3632490586337"
+                    Point3="4,26.3632490586337" />
                   <mssgle:LineSegment
-                    End="10.9999999999999,37.7" />
+                    End="117.717948717949,26.3632490586337" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.717948717949,26.3632490586337"
+                    Point2="121.717948717949,26.3632490586337"
+                    Point3="121.717948717949,30.3632490586337" />
+                  <mssgle:LineSegment
+                    End="121.717948717949,57.0538461538462" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="5.0525876402245,31.3632490586337,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="520.866666666667,209.6">
+          Id="Package\CuaHang_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="496.630769230769,139.292307692308">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="137.333333333333,91.6000000000001"
+              EndConnector="-137.923076923077,72.2461538461538"
               Start="0,0"
-              End="137.333333333333,84.1000000000001">
+              End="-137.923076923077,64.7461538461538">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.4086713286713" />
+                    End="0,32.1230769230769" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,33.4086713286713"
-                    Point2="0,37.4086713286713"
-                    Point3="4,37.4086713286713" />
+                    Point1="0,32.1230769230769"
+                    Point2="0,36.1230769230769"
+                    Point3="-4,36.1230769230769" />
                   <mssgle:LineSegment
-                    End="133.333333333333,37.4086713286713" />
+                    End="-133.923076923077,36.1230769230769" />
                   <mssgle:CubicBezierSegment
-                    Point1="133.333333333333,37.4086713286713"
-                    Point2="137.333333333333,37.4086713286713"
-                    Point3="137.333333333333,41.4086713286713" />
+                    Point1="-133.923076923077,36.1230769230769"
+                    Point2="-137.923076923077,36.1230769230769"
+                    Point3="-137.923076923077,40.1230769230769" />
                   <mssgle:LineSegment
-                    End="137.333333333333,84.1000000000001" />
+                    End="-137.923076923077,64.7461538461538" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="12.8602799479165,42.4086713286713,111.6127734375,11.609375"
+              BoundingBox="-117.152925180289,41.1230769230769,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="504.7,99.6">
+          Id="Package\CuaHang_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="635.815384615385,245.446153846154">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,68.4"
+              EndConnector="-9.07692307692332,73.6923076923077"
               Start="0,0"
-              End="0,60.9">
+              End="-9.07692307692332,66.1923076923077">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.9" />
+                    End="0,32.8461538461538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8461538461538"
+                    Point2="0,36.8461538461538"
+                    Point3="-4,36.8461538461538" />
+                  <mssgle:LineSegment
+                    End="-5.07692307692332,36.8461538461538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.07692307692332,36.8461538461538"
+                    Point2="-9.07692307692332,36.8461538461538"
+                    Point3="-9.07692307692332,40.8461538461538" />
+                  <mssgle:LineSegment
+                    End="-9.07692307692332,66.1923076923077" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="658.2,342.8">
+          Id="Package\CuaHang_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="359.4,253.138461538462">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21.0000000000001,46.4"
+              EndConnector="0,65.1692307692308"
               Start="0,0"
-              End="21.0000000000001,38.9">
+              End="0,57.6692307692308">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.2"
-                    Point2="0,23.2"
-                    Point3="4,23.2" />
-                  <mssgle:LineSegment
-                    End="17.0000000000001,23.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.0000000000001,23.2"
-                    Point2="21.0000000000001,23.2"
-                    Point3="21.0000000000001,27.2" />
-                  <mssgle:LineSegment
-                    End="21.0000000000001,38.9" />
+                    End="0,57.6692307692308" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiSanPham_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="503.4,209.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-109,90.4"
-              Start="0,0"
-              End="-109,82.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.2"
-                    Point2="0,45.2"
-                    Point3="-4,45.2" />
-                  <mssgle:LineSegment
-                    End="-105,45.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-105,45.2"
-                    Point2="-109,45.2"
-                    Point3="-109,49.2" />
-                  <mssgle:LineSegment
-                    End="-109,82.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-102.69138671875,50.2,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\SanPham_Stage to NDS">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\SanPham_Stage to NDS\OLE DB Command"
-          TopLeft="323,386.8" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\SanPham_Stage to NDS\Derived Column"
-          TopLeft="318,300" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\SanPham_Stage to NDS\Derived Column 1"
-          TopLeft="577,301.2" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\SanPham_Stage to NDS\OLE DB Destination"
-          TopLeft="594,389.2" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\SanPham_Stage to NDS\Lookup"
-          TopLeft="447,168" />
-        <NodeLayout
-          Size="180.8,41.6"
-          Id="Package\SanPham_Stage to NDS\Load SanPham_Stage"
-          TopLeft="406,58" />
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="394.4,341.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.9999999999999,45.2"
-              Start="0,0"
-              End="10.9999999999999,37.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.6"
-                    Point2="0,22.6"
-                    Point3="4,22.6" />
-                  <mssgle:LineSegment
-                    End="6.99999999999989,22.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.99999999999989,22.6"
-                    Point2="10.9999999999999,22.6"
-                    Point3="10.9999999999999,26.6" />
-                  <mssgle:LineSegment
-                    End="10.9999999999999,37.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="520.866666666667,209.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="137.333333333333,91.6000000000001"
-              Start="0,0"
-              End="137.333333333333,84.1000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.4086713286713" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.4086713286713"
-                    Point2="0,37.4086713286713"
-                    Point3="4,37.4086713286713" />
-                  <mssgle:LineSegment
-                    End="133.333333333333,37.4086713286713" />
-                  <mssgle:CubicBezierSegment
-                    Point1="133.333333333333,37.4086713286713"
-                    Point2="137.333333333333,37.4086713286713"
-                    Point3="137.333333333333,41.4086713286713" />
-                  <mssgle:LineSegment
-                    End="137.333333333333,84.1000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="12.8602799479165,42.4086713286713,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="499.9,99.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68.4"
-              Start="0,0"
-              End="0,60.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,60.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="658.2,342.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="21.0000000000001,46.4"
-              Start="0,0"
-              End="21.0000000000001,38.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.2"
-                    Point2="0,23.2"
-                    Point3="4,23.2" />
-                  <mssgle:LineSegment
-                    End="17.0000000000001,23.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.0000000000001,23.2"
-                    Point2="21.0000000000001,23.2"
-                    Point3="21.0000000000001,27.2" />
-                  <mssgle:LineSegment
-                    End="21.0000000000001,38.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SanPham_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="503.4,209.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-109,90.4"
-              Start="0,0"
-              End="-109,82.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,41.2"
-                    Point2="0,45.2"
-                    Point3="-4,45.2" />
-                  <mssgle:LineSegment
-                    End="-105,45.2" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-105,45.2"
-                    Point2="-109,45.2"
-                    Point3="-109,49.2" />
-                  <mssgle:LineSegment
-                    End="-109,82.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-102.69138671875,50.2,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CuaHang_Stage to NDS\Load CuaHang_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CuaHang_Stage to NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CuaHang_Stage to NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\HoaDon_Stage to NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\HoaDon_Stage to NDS\OLE DB Command"
           TopLeft="323,386.8" />
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\HoaDon_Stage to NDS\Derived Column"
-          TopLeft="318,300" />
-        <NodeLayout
-          Size="170.4,41.6"
+          Size="170,42"
           Id="Package\HoaDon_Stage to NDS\OLE DB Destination"
           TopLeft="594,389.2" />
         <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\HoaDon_Stage to NDS\Lookup"
-          TopLeft="447,168" />
-        <NodeLayout
-          Size="152.8,41.6"
+          Size="153,42"
           Id="Package\HoaDon_Stage to NDS\Derived Column 1"
           TopLeft="586,286.8" />
         <NodeLayout
-          Size="174.4,41.6"
+          Size="113,42"
+          Id="Package\HoaDon_Stage to NDS\Lookup"
+          TopLeft="447,168" />
+        <NodeLayout
+          Size="174,42"
           Id="Package\HoaDon_Stage to NDS\Load HoaDon_Stage"
           TopLeft="406,58" />
-        <EdgeLayout
-          Id="Package\HoaDon_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="394.4,341.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.9999999999999,45.2"
-              Start="0,0"
-              End="10.9999999999999,37.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.6"
-                    Point2="0,22.6"
-                    Point3="4,22.6" />
-                  <mssgle:LineSegment
-                    End="6.99999999999989,22.6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.99999999999989,22.6"
-                    Point2="10.9999999999999,22.6"
-                    Point3="10.9999999999999,26.6" />
-                  <mssgle:LineSegment
-                    End="10.9999999999999,37.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\HoaDon_Stage to NDS\Derived Column"
+          TopLeft="318,300" />
         <EdgeLayout
           Id="Package\HoaDon_Stage to NDS.Paths[OLE DB Source Output]"
           TopLeft="493.2,99.6">
@@ -7893,9 +7697,7 @@ where [refTable].[SourceName] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7930,7 +7732,7 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="14.9602799479167,36.5278321678322,111.6127734375,11.609375"
+              BoundingBox="14.9602799479165,36.5278321678322,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8001,118 +7803,127 @@ where [refTable].[SourceName] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\HoaDon_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="394.4,341.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.9999999999999,45.2"
+              Start="0,0"
+              End="10.9999999999999,37.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6"
+                    Point2="0,22.6"
+                    Point3="4,22.6" />
+                  <mssgle:LineSegment
+                    End="6.99999999999989,22.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.99999999999989,22.6"
+                    Point2="10.9999999999999,22.6"
+                    Point3="10.9999999999999,26.6" />
+                  <mssgle:LineSegment
+                    End="10.9999999999999,37.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\HoaDon_Stage to NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HoaDon_Stage to NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\HoaDon_Stage to NDS\Load HoaDon_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\LoaiCuaHang_Stage to NDS">
+    design-time-name="Package\KhachHang_Stage to NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\LoaiCuaHang_Stage to NDS\OLE DB Command"
+          Size="165,42"
+          Id="Package\KhachHang_Stage to NDS\OLE DB Command"
           TopLeft="277.692307692308,318.307692307692" />
         <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\LoaiCuaHang_Stage to NDS\Lookup"
-          TopLeft="440.230769230769,97.6923076923077" />
+          Size="162,42"
+          Id="Package\KhachHang_Stage to NDS\Derived Column 1"
+          TopLeft="554.615384615385,203.846153846154" />
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\LoaiCuaHang_Stage to NDS\OLE DB Destination"
+          Size="170,42"
+          Id="Package\KhachHang_Stage to NDS\OLE DB Destination"
           TopLeft="541.538461538462,319.138461538462" />
         <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\LoaiCuaHang_Stage to NDS\Derived Column"
-          TopLeft="282.307692307692,211.538461538462" />
-        <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\LoaiCuaHang_Stage to NDS\Load LoaiCuaHang_Stage"
+          Size="190,42"
+          Id="Package\KhachHang_Stage to NDS\Load KhachHang_Stage"
           TopLeft="404.461538461538,16.1538461538462" />
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\LoaiCuaHang_Stage to NDS\Derived Column 1"
-          TopLeft="554.615384615385,203.846153846154" />
+          Size="113,42"
+          Id="Package\KhachHang_Stage to NDS\Lookup"
+          TopLeft="440.230769230769,97.6923076923077" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\KhachHang_Stage to NDS\Derived Column"
+          TopLeft="282.307692307692,211.538461538462" />
         <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="514.097435897436,139.292307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="121.717948717949,64.5538461538462"
-              Start="0,0"
-              End="121.717948717949,57.0538461538462">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.3632490586337" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.3632490586337"
-                    Point2="0,26.3632490586337"
-                    Point3="4,26.3632490586337" />
-                  <mssgle:LineSegment
-                    End="117.717948717949,26.3632490586337" />
-                  <mssgle:CubicBezierSegment
-                    Point1="117.717948717949,26.3632490586337"
-                    Point2="121.717948717949,26.3632490586337"
-                    Point3="121.717948717949,30.3632490586337" />
-                  <mssgle:LineSegment
-                    End="121.717948717949,57.0538461538462" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="5.05258764022448,31.3632490586337,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="635.815384615385,245.446153846154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.07692307692332,73.6923076923077"
-              Start="0,0"
-              End="-9.07692307692332,66.1923076923077">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.8461538461538"
-                    Point2="0,36.8461538461538"
-                    Point3="-4,36.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-5.07692307692332,36.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.07692307692332,36.8461538461538"
-                    Point2="-9.07692307692332,36.8461538461538"
-                    Point3="-9.07692307692332,40.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-9.07692307692332,66.1923076923077" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="500.146153846153,57.7538461538462">
+          Id="Package\KhachHang_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="498.146153846153,57.7538461538462">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8134,298 +7945,6 @@ where [refTable].[SourceName] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="496.630769230769,139.292307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-137.923076923077,72.2461538461538"
-              Start="0,0"
-              End="-137.923076923077,64.7461538461538">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.1230769230769" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.1230769230769"
-                    Point2="0,36.1230769230769"
-                    Point3="-4,36.1230769230769" />
-                  <mssgle:LineSegment
-                    End="-133.923076923077,36.1230769230769" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-133.923076923077,36.1230769230769"
-                    Point2="-137.923076923077,36.1230769230769"
-                    Point3="-137.923076923077,40.1230769230769" />
-                  <mssgle:LineSegment
-                    End="-137.923076923077,64.7461538461538" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-117.152925180288,41.1230769230769,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="359.4,253.138461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.1692307692308"
-              Start="0,0"
-              End="0,57.6692307692308">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.6692307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Nuoc_Stage to NDS">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Nuoc_Stage to NDS\OLE DB Command"
-          TopLeft="277.692307692308,318.307692307692" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\Nuoc_Stage to NDS\Lookup"
-          TopLeft="440.230769230769,97.6923076923077" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Nuoc_Stage to NDS\OLE DB Destination"
-          TopLeft="541.538461538462,319.138461538462" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Nuoc_Stage to NDS\Derived Column"
-          TopLeft="282.307692307692,211.538461538462" />
-        <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\Nuoc_Stage to NDS\Load Nuoc_Stage"
-          TopLeft="404.461538461538,16.1538461538462" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Nuoc_Stage to NDS\Derived Column 1"
-          TopLeft="554.615384615385,203.846153846154" />
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Lookup No Match Output]"
-          TopLeft="514.097435897436,139.292307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="121.717948717949,64.5538461538462"
-              Start="0,0"
-              End="121.717948717949,57.0538461538462">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.3632490586337" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.3632490586337"
-                    Point2="0,26.3632490586337"
-                    Point3="4,26.3632490586337" />
-                  <mssgle:LineSegment
-                    End="117.717948717949,26.3632490586337" />
-                  <mssgle:CubicBezierSegment
-                    Point1="117.717948717949,26.3632490586337"
-                    Point2="121.717948717949,26.3632490586337"
-                    Point3="121.717948717949,30.3632490586337" />
-                  <mssgle:LineSegment
-                    End="121.717948717949,57.0538461538462" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="5.05258764022448,31.3632490586337,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="635.815384615385,245.446153846154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.07692307692332,73.6923076923077"
-              Start="0,0"
-              End="-9.07692307692332,66.1923076923077">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.8461538461538"
-                    Point2="0,36.8461538461538"
-                    Point3="-4,36.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-5.07692307692332,36.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.07692307692332,36.8461538461538"
-                    Point2="-9.07692307692332,36.8461538461538"
-                    Point3="-9.07692307692332,40.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-9.07692307692332,66.1923076923077" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="484.861538461538,57.7538461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="11.769230769231,39.9384615384615"
-              Start="0,0"
-              End="11.769230769231,32.4384615384615">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.9692307692307" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.9692307692307"
-                    Point2="0,19.9692307692307"
-                    Point3="4,19.9692307692307" />
-                  <mssgle:LineSegment
-                    End="7.769230769231,19.9692307692307" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.769230769231,19.9692307692307"
-                    Point2="11.769230769231,19.9692307692307"
-                    Point3="11.769230769231,23.9692307692307" />
-                  <mssgle:LineSegment
-                    End="11.769230769231,32.4384615384615" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="496.630769230769,139.292307692308">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-137.923076923077,72.2461538461538"
-              Start="0,0"
-              End="-137.923076923077,64.7461538461538">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.1230769230769" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.1230769230769"
-                    Point2="0,36.1230769230769"
-                    Point3="-4,36.1230769230769" />
-                  <mssgle:LineSegment
-                    End="-133.923076923077,36.1230769230769" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-133.923076923077,36.1230769230769"
-                    Point2="-137.923076923077,36.1230769230769"
-                    Point3="-137.923076923077,40.1230769230769" />
-                  <mssgle:LineSegment
-                    End="-137.923076923077,64.7461538461538" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-117.152925180288,41.1230769230769,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="359.4,253.138461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.1692307692308"
-              Start="0,0"
-              End="0,57.6692307692308">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,57.6692307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\KhachHang_Stage to NDS">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\KhachHang_Stage to NDS\OLE DB Command"
-          TopLeft="277.692307692308,318.307692307692" />
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\KhachHang_Stage to NDS\Lookup"
-          TopLeft="440.230769230769,97.6923076923077" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\KhachHang_Stage to NDS\OLE DB Destination"
-          TopLeft="541.538461538462,319.138461538462" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\KhachHang_Stage to NDS\Derived Column"
-          TopLeft="282.307692307692,211.538461538462" />
-        <NodeLayout
-          Size="190.4,41.6"
-          Id="Package\KhachHang_Stage to NDS\Load KhachHang_Stage"
-          TopLeft="404.461538461538,16.1538461538462" />
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\KhachHang_Stage to NDS\Derived Column 1"
-          TopLeft="554.615384615385,203.846153846154" />
         <EdgeLayout
           Id="Package\KhachHang_Stage to NDS.Paths[Lookup No Match Output]"
           TopLeft="514.097435897436,139.292307692308">
@@ -8458,67 +7977,7 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="5.05258764022448,31.3632490586337,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="635.815384615385,245.446153846154">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.07692307692332,73.6923076923077"
-              Start="0,0"
-              End="-9.07692307692332,66.1923076923077">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.8461538461538"
-                    Point2="0,36.8461538461538"
-                    Point3="-4,36.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-5.07692307692332,36.8461538461538" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.07692307692332,36.8461538461538"
-                    Point2="-9.07692307692332,36.8461538461538"
-                    Point3="-9.07692307692332,40.8461538461538" />
-                  <mssgle:LineSegment
-                    End="-9.07692307692332,66.1923076923077" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="498.146153846153,57.7538461538462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.9384615384615"
-              Start="0,0"
-              End="0,32.4384615384615">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.4384615384615" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="5.0525876402245,31.3632490586337,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -8559,6 +8018,42 @@ where [refTable].[SourceName] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\KhachHang_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="635.815384615385,245.446153846154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.07692307692332,73.6923076923077"
+              Start="0,0"
+              End="-9.07692307692332,66.1923076923077">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8461538461538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8461538461538"
+                    Point2="0,36.8461538461538"
+                    Point3="-4,36.8461538461538" />
+                  <mssgle:LineSegment
+                    End="-5.07692307692332,36.8461538461538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.07692307692332,36.8461538461538"
+                    Point2="-9.07692307692332,36.8461538461538"
+                    Point3="-9.07692307692332,40.8461538461538" />
+                  <mssgle:LineSegment
+                    End="-9.07692307692332,66.1923076923077" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\KhachHang_Stage to NDS.Paths[Derived Column Output]"
           TopLeft="359.4,253.138461538462">
           <EdgeLayout.Curve>
@@ -8585,5 +8080,1032 @@ where [refTable].[SourceName] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\KhachHang_Stage to NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\KhachHang_Stage to NDS\Load KhachHang_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\KhachHang_Stage to NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\LoaiCuaHang_Stage to NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\LoaiCuaHang_Stage to NDS\OLE DB Command"
+          TopLeft="277.692307692308,318.307692307692" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\LoaiCuaHang_Stage to NDS\OLE DB Destination"
+          TopLeft="541.538461538462,319.138461538462" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\LoaiCuaHang_Stage to NDS\Derived Column 1"
+          TopLeft="554.615384615385,203.846153846154" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\LoaiCuaHang_Stage to NDS\Load LoaiCuaHang_Stage"
+          TopLeft="404.461538461538,16.1538461538462" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\LoaiCuaHang_Stage to NDS\Lookup"
+          TopLeft="440.230769230769,97.6923076923077" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\LoaiCuaHang_Stage to NDS\Derived Column"
+          TopLeft="282.307692307692,211.538461538462" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="500.146153846153,57.7538461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.9384615384615"
+              Start="0,0"
+              End="0,32.4384615384615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4384615384615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="514.097435897436,139.292307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.717948717949,64.5538461538462"
+              Start="0,0"
+              End="121.717948717949,57.0538461538462">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.3632490586337" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.3632490586337"
+                    Point2="0,26.3632490586337"
+                    Point3="4,26.3632490586337" />
+                  <mssgle:LineSegment
+                    End="117.717948717949,26.3632490586337" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.717948717949,26.3632490586337"
+                    Point2="121.717948717949,26.3632490586337"
+                    Point3="121.717948717949,30.3632490586337" />
+                  <mssgle:LineSegment
+                    End="121.717948717949,57.0538461538462" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.0525876402245,31.3632490586337,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="496.630769230769,139.292307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-137.923076923077,72.2461538461538"
+              Start="0,0"
+              End="-137.923076923077,64.7461538461538">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1230769230769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.1230769230769"
+                    Point2="0,36.1230769230769"
+                    Point3="-4,36.1230769230769" />
+                  <mssgle:LineSegment
+                    End="-133.923076923077,36.1230769230769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-133.923076923077,36.1230769230769"
+                    Point2="-137.923076923077,36.1230769230769"
+                    Point3="-137.923076923077,40.1230769230769" />
+                  <mssgle:LineSegment
+                    End="-137.923076923077,64.7461538461538" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-117.152925180288,41.1230769230769,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="635.815384615385,245.446153846154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.07692307692332,73.6923076923077"
+              Start="0,0"
+              End="-9.07692307692332,66.1923076923077">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8461538461538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8461538461538"
+                    Point2="0,36.8461538461538"
+                    Point3="-4,36.8461538461538" />
+                  <mssgle:LineSegment
+                    End="-5.07692307692332,36.8461538461538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.07692307692332,36.8461538461538"
+                    Point2="-9.07692307692332,36.8461538461538"
+                    Point3="-9.07692307692332,40.8461538461538" />
+                  <mssgle:LineSegment
+                    End="-9.07692307692332,66.1923076923077" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="359.4,253.138461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.1692307692308"
+              Start="0,0"
+              End="0,57.6692307692308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.6692307692308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage to NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage to NDS\Load LoaiCuaHang_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage to NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\LoaiSanPham_Stage to NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\LoaiSanPham_Stage to NDS\OLE DB Command"
+          TopLeft="323,386.8" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\LoaiSanPham_Stage to NDS\OLE DB Destination"
+          TopLeft="594,389.2" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\LoaiSanPham_Stage to NDS\Derived Column 1"
+          TopLeft="577,301.2" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\LoaiSanPham_Stage to NDS\Load LoaiSanPham_Stage"
+          TopLeft="406,58" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\LoaiSanPham_Stage to NDS\Lookup"
+          TopLeft="447,168" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\LoaiSanPham_Stage to NDS\Derived Column"
+          TopLeft="318,300" />
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="504.7,99.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.4"
+              Start="0,0"
+              End="0,60.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="520.866666666667,209.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.333333333333,91.6000000000001"
+              Start="0,0"
+              End="137.333333333333,84.1000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.4086713286713" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.4086713286713"
+                    Point2="0,37.4086713286713"
+                    Point3="4,37.4086713286713" />
+                  <mssgle:LineSegment
+                    End="133.333333333333,37.4086713286713" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.333333333333,37.4086713286713"
+                    Point2="137.333333333333,37.4086713286713"
+                    Point3="137.333333333333,41.4086713286713" />
+                  <mssgle:LineSegment
+                    End="137.333333333333,84.1000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.8602799479165,42.4086713286713,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="503.4,209.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-109,90.4"
+              Start="0,0"
+              End="-109,82.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.2"
+                    Point2="0,45.2"
+                    Point3="-4,45.2" />
+                  <mssgle:LineSegment
+                    End="-105,45.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-105,45.2"
+                    Point2="-109,45.2"
+                    Point3="-109,49.2" />
+                  <mssgle:LineSegment
+                    End="-109,82.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-102.69138671875,50.2,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="658.2,342.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.0000000000001,46.4"
+              Start="0,0"
+              End="21.0000000000001,38.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.2"
+                    Point2="0,23.2"
+                    Point3="4,23.2" />
+                  <mssgle:LineSegment
+                    End="17.0000000000001,23.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.0000000000001,23.2"
+                    Point2="21.0000000000001,23.2"
+                    Point3="21.0000000000001,27.2" />
+                  <mssgle:LineSegment
+                    End="21.0000000000001,38.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiSanPham_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="394.4,341.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.9999999999999,45.2"
+              Start="0,0"
+              End="10.9999999999999,37.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6"
+                    Point2="0,22.6"
+                    Point3="4,22.6" />
+                  <mssgle:LineSegment
+                    End="6.99999999999989,22.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.99999999999989,22.6"
+                    Point2="10.9999999999999,22.6"
+                    Point3="10.9999999999999,26.6" />
+                  <mssgle:LineSegment
+                    End="10.9999999999999,37.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPham_Stage to NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPham_Stage to NDS\Load LoaiSanPham_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiSanPham_Stage to NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Nuoc_Stage to NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Nuoc_Stage to NDS\OLE DB Command"
+          TopLeft="277.692307692308,318.307692307692" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Nuoc_Stage to NDS\OLE DB Destination"
+          TopLeft="541.538461538462,319.138461538462" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Nuoc_Stage to NDS\Derived Column 1"
+          TopLeft="554.615384615385,203.846153846154" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Nuoc_Stage to NDS\Load Nuoc_Stage"
+          TopLeft="404.461538461538,16.1538461538462" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Nuoc_Stage to NDS\Lookup"
+          TopLeft="440.230769230769,97.6923076923077" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Nuoc_Stage to NDS\Derived Column"
+          TopLeft="282.307692307692,211.538461538462" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="484.861538461538,57.7538461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.769230769231,39.9384615384615"
+              Start="0,0"
+              End="11.769230769231,32.4384615384615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.9692307692307" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.9692307692307"
+                    Point2="0,19.9692307692307"
+                    Point3="4,19.9692307692307" />
+                  <mssgle:LineSegment
+                    End="7.769230769231,19.9692307692307" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.769230769231,19.9692307692307"
+                    Point2="11.769230769231,19.9692307692307"
+                    Point3="11.769230769231,23.9692307692307" />
+                  <mssgle:LineSegment
+                    End="11.769230769231,32.4384615384615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="514.097435897436,139.292307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121.717948717949,64.5538461538462"
+              Start="0,0"
+              End="121.717948717949,57.0538461538462">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.3632490586337" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.3632490586337"
+                    Point2="0,26.3632490586337"
+                    Point3="4,26.3632490586337" />
+                  <mssgle:LineSegment
+                    End="117.717948717949,26.3632490586337" />
+                  <mssgle:CubicBezierSegment
+                    Point1="117.717948717949,26.3632490586337"
+                    Point2="121.717948717949,26.3632490586337"
+                    Point3="121.717948717949,30.3632490586337" />
+                  <mssgle:LineSegment
+                    End="121.717948717949,57.0538461538462" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="5.0525876402245,31.3632490586337,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="496.630769230769,139.292307692308">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-137.923076923077,72.2461538461538"
+              Start="0,0"
+              End="-137.923076923077,64.7461538461538">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1230769230769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.1230769230769"
+                    Point2="0,36.1230769230769"
+                    Point3="-4,36.1230769230769" />
+                  <mssgle:LineSegment
+                    End="-133.923076923077,36.1230769230769" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-133.923076923077,36.1230769230769"
+                    Point2="-137.923076923077,36.1230769230769"
+                    Point3="-137.923076923077,40.1230769230769" />
+                  <mssgle:LineSegment
+                    End="-137.923076923077,64.7461538461538" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-117.152925180288,41.1230769230769,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="635.815384615385,245.446153846154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.07692307692332,73.6923076923077"
+              Start="0,0"
+              End="-9.07692307692332,66.1923076923077">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.8461538461538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.8461538461538"
+                    Point2="0,36.8461538461538"
+                    Point3="-4,36.8461538461538" />
+                  <mssgle:LineSegment
+                    End="-5.07692307692332,36.8461538461538" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.07692307692332,36.8461538461538"
+                    Point2="-9.07692307692332,36.8461538461538"
+                    Point3="-9.07692307692332,40.8461538461538" />
+                  <mssgle:LineSegment
+                    End="-9.07692307692332,66.1923076923077" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="359.4,253.138461538462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.1692307692308"
+              Start="0,0"
+              End="0,57.6692307692308">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.6692307692308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Load Nuoc_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SanPham_Stage to NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\SanPham_Stage to NDS\Load SanPham_Stage"
+          TopLeft="406,58" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\SanPham_Stage to NDS\Lookup"
+          TopLeft="447,168" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SanPham_Stage to NDS\Derived Column 1"
+          TopLeft="577,301.2" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\SanPham_Stage to NDS\OLE DB Command"
+          TopLeft="323,386.8" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\SanPham_Stage to NDS\Derived Column"
+          TopLeft="318,300" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\SanPham_Stage to NDS\OLE DB Destination"
+          TopLeft="594,389.2" />
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="499.9,99.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.4"
+              Start="0,0"
+              End="0,60.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="520.866666666667,209.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.333333333333,91.6000000000001"
+              Start="0,0"
+              End="137.333333333333,84.1000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.4086713286713" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.4086713286713"
+                    Point2="0,37.4086713286713"
+                    Point3="4,37.4086713286713" />
+                  <mssgle:LineSegment
+                    End="133.333333333333,37.4086713286713" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.333333333333,37.4086713286713"
+                    Point2="137.333333333333,37.4086713286713"
+                    Point3="137.333333333333,41.4086713286713" />
+                  <mssgle:LineSegment
+                    End="137.333333333333,84.1000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.8602799479165,42.4086713286713,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="503.4,209.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-109,90.4"
+              Start="0,0"
+              End="-109,82.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41.2"
+                    Point2="0,45.2"
+                    Point3="-4,45.2" />
+                  <mssgle:LineSegment
+                    End="-105,45.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-105,45.2"
+                    Point2="-109,45.2"
+                    Point3="-109,49.2" />
+                  <mssgle:LineSegment
+                    End="-109,82.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-102.69138671875,50.2,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="658.2,342.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="21.0000000000001,46.4"
+              Start="0,0"
+              End="21.0000000000001,38.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.2"
+                    Point2="0,23.2"
+                    Point3="4,23.2" />
+                  <mssgle:LineSegment
+                    End="17.0000000000001,23.2" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.0000000000001,23.2"
+                    Point2="21.0000000000001,23.2"
+                    Point3="21.0000000000001,27.2" />
+                  <mssgle:LineSegment
+                    End="21.0000000000001,38.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SanPham_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="394.4,341.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.9999999999999,45.2"
+              Start="0,0"
+              End="10.9999999999999,37.7">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.6"
+                    Point2="0,22.6"
+                    Point3="4,22.6" />
+                  <mssgle:LineSegment
+                    End="6.99999999999989,22.6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.99999999999989,22.6"
+                    Point2="10.9999999999999,22.6"
+                    Point3="10.9999999999999,26.6" />
+                  <mssgle:LineSegment
+                    End="10.9999999999999,37.7" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SanPham_Stage to NDS\Load SanPham_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SanPham_Stage to NDS\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SanPham_Stage to NDS\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
