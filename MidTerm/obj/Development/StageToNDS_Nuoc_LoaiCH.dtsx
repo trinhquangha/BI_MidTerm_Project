@@ -1,0 +1,3274 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/27/2021 9:28:48 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-02THFBQC"
+  DTS:CreatorName="LAPTOP-02THFBQC\thanh quach"
+  DTS:DTSID="{5D47A895-84FB-4B7C-84E1-1CB00BB77260}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="StageToNDS_Nuoc_LoaiCH"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{679FF7A1-1DFB-4446-BA90-1C917D57DD4F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.NDS_DATH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{077763CE-3555-4A23-B708-9C8057E6FE31}"
+      DTS:ObjectName="LocalHost.NDS_DATH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=NDS_DATH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7DB09964-D7D1-489A-8C94-438CEF122B65}"
+      DTS:ObjectName="LocalHost.NDS_Demo">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=NDS_Demo;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0D919CFE-1F96-47C5-ACA2-A80C51648C29}"
+      DTS:ObjectName="LocalHost.Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LoaiCuaHang_Stage To NDS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D72AB561-B20E-40CC-BA94-09C5197E55CD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LoaiCuaHang_Stage To NDS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check ID LoaiCuaHang"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[StoreType_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[StoreType_NDS]) [refTable]
+where [refTable].[StoreTypeNK] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StoreTypeID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StoreTypeNK" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StoreTypeName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[MaLoaiCH]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Inputs[Lookup Input].Columns[MaLoaiCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaLoaiCH"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[MaLoaiCH]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StoreTypeNK</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Match Output].Columns[StoreTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Match Output].Columns[StoreTypeID]"
+                      name="StoreTypeID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StoreTypeID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check Nguon"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Source_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Source_NDS]) [refTable]
+where [refTable].[SourceName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[Nguon]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Inputs[Lookup Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[Nguon]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SourceName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]"
+                      name="SourceID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SourceID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check TrangThai"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Status_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Status_NDS]) [refTable]
+where [refTable].[StatusName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StatusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StatusName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[TrangThai]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Inputs[Lookup Input].Columns[TrangThai]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TrangThai"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[TrangThai]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StatusName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Match Output].Columns[StatusID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Match Output].Columns[StatusID]"
+                      name="StatusID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StatusID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert New Row"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[StoreType_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[MaLoaiCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaLoaiCH"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[StoreTypeNK]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[MaLoaiCH]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[NgayTao]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayTao"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayTao]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[TenLoaiCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TenLoaiCH"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[StoreTypeName]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[TenLoaiCH]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[StatusID]"
+                      cachedDataType="i4"
+                      cachedName="StatusID"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Match Output].Columns[StatusID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[StoreTypeID]"
+                      dataType="i4"
+                      name="StoreTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[StoreTypeNK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="StoreTypeNK" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      dataType="i4"
+                      name="SourceID" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[StoreTypeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StoreTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      dataType="i4"
+                      name="Status" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="LoaiCuaHang_Stage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[LoaiCuaHang_Stage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[MaLoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[MaLoaiCH]"
+                      length="4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[MaLoaiCH]"
+                      name="MaLoaiCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[TenLoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[TenLoaiCH]"
+                      length="50"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[TenLoaiCH]"
+                      name="TenLoaiCH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      name="NgayTao"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      length="50"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      name="TrangThai"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[Nguon]"
+                      length="50"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[MaLoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaLoaiCH" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[TenLoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TenLoaiCH" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      name="NgayTao" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[MaLoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[MaLoaiCH]"
+                      name="MaLoaiCH" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[TenLoaiCH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[TenLoaiCH]"
+                      name="TenLoaiCH" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      name="NgayTao" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      name="TrangThai" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[Nguon]"
+                      name="Nguon" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update Old Row"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update StoreType_NDS set StoreTypeNK = ?, StoreTypeName = ?,  UpdatedDate = ? where StoreTypeID = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].Columns[MaLoaiCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaLoaiCH"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[MaLoaiCH]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].Columns[TenLoaiCH]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TenLoaiCH"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[TenLoaiCH]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].Columns[StoreTypeID]"
+                      cachedDataType="i4"
+                      cachedName="StoreTypeID"
+                      externalMetadataColumnId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Match Output].Columns[StoreTypeID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="dbTimeStamp"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="UpdateDate"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Inputs[Derived Column Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="UpdateDate&amp;CreateDate"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input].Columns[NgayTao]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayTao"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LoaiCuaHang_Stage To NDS.Paths[Derived Column Output]"
+              endId="Package\LoaiCuaHang_Stage To NDS\Insert New Row.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoaiCuaHang_Stage To NDS.Paths[Derived Column Output1]"
+              endId="Package\LoaiCuaHang_Stage To NDS\Update Old Row.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output]"
+              endId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output1]"
+              endId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\LoaiCuaHang_Stage To NDS\Check TrangThai.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output2]"
+              endId="Package\LoaiCuaHang_Stage To NDS\UpdateDate.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup No Match Output]"
+              endId="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\LoaiCuaHang_Stage To NDS.Paths[OLE DB Source Output]"
+              endId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Nuoc_Stage to NDS"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{46CE4BA5-1D82-4278-87FF-892A4F65D62C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Nuoc_Stage to NDS"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Nuoc_Stage to NDS\Check CountryID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check CountryID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Country_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Country_NDS]) [refTable]
+where [refTable].[CountryNK] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CountryID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CountryNK" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CountryName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[MaNuoc]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Nuoc_Stage to NDS\Check CountryID.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Nuoc_Stage to NDS\Check CountryID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check CountryID.Inputs[Lookup Input].Columns[MaNuoc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaNuoc"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[MaNuoc]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CountryNK</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check CountryID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Match Output].Columns[CountryID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Match Output].Columns[CountryID]"
+                      name="CountryID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CountryID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check CountryID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check CountryID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Nuoc_Stage to NDS\Check Nguon"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check Nguon"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Source_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Source_NDS]) [refTable]
+where [refTable].[SourceName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[Nguon]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Nuoc_Stage to NDS\Check Nguon.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Nuoc_Stage to NDS\Check Nguon.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check Nguon.Inputs[Lookup Input].Columns[Nguon]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Nguon"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[Nguon]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SourceName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check Nguon.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]"
+                      name="SourceID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SourceID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check Nguon.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check Nguon.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Nuoc_Stage to NDS\Check Status"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check Status"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Status_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Status_NDS]) [refTable]
+where [refTable].[StatusName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StatusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StatusName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[TrangThai]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Nuoc_Stage to NDS\Check Status.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Nuoc_Stage to NDS\Check Status.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check Status.Inputs[Lookup Input].Columns[TrangThai]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TrangThai"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[TrangThai]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StatusName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check Status.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Match Output].Columns[StatusID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Match Output].Columns[StatusID]"
+                      name="StatusID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StatusID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check Status.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Check Status.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Nuoc_Stage to NDS\Insert New Row"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert New Row"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Country_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Nuoc_Stage to NDS\Insert New Row.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[MaNuoc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaNuoc"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CountryNK]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[MaNuoc]" />
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[TenNuoc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TenNuoc"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[TenNuoc]" />
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[NgayTao]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayTao"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayTao]" />
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].Columns[StatusID]"
+                      cachedDataType="i4"
+                      cachedName="StatusID"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Match Output].Columns[StatusID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CountryID]"
+                      dataType="i4"
+                      name="CountryID" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CountryNK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CountryNK" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CountryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CountryName" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      dataType="i4"
+                      name="SourceID" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      dataType="i4"
+                      name="Status" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Insert New Row.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Insert New Row.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Insert New Row.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Insert New Row.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Nuoc_Stage to NDS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Nuoc_Stage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[MaNuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[MaNuoc]"
+                      length="4"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[MaNuoc]"
+                      name="MaNuoc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[TenNuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[TenNuoc]"
+                      length="50"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[TenNuoc]"
+                      name="TenNuoc"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      name="NgayTao"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      length="50"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[TrangThai]"
+                      name="TrangThai"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[Nguon]"
+                      length="50"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[Nguon]"
+                      name="Nguon"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[MaNuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="MaNuoc" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[TenNuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TenNuoc" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      name="NgayTao" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      name="NgayCapNhat" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[TrangThai]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TrangThai" />
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].ExternalColumns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nguon" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[MaNuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[MaNuoc]"
+                      name="MaNuoc" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[TenNuoc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[TenNuoc]"
+                      name="TenNuoc" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[NgayTao]"
+                      name="NgayTao" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[NgayCapNhat]"
+                      name="NgayCapNhat" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[TrangThai]"
+                      name="TrangThai" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[Nguon]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[Nguon]"
+                      name="Nguon" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Nuoc_Stage to NDS\Update Date"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Update Date"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Nuoc_Stage to NDS\Update Date.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Date.Inputs[Derived Column Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Update Date.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Update Date.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Update Date.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Update Date.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Update Date.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Update Date.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Nuoc_Stage to NDS\Update Old Row"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update Old Row"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Country_NDS set CountryNK = ?, CountryName = ?, CreatedDate = ? where CountryID = ?
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Nuoc_Stage to NDS\Update Old Row.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NDS_Demo]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].Columns[MaNuoc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="MaNuoc"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[MaNuoc]" />
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].Columns[TenNuoc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TenNuoc"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[TenNuoc]" />
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayCapNhat]" />
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].Columns[CountryID]"
+                      cachedDataType="i4"
+                      cachedName="CountryID"
+                      externalMetadataColumnId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Match Output].Columns[CountryID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="dbTimeStamp"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Update Old Row.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\Update Old Row.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Update Old Row.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\Update Old Row.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\Update Old Row.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="UpdateDate&amp;CreateDate"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input].Columns[NgayTao]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayTao"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayTao]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input].Columns[NgayCapNhat]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="NgayCapNhat"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[NgayCapNhat]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Nuoc_Stage to NDS.Paths[Derived Column Output]"
+              endId="Package\Nuoc_Stage to NDS\Update Old Row.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Nuoc_Stage to NDS\Update Date.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Nuoc_Stage to NDS.Paths[Derived Column Output1]"
+              endId="Package\Nuoc_Stage to NDS\Insert New Row.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output]"
+              endId="Package\Nuoc_Stage to NDS\Check Status.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output1]"
+              endId="Package\Nuoc_Stage to NDS\Check CountryID.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Nuoc_Stage to NDS\Check Status.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output2]"
+              endId="Package\Nuoc_Stage to NDS\Update Date.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Nuoc_Stage to NDS.Paths[Lookup No Match Output]"
+              endId="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Nuoc_Stage to NDS\Check CountryID.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Nuoc_Stage to NDS.Paths[OLE DB Source Output]"
+              endId="Package\Nuoc_Stage to NDS\Check Nguon.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E195C74E-6E6A-4F50-A383-F7BE2ACFB2E4}"
+      DTS:From="Package\LoaiCuaHang_Stage To NDS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Nuoc_Stage to NDS" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS"
+          TopLeft="310.000005279269,117.000001640881" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Nuoc_Stage to NDS"
+          TopLeft="343.571434422415,220.235297206364" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="415.600005279269,158.600001640881">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5714291431465,61.6352955654831"
+              Start="0,0"
+              End="13.5714291431465,54.1352955654831">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8176477827415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.8176477827415"
+                    Point2="0,30.8176477827415"
+                    Point3="4,30.8176477827415" />
+                  <mssgle:LineSegment
+                    End="9.57142914314647,30.8176477827415" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.57142914314647,30.8176477827415"
+                    Point2="13.5714291431465,30.8176477827415"
+                    Point3="13.5714291431465,34.8176477827415" />
+                  <mssgle:LineSegment
+                    End="13.5714291431465,54.1352955654831" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LoaiCuaHang_Stage To NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage"
+          TopLeft="315.000005364418,65.0000009116005" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\Check Nguon"
+          TopLeft="331.428577072767,134.588237181667" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\Check TrangThai"
+          TopLeft="325.000005534717,214.117650061743" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[OLE DB Source Output]"
+          TopLeft="401.614291218592,106.6000009116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.9882362700664"
+              Start="0,0"
+              End="0,20.4882362700664">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4882362700664" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output]"
+          TopLeft="402.814291303742,176.188237181667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9294128800759"
+              Start="0,0"
+              End="0,30.4294128800759">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4294128800759" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.41001894003797,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang"
+          TopLeft="315.000005364418,291.717650791023" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output1]"
+          TopLeft="406.000005449568,255.717650061743">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.0000007292802"
+              Start="0,0"
+              End="0,28.5000007292802">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5000007292802" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,8.4453128646401,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\UpdateDate"
+          TopLeft="195.00000332083,393.82353347643" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output2]"
+          TopLeft="408.200005364418,333.317650791023">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146.400002043588,60.5058826854074"
+              Start="0,0"
+              End="-146.400002043588,53.0058826854074">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2529413427037" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2529413427037"
+                    Point2="0,30.2529413427037"
+                    Point3="-4,30.2529413427037" />
+                  <mssgle:LineSegment
+                    End="-142.400002043588,30.2529413427037" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142.400002043588,30.2529413427037"
+                    Point2="-146.400002043588,30.2529413427037"
+                    Point3="-146.400002043588,34.2529413427037" />
+                  <mssgle:LineSegment
+                    End="-146.400002043588,53.0058826854074" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.391387740544,35.2529413427037,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate"
+          TopLeft="446.428579031205,396.011767376336" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup No Match Output]"
+          TopLeft="437.933338697752,333.317650791023">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.295240333453,62.6941165853126"
+              Start="0,0"
+              End="105.295240333453,55.1941165853126">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3977868039224" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.3977868039224"
+                    Point2="0,25.3977868039224"
+                    Point3="4,25.3977868039224" />
+                  <mssgle:LineSegment
+                    End="101.295240333453,25.3977868039224" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.295240333453,25.3977868039224"
+                    Point2="105.295240333453,25.3977868039224"
+                    Point3="105.295240333453,29.3977868039224" />
+                  <mssgle:LineSegment
+                    End="105.295240333453,55.1941165853126" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-3.15876655202329,30.3977868039224,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\Insert New Row"
+          TopLeft="458.571436380854,508.529415979517" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Derived Column Output]"
+          TopLeft="539.300007706029,437.611767376336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.9176486031818"
+              Start="0,0"
+              End="0,63.4176486031818">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.4176486031818" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\Update Old Row"
+          TopLeft="176.428574433132,508.011768105616" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Derived Column Output1]"
+          TopLeft="257.914288876981,435.42353347643">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.5882346291854"
+              Start="0,0"
+              End="0,65.0882346291854">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.0882346291854" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage To NDS\Check Nguon">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage To NDS\Check TrangThai">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Status_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[StoreType_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage To NDS\Insert New Row">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Nuoc_Stage to NDS">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS"
+          TopLeft="479,27" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Nuoc_Stage to NDS\Check Nguon"
+          TopLeft="488,115" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="561.5,68.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.4"
+              Start="0,0"
+              End="0,38.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Nuoc_Stage to NDS\Check Status"
+          TopLeft="492,207" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="560,156.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.4"
+              Start="0,0"
+              End="0,42.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.6453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\Check CountryID"
+          TopLeft="475,303" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output1]"
+          TopLeft="557.7,248.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.3999999999999"
+              Start="0,0"
+              End="0,46.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,17.6453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\Update Date"
+          TopLeft="341,415" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output2]"
+          TopLeft="528.866666666667,344.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-119.066666666667,70.4"
+              Start="0,0"
+              End="-119.066666666667,62.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5845226130653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5845226130653"
+                    Point2="0,28.5845226130653"
+                    Point3="-4,28.5845226130653" />
+                  <mssgle:LineSegment
+                    End="-115.066666666667,28.5845226130653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-115.066666666667,28.5845226130653"
+                    Point2="-119.066666666667,28.5845226130653"
+                    Point3="-119.066666666667,32.5845226130653" />
+                  <mssgle:LineSegment
+                    End="-119.066666666667,62.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-107.724720052083,33.5845226130653,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate"
+          TopLeft="598,407" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup No Match Output]"
+          TopLeft="578.733333333333,344.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116.066666666667,62.4"
+              Start="0,0"
+              End="116.066666666667,54.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3362814070352" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.3362814070352"
+                    Point2="0,25.3362814070352"
+                    Point3="4,25.3362814070352" />
+                  <mssgle:LineSegment
+                    End="112.066666666667,25.3362814070352" />
+                  <mssgle:CubicBezierSegment
+                    Point1="112.066666666667,25.3362814070352"
+                    Point2="116.066666666667,25.3362814070352"
+                    Point3="116.066666666667,29.3362814070352" />
+                  <mssgle:LineSegment
+                    End="116.066666666667,54.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="2.22694661458331,30.3362814070352,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Nuoc_Stage to NDS\Update Old Row"
+          TopLeft="325,512" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="406.2,456.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.3999999999999"
+              Start="0,0"
+              End="0,47.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\Insert New Row"
+          TopLeft="620,516.2" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="695.8,448.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.6"
+              Start="0,0"
+              End="0,60.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Check Nguon">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Check Status">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Status_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Check CountryID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Country_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Insert New Row">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
