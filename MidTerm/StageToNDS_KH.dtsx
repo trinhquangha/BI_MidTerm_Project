@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS_KH"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{E080E11C-4462-40A0-8B19-ADF40CF60EE5}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{AAD3FA47-F8D6-4DCE-B88D-C8DB50668EAC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1780,7 +1780,7 @@ where [refTable].[StatusName] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="200.8,41.6"
+          Size="201,42"
           Id="Package\KhachHang_Stage to NDS"
           TopLeft="351.428577413365,152.941178615531" />
       </GraphLayout>
@@ -1792,39 +1792,39 @@ where [refTable].[StatusName] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="139.2,41.6"
+          Size="139,42"
           Id="Package\KhachHang_Stage to NDS\Check Status"
           TopLeft="339.285720063716,237.82353274715" />
         <NodeLayout
-          Size="138.4,41.6"
+          Size="138,42"
           Id="Package\KhachHang_Stage to NDS\Check CusID"
           TopLeft="347.857148781115,410.011768470256" />
         <NodeLayout
-          Size="133.6,41.6"
+          Size="134,42"
           Id="Package\KhachHang_Stage to NDS\UpdateDate"
           TopLeft="212.857146482079,501.482356866421" />
         <NodeLayout
-          Size="155.2,41.6"
+          Size="155,42"
           Id="Package\KhachHang_Stage to NDS\Update Old Row"
           TopLeft="200.71428913243,592.164709721799" />
         <NodeLayout
-          Size="141.6,41.6"
+          Size="142,42"
           Id="Package\KhachHang_Stage to NDS\Check Source"
           TopLeft="336.928577072766,142.3823548609" />
         <NodeLayout
-          Size="164,41.6"
+          Size="164,42"
           Id="Package\KhachHang_Stage to NDS\KhachHang_Stage"
           TopLeft="326.428576987617,58.1176478739016" />
         <NodeLayout
-          Size="157.6,41.6"
+          Size="158,42"
           Id="Package\KhachHang_Stage to NDS\Check CountryID"
           TopLeft="330.714291346317,329.482356866421" />
         <NodeLayout
-          Size="193.6,41.6"
+          Size="194,42"
           Id="Package\KhachHang_Stage to NDS\UpdateDate&amp;CreateDate"
           TopLeft="481.428579627251,506.305885055568" />
         <NodeLayout
-          Size="170.4,41.6"
+          Size="171,42"
           Id="Package\KhachHang_Stage to NDS\OLE DB Destination"
           TopLeft="494.28572270335,597.470590948646" />
         <EdgeLayout
@@ -1877,18 +1877,18 @@ where [refTable].[StatusName] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\KhachHang_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="578.857151165301,547.905885055568">
+          TopLeft="579.107151165301,548.305885055568">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.5647058930778"
+              EndConnector="0,49.1647058930779"
               Start="0,0"
-              End="0,42.0647058930778">
+              End="0,41.6647058930779">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.0647058930778" />
+                    End="0,41.6647058930779" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2128,7 +2128,7 @@ where [refTable].[StatusName] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
