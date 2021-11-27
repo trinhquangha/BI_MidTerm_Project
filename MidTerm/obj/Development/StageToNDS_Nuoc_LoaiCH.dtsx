@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS_Nuoc_LoaiCH"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{679FF7A1-1DFB-4446-BA90-1C917D57DD4F}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{AA7E719A-E56D-458C-843B-0D11D3A1BFD2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -90,7 +90,7 @@
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[StoreType_NDS]) [refTable]
-where [refTable].[StoreTypeNK] = ?</property>
+where [refTable].[StoreTypeNK] = ? and [refTable].[SourceID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -126,7 +126,7 @@ where [refTable].[StoreTypeNK] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[MaLoaiCH]};</property>
+                  name="ParameterMap">#{Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage.Outputs[OLE DB Source Output].Columns[MaLoaiCH]};#{Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -161,6 +161,22 @@ where [refTable].[StoreTypeNK] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">StoreTypeNK</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang.Inputs[Lookup Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      lineageId="Package\LoaiCuaHang_Stage To NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SourceID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -1342,7 +1358,7 @@ where [refTable].[StatusName] = ?</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Country_NDS]) [refTable]
-where [refTable].[CountryNK] = ?</property>
+where [refTable].[CountryNK] = ? and [refTable].[SourceID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -1378,7 +1394,7 @@ where [refTable].[CountryNK] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[MaNuoc]};</property>
+                  name="ParameterMap">#{Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS.Outputs[OLE DB Source Output].Columns[MaNuoc]};#{Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1413,6 +1429,22 @@ where [refTable].[CountryNK] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">CountryNK</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Nuoc_Stage to NDS\Check CountryID.Inputs[Lookup Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      lineageId="Package\Nuoc_Stage to NDS\Check Nguon.Outputs[Lookup Match Output].Columns[SourceID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SourceID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -2634,17 +2666,61 @@ where [refTable].[StatusName] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage"
-          TopLeft="315.000005364418,65.0000009116005" />
-        <NodeLayout
           Size="140.8,41.6"
           Id="Package\LoaiCuaHang_Stage To NDS\Check Nguon"
           TopLeft="331.428577072767,134.588237181667" />
         <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\Insert New Row"
+          TopLeft="458.571436380854,508.529415979517" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate"
+          TopLeft="446.428579031205,396.011767376336" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage"
+          TopLeft="315.000005364418,65.0000009116005" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\Update Old Row"
+          TopLeft="176.428574433132,508.011768105616" />
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\UpdateDate"
+          TopLeft="195.00000332083,393.82353347643" />
+        <NodeLayout
           Size="157.6,41.6"
           Id="Package\LoaiCuaHang_Stage To NDS\Check TrangThai"
           TopLeft="325.000005534717,214.117650061743" />
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang"
+          TopLeft="315.000005364418,291.717650791023" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Derived Column Output]"
+          TopLeft="539.300007706029,437.611767376336">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.9176486031818"
+              Start="0,0"
+              End="0,63.4176486031818">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.4176486031818" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\LoaiCuaHang_Stage To NDS.Paths[OLE DB Source Output]"
           TopLeft="401.614291218592,106.6000009116">
@@ -2664,105 +2740,11 @@ where [refTable].[StatusName] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output]"
-          TopLeft="402.814291303742,176.188237181667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.9294128800759"
-              Start="0,0"
-              End="0,30.4294128800759">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.4294128800759" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.41001894003797,96.3827734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="186.4,41.6"
-          Id="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang"
-          TopLeft="315.000005364418,291.717650791023" />
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output1]"
-          TopLeft="406.000005449568,255.717650061743">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36.0000007292802"
-              Start="0,0"
-              End="0,28.5000007292802">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5000007292802" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.4453128646401,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="133.6,41.6"
-          Id="Package\LoaiCuaHang_Stage To NDS\UpdateDate"
-          TopLeft="195.00000332083,393.82353347643" />
-        <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output2]"
-          TopLeft="408.200005364418,333.317650791023">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-146.400002043588,60.5058826854074"
-              Start="0,0"
-              End="-146.400002043588,53.0058826854074">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.2529413427037" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.2529413427037"
-                    Point2="0,30.2529413427037"
-                    Point3="-4,30.2529413427037" />
-                  <mssgle:LineSegment
-                    End="-142.400002043588,30.2529413427037" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-142.400002043588,30.2529413427037"
-                    Point2="-146.400002043588,30.2529413427037"
-                    Point3="-146.400002043588,34.2529413427037" />
-                  <mssgle:LineSegment
-                    End="-146.400002043588,53.0058826854074" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-121.391387740544,35.2529413427037,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\LoaiCuaHang_Stage To NDS\UpdateDate&amp;CreateDate"
-          TopLeft="446.428579031205,396.011767376336" />
         <EdgeLayout
           Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup No Match Output]"
           TopLeft="437.933338697752,333.317650791023">
@@ -2799,36 +2781,90 @@ where [refTable].[StatusName] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\LoaiCuaHang_Stage To NDS\Insert New Row"
-          TopLeft="458.571436380854,508.529415979517" />
         <EdgeLayout
-          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Derived Column Output]"
-          TopLeft="539.300007706029,437.611767376336">
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output2]"
+          TopLeft="408.200005364418,333.317650791023">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,70.9176486031818"
+              EndConnector="-146.400002043588,60.5058826854074"
               Start="0,0"
-              End="0,63.4176486031818">
+              End="-146.400002043588,53.0058826854074">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.4176486031818" />
+                    End="0,26.2529413427037" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2529413427037"
+                    Point2="0,30.2529413427037"
+                    Point3="-4,30.2529413427037" />
+                  <mssgle:LineSegment
+                    End="-142.400002043588,30.2529413427037" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142.400002043588,30.2529413427037"
+                    Point2="-146.400002043588,30.2529413427037"
+                    Point3="-146.400002043588,34.2529413427037" />
+                  <mssgle:LineSegment
+                    End="-146.400002043588,53.0058826854074" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-121.391387740544,35.2529413427037,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\LoaiCuaHang_Stage To NDS\Update Old Row"
-          TopLeft="176.428574433132,508.011768105616" />
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output1]"
+          TopLeft="406.000005449568,255.717650061743">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.0000007292802"
+              Start="0,0"
+              End="0,28.5000007292802">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5000007292802" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,8.4453128646401,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LoaiCuaHang_Stage To NDS.Paths[Lookup Match Output]"
+          TopLeft="402.814291303742,176.188237181667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9294128800759"
+              Start="0,0"
+              End="0,30.4294128800759">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4294128800759" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.41001894003797,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\LoaiCuaHang_Stage To NDS.Paths[Derived Column Output1]"
           TopLeft="257.914288876981,435.42353347643">
@@ -2848,32 +2884,21 @@ where [refTable].[StatusName] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\LoaiCuaHang_Stage To NDS\Check Nguon">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2883,53 +2908,7 @@ where [refTable].[StatusName] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiCuaHang_Stage To NDS\Check TrangThai">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Status_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[StoreType_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2949,19 +2928,124 @@ where [refTable].[StatusName] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage To NDS\LoaiCuaHang_Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage To NDS\Check TrangThai">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Status_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LoaiCuaHang_Stage To NDS\Check ID LoaiCuaHang">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[StoreType_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Nuoc_Stage to NDS">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="171.2,41.6"
-          Id="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS"
-          TopLeft="479,27" />
+          Size="155.2,41.6"
+          Id="Package\Nuoc_Stage to NDS\Update Old Row"
+          TopLeft="325,512" />
         <NodeLayout
           Size="140.8,41.6"
           Id="Package\Nuoc_Stage to NDS\Check Nguon"
           TopLeft="488,115" />
+        <NodeLayout
+          Size="153.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\Insert New Row"
+          TopLeft="620,516.2" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate"
+          TopLeft="598,407" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS"
+          TopLeft="479,27" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\Update Date"
+          TopLeft="341,415" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Nuoc_Stage to NDS\Check Status"
+          TopLeft="492,207" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Nuoc_Stage to NDS\Check CountryID"
+          TopLeft="475,303" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="406.2,456.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.3999999999999"
+              Start="0,0"
+              End="0,47.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Nuoc_Stage to NDS.Paths[OLE DB Source Output]"
           TopLeft="561.5,68.6">
@@ -2984,106 +3068,6 @@ where [refTable].[StatusName] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139.2,41.6"
-          Id="Package\Nuoc_Stage to NDS\Check Status"
-          TopLeft="492,207" />
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="560,156.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.4"
-              Start="0,0"
-              End="0,42.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,15.6453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\Nuoc_Stage to NDS\Check CountryID"
-          TopLeft="475,303" />
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output1]"
-          TopLeft="557.7,248.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54.3999999999999"
-              Start="0,0"
-              End="0,46.8999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.8999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,17.6453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="137.6,41.6"
-          Id="Package\Nuoc_Stage to NDS\Update Date"
-          TopLeft="341,415" />
-        <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output2]"
-          TopLeft="528.866666666667,344.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-119.066666666667,70.4"
-              Start="0,0"
-              End="-119.066666666667,62.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5845226130653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.5845226130653"
-                    Point2="0,28.5845226130653"
-                    Point3="-4,28.5845226130653" />
-                  <mssgle:LineSegment
-                    End="-115.066666666667,28.5845226130653" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-115.066666666667,28.5845226130653"
-                    Point2="-119.066666666667,28.5845226130653"
-                    Point3="-119.066666666667,32.5845226130653" />
-                  <mssgle:LineSegment
-                    End="-119.066666666667,62.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-107.724720052083,33.5845226130653,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\Nuoc_Stage to NDS\UpdateDate&amp;CreateDate"
-          TopLeft="598,407" />
         <EdgeLayout
           Id="Package\Nuoc_Stage to NDS.Paths[Lookup No Match Output]"
           TopLeft="578.733333333333,344.6">
@@ -3120,36 +3104,90 @@ where [refTable].[StatusName] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Nuoc_Stage to NDS\Update Old Row"
-          TopLeft="325,512" />
         <EdgeLayout
-          Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="406.2,456.6">
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output2]"
+          TopLeft="528.866666666667,344.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,55.3999999999999"
+              EndConnector="-119.066666666667,70.4"
               Start="0,0"
-              End="0,47.8999999999999">
+              End="-119.066666666667,62.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.8999999999999" />
+                    End="0,24.5845226130653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5845226130653"
+                    Point2="0,28.5845226130653"
+                    Point3="-4,28.5845226130653" />
+                  <mssgle:LineSegment
+                    End="-115.066666666667,28.5845226130653" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-115.066666666667,28.5845226130653"
+                    Point2="-119.066666666667,28.5845226130653"
+                    Point3="-119.066666666667,32.5845226130653" />
+                  <mssgle:LineSegment
+                    End="-119.066666666667,62.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-107.724720052083,33.5845226130653,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="153.6,41.6"
-          Id="Package\Nuoc_Stage to NDS\Insert New Row"
-          TopLeft="620,516.2" />
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output1]"
+          TopLeft="557.7,248.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.3999999999999"
+              Start="0,0"
+              End="0,46.8999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.8999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,17.6453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Nuoc_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="560,156.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.4"
+              Start="0,0"
+              End="0,42.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.6453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Nuoc_Stage to NDS.Paths[Derived Column Output1]"
           TopLeft="695.8,448.6">
@@ -3176,6 +3214,42 @@ where [refTable].[StatusName] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Check Nguon">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Nuoc_Stage to NDS\Insert New Row">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Nuoc_Stage to NDS\Nuoc_Stage to NDS">
     <Properties>
       <Property>
@@ -3189,35 +3263,12 @@ where [refTable].[StatusName] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Nuoc_Stage to NDS\Check Nguon">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Source_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Nuoc_Stage to NDS\Check Status">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3227,7 +3278,7 @@ where [refTable].[StatusName] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3250,23 +3301,10 @@ where [refTable].[StatusName] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Nuoc_Stage to NDS\Insert New Row">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

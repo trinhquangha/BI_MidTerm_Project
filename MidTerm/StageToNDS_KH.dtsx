@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="StageToNDS_KH"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{982EFB66-2169-4BA3-A7D3-92BB18F9EACE}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{E080E11C-4462-40A0-8B19-ADF40CF60EE5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -237,7 +237,7 @@ where [refTable].[CountryName] = ?</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Customer_NDS]) [refTable]
-where [refTable].[CusNK] = ?</property>
+where [refTable].[CusNK] = ? and [refTable].[SourceID] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -268,12 +268,12 @@ where [refTable].[CusNK] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CusNK" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CusName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Address" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CountryName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sex" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Hobby" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Job" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CusID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CusNK" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CusName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Address" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CountryID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Status" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sex" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Hobby" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Job" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\KhachHang_Stage to NDS\KhachHang_Stage.Outputs[OLE DB Source Output].Columns[MaKH]};</property>
+                  name="ParameterMap">#{Package\KhachHang_Stage to NDS\KhachHang_Stage.Outputs[OLE DB Source Output].Columns[MaKH]};#{Package\KhachHang_Stage to NDS\Check Source.Outputs[Lookup Match Output].Columns[SourceID]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -308,6 +308,22 @@ where [refTable].[CusNK] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">CusNK</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\KhachHang_Stage to NDS\Check CusID.Inputs[Lookup Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      lineageId="Package\KhachHang_Stage to NDS\Check Source.Outputs[Lookup Match Output].Columns[SourceID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SourceID</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -1776,67 +1792,41 @@ where [refTable].[StatusName] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164,41.6"
-          Id="Package\KhachHang_Stage to NDS\KhachHang_Stage"
-          TopLeft="326.428576987617,58.1176478739016" />
+          Size="139.2,41.6"
+          Id="Package\KhachHang_Stage to NDS\Check Status"
+          TopLeft="339.285720063716,237.82353274715" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\KhachHang_Stage to NDS\Check CusID"
+          TopLeft="347.857148781115,410.011768470256" />
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\KhachHang_Stage to NDS\UpdateDate"
+          TopLeft="212.857146482079,501.482356866421" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\KhachHang_Stage to NDS\Update Old Row"
+          TopLeft="200.71428913243,592.164709721799" />
         <NodeLayout
           Size="141.6,41.6"
           Id="Package\KhachHang_Stage to NDS\Check Source"
           TopLeft="336.928577072766,142.3823548609" />
-        <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[OLE DB Source Output]"
-          TopLeft="408.078577030192,99.7176478739016">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.6647069869982"
-              Start="0,0"
-              End="0,35.1647069869982">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.1647069869982" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="139.2,41.6"
-          Id="Package\KhachHang_Stage to NDS\Check Status"
-          TopLeft="339.285720063716,237.82353274715" />
-        <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output]"
-          TopLeft="408.307148568241,183.9823548609">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.8411778862503"
-              Start="0,0"
-              End="0,46.3411778862503">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.3411778862503" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,17.3659014431251,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="164,41.6"
+          Id="Package\KhachHang_Stage to NDS\KhachHang_Stage"
+          TopLeft="326.428576987617,58.1176478739016" />
         <NodeLayout
           Size="157.6,41.6"
           Id="Package\KhachHang_Stage to NDS\Check CountryID"
           TopLeft="330.714291346317,329.482356866421" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\KhachHang_Stage to NDS\UpdateDate&amp;CreateDate"
+          TopLeft="481.428579627251,506.305885055568" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\KhachHang_Stage to NDS\OLE DB Destination"
+          TopLeft="494.28572270335,597.470590948646" />
         <EdgeLayout
           Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output1]"
           TopLeft="409.200005705016,279.42353274715">
@@ -1861,78 +1851,96 @@ where [refTable].[StatusName] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\KhachHang_Stage to NDS\Check CusID"
-          TopLeft="347.857148781115,410.011768470256" />
         <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output2]"
-          TopLeft="413.285720063716,371.082356866421">
+          Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output]"
+          TopLeft="408.307148568241,183.9823548609">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,38.9294116038351"
+              EndConnector="0,53.8411778862503"
               Start="0,0"
-              End="0,31.4294116038351">
+              End="0,46.3411778862503">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.4294116038351" />
+                    End="0,46.3411778862503" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,9.91001830191757,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,17.3659014431252,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="133.6,41.6"
-          Id="Package\KhachHang_Stage to NDS\UpdateDate"
-          TopLeft="212.857146482079,501.482356866421" />
         <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output3]"
-          TopLeft="395.323815447781,451.611768470256">
+          Id="Package\KhachHang_Stage to NDS.Paths[Derived Column Output1]"
+          TopLeft="578.857151165301,547.905885055568">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-115.666668965703,49.8705883961647"
+              EndConnector="0,49.5647058930778"
               Start="0,0"
-              End="-115.666668965703,42.3705883961647">
+              End="0,42.0647058930778">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.2902051074681" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.2902051074681"
-                    Point2="0,20.2902051074681"
-                    Point3="-4,20.2902051074681" />
-                  <mssgle:LineSegment
-                    End="-111.666668965703,20.2902051074681" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-111.666668965703,20.2902051074681"
-                    Point2="-115.666668965703,20.2902051074681"
-                    Point3="-115.666668965703,24.2902051074681" />
-                  <mssgle:LineSegment
-                    End="-115.666668965703,42.3705883961647" />
+                    End="0,42.0647058930778" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-106.024721201601,25.2902051074681,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="193.6,41.6"
-          Id="Package\KhachHang_Stage to NDS\UpdateDate&amp;CreateDate"
-          TopLeft="481.428579627251,506.305885055568" />
+        <EdgeLayout
+          Id="Package\KhachHang_Stage to NDS.Paths[Derived Column Output]"
+          TopLeft="278.985717807254,543.082356866421">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.0823528553788"
+              Start="0,0"
+              End="0,41.5823528553788">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5823528553788" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\KhachHang_Stage to NDS.Paths[OLE DB Source Output]"
+          TopLeft="408.078577030192,99.7176478739016">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.6647069869982"
+              Start="0,0"
+              End="0,35.1647069869982">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.1647069869982" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\KhachHang_Stage to NDS.Paths[Lookup No Match Output]"
           TopLeft="438.790482114448,451.611768470256">
@@ -1969,61 +1977,138 @@ where [refTable].[StatusName] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\KhachHang_Stage to NDS\Update Old Row"
-          TopLeft="200.71428913243,592.164709721799" />
         <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Derived Column Output]"
-          TopLeft="278.985717807254,543.082356866421">
+          Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output3]"
+          TopLeft="395.323815447781,451.611768470256">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.0823528553788"
+              EndConnector="-115.666668965703,49.8705883961647"
               Start="0,0"
-              End="0,41.5823528553788">
+              End="-115.666668965703,42.3705883961647">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5823528553788" />
+                    End="0,16.2902051074681" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.2902051074681"
+                    Point2="0,20.2902051074681"
+                    Point3="-4,20.2902051074681" />
+                  <mssgle:LineSegment
+                    End="-111.666668965703,20.2902051074681" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-111.666668965703,20.2902051074681"
+                    Point2="-115.666668965703,20.2902051074681"
+                    Point3="-115.666668965703,24.2902051074681" />
+                  <mssgle:LineSegment
+                    End="-115.666668965703,42.3705883961647" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-106.024721201601,25.2902051074681,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\KhachHang_Stage to NDS\OLE DB Destination"
-          TopLeft="494.28572270335,597.470590948646" />
         <EdgeLayout
-          Id="Package\KhachHang_Stage to NDS.Paths[Derived Column Output1]"
-          TopLeft="578.857151165301,547.905885055568">
+          Id="Package\KhachHang_Stage to NDS.Paths[Lookup Match Output2]"
+          TopLeft="413.285720063716,371.082356866421">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49.5647058930778"
+              EndConnector="0,38.9294116038351"
               Start="0,0"
-              End="0,42.0647058930778">
+              End="0,31.4294116038351">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.0647058930778" />
+                    End="0,31.4294116038351" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.91001830191755,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\KhachHang_Stage to NDS\Check Status">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Status_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\KhachHang_Stage to NDS\Check CusID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Customer_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\KhachHang_Stage to NDS\Check Source">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Source_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\KhachHang_Stage to NDS\KhachHang_Stage">
     <Properties>
@@ -2034,52 +2119,6 @@ where [refTable].[StatusName] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\KhachHang_Stage to NDS\Check Source">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Source_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\KhachHang_Stage to NDS\Check Status">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Status_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -2099,30 +2138,7 @@ where [refTable].[StatusName] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\KhachHang_Stage to NDS\Check CusID">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Customer_NDS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

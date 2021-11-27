@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>MidTerm</Name>
-    <LastWriteTime>2021-11-27T07:24:15.2277912Z</LastWriteTime>
+    <LastWriteTime>2021-11-27T08:41:30.6155358Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage.dtsx</Name>
-      <LastWriteTime>2021-11-27T07:20:16.3591043Z</LastWriteTime>
+      <LastWriteTime>2021-11-27T08:33:50.5270579Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -33,17 +33,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_SanPham.dtsx</Name>
-      <LastWriteTime>2021-11-27T05:20:47.9656941Z</LastWriteTime>
+      <LastWriteTime>2021-11-27T07:39:36.4549567Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_Nuoc_LoaiCH.dtsx</Name>
-      <LastWriteTime>2021-11-27T05:20:17.8598826Z</LastWriteTime>
+      <LastWriteTime>2021-11-27T08:26:44.1162259Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_KH.dtsx</Name>
-      <LastWriteTime>2021-11-27T06:03:53.9426297Z</LastWriteTime>
+      <LastWriteTime>2021-11-27T08:26:44.1012252Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
