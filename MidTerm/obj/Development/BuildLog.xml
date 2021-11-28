@@ -2,63 +2,68 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>MidTerm</Name>
-    <LastWriteTime>2021-11-28T06:49:13.6483069Z</LastWriteTime>
+    <LastWriteTime>2021-11-28T08:30:41.7274294Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>StageToNDS.dtsx</Name>
-      <LastWriteTime>2021-11-27T08:48:26.6330189Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.1053236Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage.dtsx</Name>
-      <LastWriteTime>2021-11-28T03:17:39.0954688Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.1043271Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CheckStatus_NDSToStage.dtsx</Name>
-      <LastWriteTime>2021-11-27T08:48:26.6260361Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.0913596Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Test.dtsx</Name>
-      <LastWriteTime>2021-11-27T08:48:26.6743241Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.1286764Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CheckSource_NDSToStage.dtsx</Name>
-      <LastWriteTime>2021-11-27T08:48:26.6231034Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.0883687Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_SanPham.dtsx</Name>
-      <LastWriteTime>2021-11-27T08:48:26.6733237Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.1276399Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_Nuoc_LoaiCH.dtsx</Name>
-      <LastWriteTime>2021-11-27T08:48:26.6466948Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.1266427Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_KH.dtsx</Name>
-      <LastWriteTime>2021-11-28T03:17:39.1364673Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.124649Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_CuaHang.dtsx</Name>
-      <LastWriteTime>2021-11-28T03:17:39.0984686Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.106321Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_HoaDon_CTHD.dtsx</Name>
-      <LastWriteTime>2021-11-28T03:17:39.1184709Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.1236496Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>NDSToDDS_DimCus.dtsx</Name>
-      <LastWriteTime>2021-11-28T07:00:27.7541256Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T08:18:23.0993371Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>NDSToDDS_DimStore.dtsx</Name>
+      <LastWriteTime>2021-11-28T08:30:36.3545353Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
