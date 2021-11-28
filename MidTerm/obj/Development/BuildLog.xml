@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>MidTerm</Name>
-    <LastWriteTime>2021-11-27T09:55:17.5604753Z</LastWriteTime>
+    <LastWriteTime>2021-11-28T06:49:13.6483069Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage.dtsx</Name>
-      <LastWriteTime>2021-11-27T08:51:34.6620211Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T03:17:39.0954688Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -43,17 +43,22 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_KH.dtsx</Name>
-      <LastWriteTime>2021-11-27T09:29:19.5506141Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T03:17:39.1364673Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_CuaHang.dtsx</Name>
-      <LastWriteTime>2021-11-27T09:38:33.9427355Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T03:17:39.0984686Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>StageToNDS_HoaDon_CTHD.dtsx</Name>
-      <LastWriteTime>2021-11-27T10:18:55.3300751Z</LastWriteTime>
+      <LastWriteTime>2021-11-28T03:17:39.1184709Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>NDSToDDS_DimCus.dtsx</Name>
+      <LastWriteTime>2021-11-28T07:00:27.7541256Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
