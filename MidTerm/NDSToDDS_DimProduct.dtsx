@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NDSToDDS_DimProduct"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{D840DE92-9F2D-48DD-A70B-0D85F991B206}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{D1331BB8-C1A9-446D-A4B5-AFCD6D2A6CAD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -77,11 +77,11 @@
           version="1">
           <components>
             <component
-              refId="Package\Dim Product\Insert Destination 1"
+              refId="Package\Dim Product\Insert Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Insert Destination 1"
+              name="Insert Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -134,7 +134,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Dim Product\Insert Destination 1.Connections[OleDbConnection]"
+                  refId="Package\Dim Product\Insert Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LocalHost.DDS_LT]"
                   connectionManagerRefId="Package.ConnectionManagers[LocalHost.DDS_LT]"
                   description="The OLE DB runtime connection used to access the database."
@@ -142,117 +142,131 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input]"
+                  refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[ProductNK]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductNK]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="ProductNK"
-                      externalMetadataColumnId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductCode]"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductCode]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductNK]" />
                     <inputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="ProductName"
-                      externalMetadataColumnId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductName]" />
                     <inputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[ProductPrice]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductPrice]"
                       cachedDataType="i4"
                       cachedName="ProductPrice"
-                      externalMetadataColumnId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductPrice]"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductPrice]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductPrice]" />
                     <inputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[ProductTypeName]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductTypeNK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ProductTypeNK"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeCode]"
+                      lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeNK]" />
+                    <inputColumn
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductTypeName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="ProductTypeName"
-                      externalMetadataColumnId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeName]"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeName]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeName]" />
                     <inputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[SourceName]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[SourceName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="SourceName"
-                      externalMetadataColumnId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceName]"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceName]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[SourceName]" />
                     <inputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[StatusName]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[StatusName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="StatusName"
-                      externalMetadataColumnId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[StatusName]"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusName]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[StatusName]" />
                     <inputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CreatedDate"
-                      externalMetadataColumnId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[CreatedDate]" />
                     <inputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[UpdatedDate]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[UpdatedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
-                      externalMetadataColumnId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[UpdatedDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
                       dataType="i4"
                       name="ProductKey" />
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductCode]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductCode]"
                       codePage="1252"
                       dataType="str"
                       length="4"
                       name="ProductCode" />
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="ProductName" />
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductPrice]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductPrice]"
                       dataType="i4"
                       name="ProductPrice" />
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeName]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="ProductTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeName]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="ProductTypeName" />
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceName]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceName]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="SourceName" />
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[StatusName]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusName]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="StatusName" />
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       dataType="dbTimeStamp"
                       name="CreatedDate" />
                     <externalMetadataColumn
-                      refId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdatedDate]"
                       dataType="dbTimeStamp"
                       name="UpdatedDate" />
                   </externalMetadataColumns>
@@ -260,22 +274,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Dim Product\Insert Destination 1.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Dim Product\Insert Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Dim Product\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Dim Product\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Dim Product\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Dim Product\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Dim Product\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Dim Product\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Dim Product\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -631,6 +645,13 @@
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
                       lineageId="Package\Dim Product\Sort Status.Outputs[Sort Output].Columns[UpdatedDate]" />
+                    <inputColumn
+                      refId="Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input].Columns[ProductTypeNK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ProductTypeNK"
+                      lineageId="Package\Dim Product\Sort Status.Outputs[Sort Output].Columns[ProductTypeNK]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -788,6 +809,21 @@
                           name="InputColumnID">#{Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input].Columns[UpdatedDate]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeNK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeNK]"
+                      name="ProductTypeNK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input].Columns[ProductTypeNK]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -877,6 +913,13 @@
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
                       lineageId="Package\Dim Product\Sort SourceID.Outputs[Sort Output].Columns[UpdatedDate]" />
+                    <inputColumn
+                      refId="Package\Dim Product\Merge Join with Source.Inputs[Merge Join Left Input].Columns[ProductTypeNK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ProductTypeNK"
+                      lineageId="Package\Dim Product\Sort SourceID.Outputs[Sort Output].Columns[ProductTypeNK]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1032,17 +1075,32 @@
                           name="InputColumnID">#{Package\Dim Product\Merge Join with Source.Inputs[Merge Join Right Input].Columns[SourceName]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[ProductTypeNK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[ProductTypeNK]"
+                      name="ProductTypeNK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim Product\Merge Join with Source.Inputs[Merge Join Left Input].Columns[ProductTypeNK]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
             <component
-              refId="Package\Dim Product\OLE DB Command 1"
+              refId="Package\Dim Product\OLE DB Command"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
+              name="OLE DB Command"
               usesDispositions="true"
               version="2">
               <properties>
@@ -1063,7 +1121,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Dim Product\OLE DB Command 1.Connections[OleDbConnection]"
+                  refId="Package\Dim Product\OLE DB Command.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LocalHost.DDS_LT]"
                   connectionManagerRefId="Package.ConnectionManagers[LocalHost.DDS_LT]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1071,45 +1129,45 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CreatedDate]"
+                      refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].Columns[CreatedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CreatedDate"
-                      externalMetadataColumnId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[CreatedDate]" />
                     <inputColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ProductNK]"
+                      refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].Columns[ProductNK]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="4"
                       cachedName="ProductNK"
-                      externalMetadataColumnId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductNK]" />
                     <inputColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ProductName]"
+                      refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].Columns[ProductName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="ProductName"
-                      externalMetadataColumnId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductName]" />
                     <inputColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ProductPrice]"
+                      refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].Columns[ProductPrice]"
                       cachedDataType="i4"
                       cachedName="ProductPrice"
-                      externalMetadataColumnId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductPrice]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       dataType="dbTimeStamp"
                       name="Param_0">
                       <properties>
@@ -1120,7 +1178,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -1133,7 +1191,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       dataType="i4"
                       name="Param_2">
                       <properties>
@@ -1144,7 +1202,7 @@
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      refId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       codePage="1252"
                       dataType="str"
                       length="4"
@@ -1161,29 +1219,29 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Dim Product\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  refId="Package\Dim Product\OLE DB Command.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Dim Product\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  refId="Package\Dim Product\OLE DB Command.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\Dim Product\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Dim Product\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Dim Product\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Dim Product\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\Dim Product\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Dim Product\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Dim Product\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3109,6 +3167,24 @@
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim Product\Sort Status.Inputs[Sort Input].Columns[ProductTypeNK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ProductTypeNK"
+                      lineageId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[ProductTypeNK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3243,6 +3319,21 @@
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[SourceName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim Product\Sort Status.Outputs[Sort Output].Columns[ProductTypeNK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Dim Product\Sort Status.Outputs[Sort Output].Columns[ProductTypeNK]"
+                      name="ProductTypeNK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[ProductTypeNK]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3745,7 +3836,7 @@
           <paths>
             <path
               refId="Package\Dim Product.Paths[Changing Attribute Updates Output]"
-              endId="Package\Dim Product\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              endId="Package\Dim Product\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Changing Attribute Updates Output"
               startId="Package\Dim Product\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
             <path
@@ -3755,17 +3846,17 @@
               startId="Package\Dim Product\Merge Join Product_Product Type.Outputs[Merge Join Output]" />
             <path
               refId="Package\Dim Product.Paths[Merge Join Output1]"
-              endId="Package\Dim Product\Sort Status.Inputs[Sort Input]"
-              name="Merge Join Output"
-              startId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\Dim Product.Paths[Merge Join Output2]"
               endId="Package\Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="Merge Join Output"
               startId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output]" />
             <path
+              refId="Package\Dim Product.Paths[Merge Join Output2]"
+              endId="Package\Dim Product\Sort Status.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output]" />
+            <path
               refId="Package\Dim Product.Paths[New Output]"
-              endId="Package\Dim Product\Insert Destination 1.Inputs[OLE DB Destination Input]"
+              endId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input]"
               name="New Output"
               startId="Package\Dim Product\Slowly Changing Dimension.Outputs[New Output]" />
             <path
@@ -3810,14 +3901,14 @@
               startId="Package\Dim Product\Sort SourceID of Source NDS.Outputs[Sort Output]" />
             <path
               refId="Package\Dim Product.Paths[Sort Output4]"
-              endId="Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\Dim Product\Sort Status.Outputs[Sort Output]" />
-            <path
-              refId="Package\Dim Product.Paths[Sort Output5]"
               endId="Package\Dim Product\Merge Join Status.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Dim Product\Sort StatusID.Outputs[Sort Output]" />
+            <path
+              refId="Package\Dim Product.Paths[Sort Output5]"
+              endId="Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Dim Product\Sort Status.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3925,13 +4016,13 @@
           Id="Package\Dim Product"
           TopLeft="93,233" />
         <NodeLayout
-          Size="174,42"
-          Id="Package\Set CET DimProduct"
-          TopLeft="68,60" />
-        <NodeLayout
           Size="208,42"
           Id="Package\Get  LSET, CET DimProduct"
           TopLeft="60,151" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Set CET DimProduct"
+          TopLeft="68,60" />
         <NodeLayout
           Size="163,42"
           Id="Package\Set LSET to Metadata_DDS"
@@ -4023,109 +4114,87 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="145,42"
-          Id="Package\Dim Product\Sort SourceID"
-          TopLeft="282,311.5" />
-        <NodeLayout
           Size="237,42"
           Id="Package\Dim Product\Merge Join Product_Product Type"
-          TopLeft="236,209.5" />
+          TopLeft="5.50000000000003,209.5" />
         <NodeLayout
           Size="172,42"
           Id="Package\Dim Product\Sort ProductTypeID"
-          TopLeft="41.5,107.5" />
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Dim Product\Slowly Changing Dimension"
-          TopLeft="230,719.5" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\Dim Product\Source NDS"
-          TopLeft="40,209.5" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Dim Product\Merge Join with Source"
-          TopLeft="19,413.5" />
+          TopLeft="38,107.5" />
         <NodeLayout
           Size="162,42"
           Id="Package\Dim Product\ProductType NDS"
-          TopLeft="46.5,5.5" />
+          TopLeft="43,5.5" />
         <NodeLayout
-          Size="160,42"
-          Id="Package\Dim Product\Sort ProductType"
-          TopLeft="274.5,107.5" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Dim Product\Sort StatusID"
-          TopLeft="263.5,515.5" />
-        <NodeLayout
-          Size="216,42"
-          Id="Package\Dim Product\Sort SourceID of Source NDS"
-          TopLeft="5.5,311.5" />
+          Size="209,42"
+          Id="Package\Dim Product\Slowly Changing Dimension"
+          TopLeft="266.5,719.5" />
         <NodeLayout
           Size="138,42"
           Id="Package\Dim Product\Product NDS"
-          TopLeft="285.5,5.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Dim Product\Merge Join Status"
-          TopLeft="253,617.5" />
+          TopLeft="282,5.5" />
         <NodeLayout
           Size="132,42"
           Id="Package\Dim Product\Status NDS"
-          TopLeft="268.5,413.5" />
+          TopLeft="84.0000000000001,413.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Dim Product\Sort ProductType"
+          TopLeft="271,107.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Dim Product\Sort StatusID"
+          TopLeft="103,515.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Dim Product\Sort SourceID of Source NDS"
+          TopLeft="263,311.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Dim Product\Source NDS"
+          TopLeft="303.5,209.5" />
         <NodeLayout
           Size="131,42"
           Id="Package\Dim Product\Sort Status"
-          TopLeft="72,515.5" />
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[OLE DB Source Output1]"
-          TopLeft="127.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="305.5,515.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Dim Product\Merge Join with Source"
+          TopLeft="276.5,413.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim Product\Merge Join Status"
+          TopLeft="289.5,617.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Dim Product\Sort SourceID"
+          TopLeft="57.5000000000001,311.5" />
         <EdgeLayout
           Id="Package\Dim Product.Paths[Sort Output3]"
-          TopLeft="113.5,353.5">
+          TopLeft="371,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-30.1666666666667,60.0000000000001"
+              EndConnector="30.1666666666667,60"
               Start="0,0"
-              End="-30.1666666666667,52.5000000000001">
+              End="30.1666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.6977964323191" />
+                    End="0,31.697796432319" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.6977964323191"
-                    Point2="0,35.6977964323191"
-                    Point3="-4,35.6977964323191" />
+                    Point1="0,31.697796432319"
+                    Point2="0,35.697796432319"
+                    Point3="4,35.697796432319" />
                   <mssgle:LineSegment
-                    End="-26.1666666666667,35.6977964323191" />
+                    End="26.1666666666667,35.697796432319" />
                   <mssgle:CubicBezierSegment
-                    Point1="-26.1666666666667,35.6977964323191"
-                    Point2="-30.1666666666667,35.6977964323191"
-                    Point3="-30.1666666666667,39.6977964323191" />
+                    Point1="26.1666666666667,35.697796432319"
+                    Point2="30.1666666666667,35.697796432319"
+                    Point3="30.1666666666667,39.697796432319" />
                   <mssgle:LineSegment
-                    End="-30.1666666666667,52.5000000000001" />
+                    End="30.1666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4136,30 +4205,98 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim Product.Paths[Sort Output2]"
-          TopLeft="354.5,353.5">
+          TopLeft="130,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-210.833333333333,60.0000000000001"
+              EndConnector="210.833333333333,60"
               Start="0,0"
-              End="-210.833333333333,52.5000000000001">
+              End="210.833333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.6977964323191" />
+                    End="0,31.697796432319" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.6977964323191"
-                    Point2="0,35.6977964323191"
-                    Point3="-4,35.6977964323191" />
+                    Point1="0,31.697796432319"
+                    Point2="0,35.697796432319"
+                    Point3="4,35.697796432319" />
                   <mssgle:LineSegment
-                    End="-206.833333333333,35.6977964323191" />
+                    End="206.833333333333,35.697796432319" />
                   <mssgle:CubicBezierSegment
-                    Point1="-206.833333333333,35.6977964323191"
-                    Point2="-210.833333333333,35.6977964323191"
-                    Point3="-210.833333333333,39.6977964323191" />
+                    Point1="206.833333333333,35.697796432319"
+                    Point2="210.833333333333,35.697796432319"
+                    Point3="210.833333333333,39.697796432319" />
                   <mssgle:LineSegment
-                    End="-210.833333333333,52.5000000000001" />
+                    End="210.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[Sort Output1]"
+          TopLeft="124,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.1666666666667,60"
+              Start="0,0"
+              End="-38.1666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7585917854149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7585917854149"
+                    Point2="0,35.7585917854149"
+                    Point3="-4,35.7585917854149" />
+                  <mssgle:LineSegment
+                    End="-34.1666666666667,35.7585917854149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.1666666666667,35.7585917854149"
+                    Point2="-38.1666666666667,35.7585917854149"
+                    Point3="-38.1666666666667,39.7585917854149" />
+                  <mssgle:LineSegment
+                    End="-38.1666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[Sort Output]"
+          TopLeft="351,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-188.833333333333,60"
+              Start="0,0"
+              End="-188.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7585917854149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7585917854149"
+                    Point2="0,35.7585917854149"
+                    Point3="-4,35.7585917854149" />
+                  <mssgle:LineSegment
+                    End="-184.833333333333,35.7585917854149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-184.833333333333,35.7585917854149"
+                    Point2="-188.833333333333,35.7585917854149"
+                    Point3="-188.833333333333,39.7585917854149" />
+                  <mssgle:LineSegment
+                    End="-188.833333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4170,129 +4307,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim Product.Paths[OLE DB Source Output3]"
-          TopLeft="334.5,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[Sort Output5]"
-          TopLeft="334.5,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="25.8333333333333,60"
-              Start="0,0"
-              End="25.8333333333333,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.6500607533414" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.6500607533414"
-                    Point2="0,35.6500607533414"
-                    Point3="4,35.6500607533414" />
-                  <mssgle:LineSegment
-                    End="21.8333333333333,35.6500607533414" />
-                  <mssgle:CubicBezierSegment
-                    Point1="21.8333333333333,35.6500607533414"
-                    Point2="25.8333333333333,35.6500607533414"
-                    Point3="25.8333333333333,39.6500607533414" />
-                  <mssgle:LineSegment
-                    End="25.8333333333333,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[OLE DB Source Output]"
-          TopLeft="354.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[OLE DB Source Output2]"
-          TopLeft="110.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[Merge Join Output]"
-          TopLeft="354.5,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[Merge Join Output1]"
-          TopLeft="113.5,455.5">
+          TopLeft="150,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4325,8 +4340,96 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim Product.Paths[Merge Join Output2]"
-          TopLeft="334.5,659.5">
+          Id="Package\Dim Product.Paths[OLE DB Source Output2]"
+          TopLeft="371,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[OLE DB Source Output1]"
+          TopLeft="124,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[OLE DB Source Output]"
+          TopLeft="351,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[Merge Join Output1]"
+          TopLeft="371,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[Merge Join Output]"
+          TopLeft="127,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4348,13 +4451,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim Product.Paths[Sort Output4]"
-          TopLeft="137.5,557.5">
+          TopLeft="174,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="171.166666666667,59.9999999999999"
+              EndConnector="171.166666666667,60"
               Start="0,0"
-              End="171.166666666667,52.4999999999999">
+              End="171.166666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4371,7 +4474,7 @@
                     Point2="171.166666666667,35.6500607533414"
                     Point3="171.166666666667,39.6500607533414" />
                   <mssgle:LineSegment
-                    End="171.166666666667,52.4999999999999" />
+                    End="171.166666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4381,31 +4484,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim Product.Paths[Sort Output1]"
-          TopLeft="127.5,149.5">
+          Id="Package\Dim Product.Paths[Sort Output5]"
+          TopLeft="371,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="188.833333333333,60"
+              EndConnector="25.8333333333333,60"
               Start="0,0"
-              End="188.833333333333,52.5">
+              End="25.8333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.7585917854149" />
+                    End="0,31.6500607533414" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.7585917854149"
-                    Point2="0,35.7585917854149"
-                    Point3="4,35.7585917854149" />
+                    Point1="0,31.6500607533414"
+                    Point2="0,35.6500607533414"
+                    Point3="4,35.6500607533414" />
                   <mssgle:LineSegment
-                    End="184.833333333333,35.7585917854149" />
+                    End="21.8333333333333,35.6500607533414" />
                   <mssgle:CubicBezierSegment
-                    Point1="184.833333333333,35.7585917854149"
-                    Point2="188.833333333333,35.7585917854149"
-                    Point3="188.833333333333,39.7585917854149" />
+                    Point1="21.8333333333333,35.6500607533414"
+                    Point2="25.8333333333333,35.6500607533414"
+                    Point3="25.8333333333333,39.6500607533414" />
                   <mssgle:LineSegment
-                    End="188.833333333333,52.5" />
+                    End="25.8333333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4415,31 +4518,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim Product.Paths[Sort Output]"
-          TopLeft="354.5,149.5">
+          Id="Package\Dim Product.Paths[Merge Join Output2]"
+          TopLeft="371,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38.1666666666667,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="38.1666666666667,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.7585917854149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.7585917854149"
-                    Point2="0,35.7585917854149"
-                    Point3="4,35.7585917854149" />
-                  <mssgle:LineSegment
-                    End="34.1666666666667,35.7585917854149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.1666666666667,35.7585917854149"
-                    Point2="38.1666666666667,35.7585917854149"
-                    Point3="38.1666666666667,39.7585917854149" />
-                  <mssgle:LineSegment
-                    End="38.1666666666667,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4449,18 +4540,18 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="172,42"
-          Id="Package\Dim Product\Insert Destination 1"
-          TopLeft="14.5,821.5" />
+          Size="163,42"
+          Id="Package\Dim Product\Insert Destination"
+          TopLeft="64.5000000000001,821.5" />
         <EdgeLayout
           Id="Package\Dim Product.Paths[New Output]"
-          TopLeft="301,761.5">
+          TopLeft="337.5,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-200.5,60.0000000000001"
+              EndConnector="-191.5,60"
               Start="0,0"
-              End="-200.5,52.5000000000001">
+              End="-191.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4471,54 +4562,79 @@
                     Point2="0,24.2735042735043"
                     Point3="-4,24.2735042735043" />
                   <mssgle:LineSegment
-                    End="-196.5,24.2735042735043" />
+                    End="-187.5,24.2735042735043" />
                   <mssgle:CubicBezierSegment
-                    Point1="-196.5,24.2735042735043"
-                    Point2="-200.5,24.2735042735043"
-                    Point3="-200.5,28.2735042735043" />
+                    Point1="-187.5,24.2735042735043"
+                    Point2="-191.5,24.2735042735043"
+                    Point3="-191.5,28.2735042735043" />
                   <mssgle:LineSegment
-                    End="-200.5,52.5000000000001" />
+                    End="-191.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-127.34138671875,29.2735042735043,54.1827734375,11.43359375"
+              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="175,42"
-          Id="Package\Dim Product\OLE DB Command 1"
-          TopLeft="287,819.5" />
+          Size="166,42"
+          Id="Package\Dim Product\OLE DB Command"
+          TopLeft="288,821.5" />
         <EdgeLayout
           Id="Package\Dim Product.Paths[Changing Attribute Updates Output]"
-          TopLeft="371.25,761.5">
+          TopLeft="404.5,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58"
+              EndConnector="-33.5,60"
               Start="0,0"
-              End="0,50.5">
+              End="-33.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.5" />
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-29.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5,24.2735042735043"
+                    Point2="-33.5,24.2735042735043"
+                    Point3="-33.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-33.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-78.53390625,19.41845703125,157.0678125,11.6630859375"
+              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Product\ProductType NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Dim Product\Slowly Changing Dimension">
     <Properties>
@@ -4555,6 +4671,12 @@
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeNK]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ProductTypeCode&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeName]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;ProductTypeName&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
@@ -4580,8 +4702,8 @@
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
   &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
@@ -4599,6 +4721,27 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Dim Product\Product NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Product\Status NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Dim Product\Source NDS">
     <Properties>
       <Property>
@@ -4612,28 +4755,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim Product\ProductType NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim Product\Product NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim Product\Status NDS">
+    design-time-name="Package\Dim Product\Insert Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

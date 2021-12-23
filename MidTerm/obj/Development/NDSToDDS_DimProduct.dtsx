@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NDSToDDS_DimProduct"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{E9436EF7-B68A-49C6-8BD4-CECFBA15ACE4}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{D1331BB8-C1A9-446D-A4B5-AFCD6D2A6CAD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -171,6 +171,14 @@
                       externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductPrice]"
                       lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductPrice]" />
                     <inputColumn
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductTypeNK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ProductTypeNK"
+                      externalMetadataColumnId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeCode]"
+                      lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeNK]" />
+                    <inputColumn
                       refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductTypeName]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -229,6 +237,12 @@
                       refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductPrice]"
                       dataType="i4"
                       name="ProductPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="ProductTypeCode" />
                     <externalMetadataColumn
                       refId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductTypeName]"
                       codePage="1252"
@@ -631,6 +645,13 @@
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
                       lineageId="Package\Dim Product\Sort Status.Outputs[Sort Output].Columns[UpdatedDate]" />
+                    <inputColumn
+                      refId="Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input].Columns[ProductTypeNK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ProductTypeNK"
+                      lineageId="Package\Dim Product\Sort Status.Outputs[Sort Output].Columns[ProductTypeNK]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -788,6 +809,21 @@
                           name="InputColumnID">#{Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input].Columns[UpdatedDate]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeNK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeNK]"
+                      name="ProductTypeNK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input].Columns[ProductTypeNK]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -877,6 +913,13 @@
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdatedDate"
                       lineageId="Package\Dim Product\Sort SourceID.Outputs[Sort Output].Columns[UpdatedDate]" />
+                    <inputColumn
+                      refId="Package\Dim Product\Merge Join with Source.Inputs[Merge Join Left Input].Columns[ProductTypeNK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ProductTypeNK"
+                      lineageId="Package\Dim Product\Sort SourceID.Outputs[Sort Output].Columns[ProductTypeNK]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1030,6 +1073,21 @@
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Dim Product\Merge Join with Source.Inputs[Merge Join Right Input].Columns[SourceName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[ProductTypeNK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[ProductTypeNK]"
+                      name="ProductTypeNK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Dim Product\Merge Join with Source.Inputs[Merge Join Left Input].Columns[ProductTypeNK]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3109,6 +3167,24 @@
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim Product\Sort Status.Inputs[Sort Input].Columns[ProductTypeNK]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ProductTypeNK"
+                      lineageId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[ProductTypeNK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3243,6 +3319,21 @@
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[SourceName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Dim Product\Sort Status.Outputs[Sort Output].Columns[ProductTypeNK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Dim Product\Sort Status.Outputs[Sort Output].Columns[ProductTypeNK]"
+                      name="ProductTypeNK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output].Columns[ProductTypeNK]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -3755,14 +3846,14 @@
               startId="Package\Dim Product\Merge Join Product_Product Type.Outputs[Merge Join Output]" />
             <path
               refId="Package\Dim Product.Paths[Merge Join Output1]"
-              endId="Package\Dim Product\Sort Status.Inputs[Sort Input]"
-              name="Merge Join Output"
-              startId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\Dim Product.Paths[Merge Join Output2]"
               endId="Package\Dim Product\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="Merge Join Output"
               startId="Package\Dim Product\Merge Join Status.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Dim Product.Paths[Merge Join Output2]"
+              endId="Package\Dim Product\Sort Status.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\Dim Product\Merge Join with Source.Outputs[Merge Join Output]" />
             <path
               refId="Package\Dim Product.Paths[New Output]"
               endId="Package\Dim Product\Insert Destination.Inputs[OLE DB Destination Input]"
@@ -3810,14 +3901,14 @@
               startId="Package\Dim Product\Sort SourceID of Source NDS.Outputs[Sort Output]" />
             <path
               refId="Package\Dim Product.Paths[Sort Output4]"
-              endId="Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\Dim Product\Sort Status.Outputs[Sort Output]" />
-            <path
-              refId="Package\Dim Product.Paths[Sort Output5]"
               endId="Package\Dim Product\Merge Join Status.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\Dim Product\Sort StatusID.Outputs[Sort Output]" />
+            <path
+              refId="Package\Dim Product.Paths[Sort Output5]"
+              endId="Package\Dim Product\Merge Join Status.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Dim Product\Sort Status.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3925,13 +4016,13 @@
           Id="Package\Dim Product"
           TopLeft="93,233" />
         <NodeLayout
-          Size="174,42"
-          Id="Package\Set CET DimProduct"
-          TopLeft="68,60" />
-        <NodeLayout
           Size="208,42"
           Id="Package\Get  LSET, CET DimProduct"
           TopLeft="60,151" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Set CET DimProduct"
+          TopLeft="68,60" />
         <NodeLayout
           Size="163,42"
           Id="Package\Set LSET to Metadata_DDS"
@@ -4023,92 +4114,70 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="145,42"
-          Id="Package\Dim Product\Sort SourceID"
-          TopLeft="723.5,311.5" />
-        <NodeLayout
           Size="237,42"
           Id="Package\Dim Product\Merge Join Product_Product Type"
-          TopLeft="677.5,209.5" />
+          TopLeft="5.50000000000003,209.5" />
         <NodeLayout
           Size="172,42"
           Id="Package\Dim Product\Sort ProductTypeID"
-          TopLeft="483,107.5" />
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Dim Product\Slowly Changing Dimension"
-          TopLeft="671.5,719.5" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\Dim Product\Source NDS"
-          TopLeft="481.5,209.5" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Dim Product\Merge Join with Source"
-          TopLeft="460.5,413.5" />
+          TopLeft="38,107.5" />
         <NodeLayout
           Size="162,42"
           Id="Package\Dim Product\ProductType NDS"
-          TopLeft="488,5.5" />
+          TopLeft="43,5.5" />
         <NodeLayout
-          Size="160,42"
-          Id="Package\Dim Product\Sort ProductType"
-          TopLeft="716,107.5" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Dim Product\Sort StatusID"
-          TopLeft="705,515.5" />
-        <NodeLayout
-          Size="216,42"
-          Id="Package\Dim Product\Sort SourceID of Source NDS"
-          TopLeft="447,311.5" />
+          Size="209,42"
+          Id="Package\Dim Product\Slowly Changing Dimension"
+          TopLeft="266.5,719.5" />
         <NodeLayout
           Size="138,42"
           Id="Package\Dim Product\Product NDS"
-          TopLeft="727,5.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Dim Product\Merge Join Status"
-          TopLeft="694.5,617.5" />
+          TopLeft="282,5.5" />
         <NodeLayout
           Size="132,42"
           Id="Package\Dim Product\Status NDS"
-          TopLeft="710,413.5" />
+          TopLeft="84.0000000000001,413.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Dim Product\Sort ProductType"
+          TopLeft="271,107.5" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Dim Product\Sort StatusID"
+          TopLeft="103,515.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Dim Product\Sort SourceID of Source NDS"
+          TopLeft="263,311.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Dim Product\Source NDS"
+          TopLeft="303.5,209.5" />
         <NodeLayout
           Size="131,42"
           Id="Package\Dim Product\Sort Status"
-          TopLeft="513.5,515.5" />
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[OLE DB Source Output1]"
-          TopLeft="569,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="305.5,515.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Dim Product\Merge Join with Source"
+          TopLeft="276.5,413.5" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim Product\Merge Join Status"
+          TopLeft="289.5,617.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Dim Product\Sort SourceID"
+          TopLeft="57.5000000000001,311.5" />
         <EdgeLayout
           Id="Package\Dim Product.Paths[Sort Output3]"
-          TopLeft="555,353.5">
+          TopLeft="371,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-30.1666666666666,60"
+              EndConnector="30.1666666666667,60"
               Start="0,0"
-              End="-30.1666666666666,52.5">
+              End="30.1666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4117,15 +4186,15 @@
                   <mssgle:CubicBezierSegment
                     Point1="0,31.697796432319"
                     Point2="0,35.697796432319"
-                    Point3="-4,35.697796432319" />
+                    Point3="4,35.697796432319" />
                   <mssgle:LineSegment
-                    End="-26.1666666666666,35.697796432319" />
+                    End="26.1666666666667,35.697796432319" />
                   <mssgle:CubicBezierSegment
-                    Point1="-26.1666666666666,35.697796432319"
-                    Point2="-30.1666666666666,35.697796432319"
-                    Point3="-30.1666666666666,39.697796432319" />
+                    Point1="26.1666666666667,35.697796432319"
+                    Point2="30.1666666666667,35.697796432319"
+                    Point3="30.1666666666667,39.697796432319" />
                   <mssgle:LineSegment
-                    End="-30.1666666666666,52.5" />
+                    End="30.1666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4136,13 +4205,13 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim Product.Paths[Sort Output2]"
-          TopLeft="796,353.5">
+          TopLeft="130,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-210.833333333333,60"
+              EndConnector="210.833333333333,60"
               Start="0,0"
-              End="-210.833333333333,52.5">
+              End="210.833333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4151,15 +4220,83 @@
                   <mssgle:CubicBezierSegment
                     Point1="0,31.697796432319"
                     Point2="0,35.697796432319"
-                    Point3="-4,35.697796432319" />
+                    Point3="4,35.697796432319" />
                   <mssgle:LineSegment
-                    End="-206.833333333333,35.697796432319" />
+                    End="206.833333333333,35.697796432319" />
                   <mssgle:CubicBezierSegment
-                    Point1="-206.833333333333,35.697796432319"
-                    Point2="-210.833333333333,35.697796432319"
-                    Point3="-210.833333333333,39.697796432319" />
+                    Point1="206.833333333333,35.697796432319"
+                    Point2="210.833333333333,35.697796432319"
+                    Point3="210.833333333333,39.697796432319" />
                   <mssgle:LineSegment
-                    End="-210.833333333333,52.5" />
+                    End="210.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[Sort Output1]"
+          TopLeft="124,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.1666666666667,60"
+              Start="0,0"
+              End="-38.1666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7585917854149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7585917854149"
+                    Point2="0,35.7585917854149"
+                    Point3="-4,35.7585917854149" />
+                  <mssgle:LineSegment
+                    End="-34.1666666666667,35.7585917854149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.1666666666667,35.7585917854149"
+                    Point2="-38.1666666666667,35.7585917854149"
+                    Point3="-38.1666666666667,39.7585917854149" />
+                  <mssgle:LineSegment
+                    End="-38.1666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[Sort Output]"
+          TopLeft="351,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-188.833333333333,60"
+              Start="0,0"
+              End="-188.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7585917854149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7585917854149"
+                    Point2="0,35.7585917854149"
+                    Point3="-4,35.7585917854149" />
+                  <mssgle:LineSegment
+                    End="-184.833333333333,35.7585917854149" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-184.833333333333,35.7585917854149"
+                    Point2="-188.833333333333,35.7585917854149"
+                    Point3="-188.833333333333,39.7585917854149" />
+                  <mssgle:LineSegment
+                    End="-188.833333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4170,129 +4307,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim Product.Paths[OLE DB Source Output3]"
-          TopLeft="776,455.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[Sort Output5]"
-          TopLeft="776,557.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="25.8333333333334,60"
-              Start="0,0"
-              End="25.8333333333334,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.6500607533414" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.6500607533414"
-                    Point2="0,35.6500607533414"
-                    Point3="4,35.6500607533414" />
-                  <mssgle:LineSegment
-                    End="21.8333333333334,35.6500607533414" />
-                  <mssgle:CubicBezierSegment
-                    Point1="21.8333333333334,35.6500607533414"
-                    Point2="25.8333333333334,35.6500607533414"
-                    Point3="25.8333333333334,39.6500607533414" />
-                  <mssgle:LineSegment
-                    End="25.8333333333334,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[OLE DB Source Output]"
-          TopLeft="796,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[OLE DB Source Output2]"
-          TopLeft="552,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[Merge Join Output]"
-          TopLeft="796,251.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[Merge Join Output1]"
-          TopLeft="555,455.5">
+          TopLeft="150,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4325,8 +4340,96 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim Product.Paths[Merge Join Output2]"
-          TopLeft="776,659.5">
+          Id="Package\Dim Product.Paths[OLE DB Source Output2]"
+          TopLeft="371,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[OLE DB Source Output1]"
+          TopLeft="124,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[OLE DB Source Output]"
+          TopLeft="351,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[Merge Join Output1]"
+          TopLeft="371,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[Merge Join Output]"
+          TopLeft="127,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4348,7 +4451,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Dim Product.Paths[Sort Output4]"
-          TopLeft="579,557.5">
+          TopLeft="174,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4381,31 +4484,31 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim Product.Paths[Sort Output1]"
-          TopLeft="569,149.5">
+          Id="Package\Dim Product.Paths[Sort Output5]"
+          TopLeft="371,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="188.833333333333,60"
+              EndConnector="25.8333333333333,60"
               Start="0,0"
-              End="188.833333333333,52.5">
+              End="25.8333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.7585917854149" />
+                    End="0,31.6500607533414" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.7585917854149"
-                    Point2="0,35.7585917854149"
-                    Point3="4,35.7585917854149" />
+                    Point1="0,31.6500607533414"
+                    Point2="0,35.6500607533414"
+                    Point3="4,35.6500607533414" />
                   <mssgle:LineSegment
-                    End="184.833333333333,35.7585917854149" />
+                    End="21.8333333333333,35.6500607533414" />
                   <mssgle:CubicBezierSegment
-                    Point1="184.833333333333,35.7585917854149"
-                    Point2="188.833333333333,35.7585917854149"
-                    Point3="188.833333333333,39.7585917854149" />
+                    Point1="21.8333333333333,35.6500607533414"
+                    Point2="25.8333333333333,35.6500607533414"
+                    Point3="25.8333333333333,39.6500607533414" />
                   <mssgle:LineSegment
-                    End="188.833333333333,52.5" />
+                    End="25.8333333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4415,92 +4518,80 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Dim Product.Paths[Sort Output]"
-          TopLeft="796,149.5">
+          Id="Package\Dim Product.Paths[Merge Join Output2]"
+          TopLeft="371,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38.1666666666666,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="38.1666666666666,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.7585917854149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.7585917854149"
-                    Point2="0,35.7585917854149"
-                    Point3="4,35.7585917854149" />
-                  <mssgle:LineSegment
-                    End="34.1666666666666,35.7585917854149" />
-                  <mssgle:CubicBezierSegment
-                    Point1="34.1666666666666,35.7585917854149"
-                    Point2="38.1666666666666,35.7585917854149"
-                    Point3="38.1666666666666,39.7585917854149" />
-                  <mssgle:LineSegment
-                    End="38.1666666666666,52.5" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Dim Product\Insert Destination"
+          TopLeft="64.5000000000001,821.5" />
+        <EdgeLayout
+          Id="Package\Dim Product.Paths[New Output]"
+          TopLeft="337.5,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.5,60"
+              Start="0,0"
+              End="-191.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-187.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.5,24.2735042735043"
+                    Point2="-191.5,24.2735042735043"
+                    Point3="-191.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-191.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
           Size="166,42"
           Id="Package\Dim Product\OLE DB Command"
-          TopLeft="688.5,821.5" />
-        <NodeLayout
-          Size="163,42"
-          Id="Package\Dim Product\Insert Destination"
-          TopLeft="456,821.5" />
-        <EdgeLayout
-          Id="Package\Dim Product.Paths[New Output]"
-          TopLeft="742.5,761.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-205,60"
-              Start="0,0"
-              End="-205,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-201,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-201,24.2735042735043"
-                    Point2="-205,24.2735042735043"
-                    Point3="-205,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-205,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-129.59138671875,29.2735042735043,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="288,821.5" />
         <EdgeLayout
           Id="Package\Dim Product.Paths[Changing Attribute Updates Output]"
-          TopLeft="809.5,761.5">
+          TopLeft="404.5,761.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-38,60"
+              EndConnector="-33.5,60"
               Start="0,0"
-              End="-38,52.5">
+              End="-33.5,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4511,26 +4602,39 @@
                     Point2="0,24.2735042735043"
                     Point3="-4,24.2735042735043" />
                   <mssgle:LineSegment
-                    End="-34,24.2735042735043" />
+                    End="-29.5,24.2735042735043" />
                   <mssgle:CubicBezierSegment
-                    Point1="-34,24.2735042735043"
-                    Point2="-38,24.2735042735043"
-                    Point3="-38,28.2735042735043" />
+                    Point1="-29.5,24.2735042735043"
+                    Point2="-33.5,24.2735042735043"
+                    Point3="-33.5,28.2735042735043" />
                   <mssgle:LineSegment
-                    End="-38,52.5" />
+                    End="-33.5,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-97.53390625,29.2735042735043,157.0678125,11.6630859375"
+              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Product\ProductType NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Dim Product\Slowly Changing Dimension">
     <Properties>
@@ -4567,6 +4671,12 @@
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeNK]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ProductTypeCode&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Merge Join Status.Outputs[Merge Join Output].Columns[ProductTypeName]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;ProductTypeName&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
@@ -4592,8 +4702,8 @@
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
   &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
@@ -4611,6 +4721,27 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Dim Product\Product NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Product\Status NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Dim Product\Source NDS">
     <Properties>
       <Property>
@@ -4624,28 +4755,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Dim Product\ProductType NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim Product\Product NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Dim Product\Status NDS">
+    design-time-name="Package\Dim Product\Insert Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
